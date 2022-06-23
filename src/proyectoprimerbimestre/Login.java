@@ -46,7 +46,7 @@ public class Login extends javax.swing.JFrame {
         txtSalir = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationByPlatform(true);
+        setLocation(new java.awt.Point(500, 125));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
