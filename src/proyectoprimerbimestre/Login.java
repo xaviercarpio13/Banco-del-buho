@@ -49,11 +49,11 @@ public class Login extends javax.swing.JFrame {
 
         imgLogoBanco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgLogoBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Webp.net-resizeimage.png"))); // NOI18N
-        jPanel1.add(imgLogoBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 280, -1));
+        jPanel1.add(imgLogoBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 280, -1));
 
         txtContrasenia.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
         txtContrasenia.setText("Contraseña:");
-        jPanel1.add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 30));
+        jPanel1.add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, 30));
 
         LecturaUsername.setForeground(new java.awt.Color(204, 204, 204));
         LecturaUsername.setText("Ingrese su nombre de usuario");
@@ -63,13 +63,13 @@ public class Login extends javax.swing.JFrame {
                 LecturaUsernameMousePressed(evt);
             }
         });
-        jPanel1.add(LecturaUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 200, -1));
+        jPanel1.add(LecturaUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 200, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 220, 10));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 220, 10));
 
         jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 220, 10));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 220, 10));
 
         LecturaPassword.setForeground(new java.awt.Color(204, 204, 204));
         LecturaPassword.setText("**********");
@@ -79,17 +79,17 @@ public class Login extends javax.swing.JFrame {
                 LecturaPasswordMousePressed(evt);
             }
         });
-        jPanel1.add(LecturaPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 110, -1));
+        jPanel1.add(LecturaPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 110, -1));
 
         txtUsuario.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
         txtUsuario.setText("Usuario:");
-        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, 30));
+        jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 30));
 
         imgUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/person_3_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
-        jPanel1.add(imgUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
+        jPanel1.add(imgUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         imgContrasenia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lock_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
-        jPanel1.add(imgContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
+        jPanel1.add(imgContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         imgFondoAzulBoton.setBackground(new java.awt.Color(15, 34, 64));
         imgFondoAzulBoton.setForeground(new java.awt.Color(15, 34, 64));
@@ -109,16 +109,14 @@ public class Login extends javax.swing.JFrame {
         imgFondoAzulBoton.setLayout(imgFondoAzulBotonLayout);
         imgFondoAzulBotonLayout.setHorizontalGroup(
             imgFondoAzulBotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(imgFondoAzulBotonLayout.createSequentialGroup()
-                .addComponent(txtIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(txtIngresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
         );
         imgFondoAzulBotonLayout.setVerticalGroup(
             imgFondoAzulBotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txtIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(imgFondoAzulBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, 30));
+        jPanel1.add(imgFondoAzulBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 220, 30));
 
         panelVacio.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -170,22 +168,22 @@ public class Login extends javax.swing.JFrame {
         imgFondoRojoBoton.setLayout(imgFondoRojoBotonLayout);
         imgFondoRojoBotonLayout.setHorizontalGroup(
             imgFondoRojoBotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txtSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+            .addComponent(txtSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
         );
         imgFondoRojoBotonLayout.setVerticalGroup(
             imgFondoRojoBotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txtSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(imgFondoRojoBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 220, 30));
+        jPanel1.add(imgFondoRojoBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 220, 30));
 
         lblValidacionUsuario.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         lblValidacionUsuario.setForeground(new java.awt.Color(255, 0, 0));
-        jPanel1.add(lblValidacionUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 130, 30));
+        jPanel1.add(lblValidacionUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 130, 30));
 
         lblValidacionPassword.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         lblValidacionPassword.setForeground(new java.awt.Color(255, 0, 0));
-        jPanel1.add(lblValidacionPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 130, 30));
+        jPanel1.add(lblValidacionPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 220, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -234,20 +232,21 @@ public class Login extends javax.swing.JFrame {
         boolean usuario=false;
         boolean letra=false;
         boolean numero=false;
+        boolean caracterEspecial=false;
         
         if(LecturaUsername.getText().equals("Ingrese su nombre de usuario")||
                 LecturaUsername.getText().isEmpty()){
-            lblValidacionUsuario.setText("Campo obligatorio");
+            lblValidacionUsuario.setText("* Campo obligatorio");
         } else{
             usuario=true;
             lblValidacionUsuario.setText("");
         }
         
         if(password.equals("**********")||password.isEmpty()){
-            lblValidacionPassword.setText("Campo obligatorio");
+            lblValidacionPassword.setText("* Campo obligatorio");
         } else{
             if(password.length()<8){
-            lblValidacionPassword.setText("Digite mínimo 8 caracteres");
+            lblValidacionPassword.setText("* Digite mínimo 8 caracteres");
             } else{
                 for(int i=0;i<password.length();i++){
                     if(Character.isDigit(password.charAt(i))){
@@ -256,15 +255,21 @@ public class Login extends javax.swing.JFrame {
                     if(Character.isAlphabetic(password.charAt(i))){
                         letra=true;
                     }
+                    if(!(Character.isAlphabetic(password.charAt(i))||Character.isDigit(password.charAt(i)))){
+                        caracterEspecial=true;
+                    }
                 }
-                if(!numero||!letra){
-                    lblValidacionPassword.setText("Digite letras y números");
+                if(caracterEspecial){
+                    lblValidacionPassword.setText("* Evite usar caracteres especiales");
+                }
+                else if(!numero||!letra){
+                    lblValidacionPassword.setText("* Use al menos una letra y un número");
                 } else{
                     lblValidacionPassword.setText("");
                 }
             }
         }
-        if(numero&&letra&&usuario){
+        if(numero&&letra&&usuario&&(!caracterEspecial)){
             this.nombreUsuario=LecturaUsername.getText();
             PantallaPrincipal menuPrincipal=new PantallaPrincipal();
             menuPrincipal.setVisible(true);
