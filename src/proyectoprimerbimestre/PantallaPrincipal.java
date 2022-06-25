@@ -3,15 +3,15 @@ package proyectoprimerbimestre;
 
 
 public class PantallaPrincipal extends javax.swing.JFrame {
-
+    private int saldo;
    
     public PantallaPrincipal(String nombreUsuario) {
         initComponents();
         long numeroCuenta=(int)(1+(Math.random()*1000000000));
-        int saldo=(int)(1+(Math.random()*1000));
+        this.saldo=(int)(1+(Math.random()*1000));
         lblNro.setText("Nro. "+String.valueOf(numeroCuenta));
         lblBienvenido.setText("Bienvenido "+nombreUsuario);
-        lblSaldo.setText("$"+saldo);
+        lblSaldo.setText("$"+this.saldo);
         
     }
 
@@ -29,7 +29,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblOperaciones = new javax.swing.JLabel();
         lblMiCuenta = new javax.swing.JLabel();
         btnTransferencia = new javax.swing.JButton();
-        lblPagar = new javax.swing.JLabel();
         btnPagar = new javax.swing.JButton();
         lblTransferencia = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -37,6 +36,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblNro = new javax.swing.JLabel();
         lblSaldoDisp = new javax.swing.JLabel();
         lblSaldo = new javax.swing.JLabel();
+        lblPagar = new javax.swing.JLabel();
+        bntPagarTarjeta = new javax.swing.JButton();
+        lblPagarTarjeta = new javax.swing.JLabel();
+        txtFooter1 = new javax.swing.JLabel();
+        txtFooter2 = new javax.swing.JLabel();
+        txtFooter3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
 
@@ -71,26 +76,30 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblMiCuenta.setForeground(new java.awt.Color(227, 29, 26));
         lblMiCuenta.setText("Mi Cuenta");
 
-        btnTransferencia.setBackground(new java.awt.Color(95, 198, 250));
-        btnTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/transeferencia2 (1).jpg"))); // NOI18N
-        btnTransferencia.setBorder(null);
+        btnTransferencia.setBackground(new java.awt.Color(255, 255, 255));
+        btnTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sync_alt_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
+        btnTransferencia.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnTransferencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTransferencia.setFocusPainted(false);
         btnTransferencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTransferenciaActionPerformed(evt);
             }
         });
 
-        lblPagar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        lblPagar.setForeground(new java.awt.Color(15, 34, 64));
-        lblPagar.setText("Pagar");
+        btnPagar.setBackground(new java.awt.Color(255, 255, 255));
+        btnPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/receipt_long_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
+        btnPagar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        btnPagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPagar.setFocusPainted(false);
+        btnPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPagarActionPerformed(evt);
+            }
+        });
 
-        btnPagar.setBackground(new java.awt.Color(51, 51, 51));
-        btnPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/pago (1).jpg"))); // NOI18N
-        btnPagar.setBorder(null);
-
-        lblTransferencia.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        lblTransferencia.setForeground(new java.awt.Color(15, 34, 64));
-        lblTransferencia.setText("Trasnferencia");
+        lblTransferencia.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblTransferencia.setText("<html>Trasnferir<p>Dinero<html>");
 
         jPanel2.setBackground(new java.awt.Color(247, 247, 247));
 
@@ -145,6 +154,38 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
+        lblPagar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblPagar.setText("<html>Pagar<p>Servicios<html>");
+
+        bntPagarTarjeta.setBackground(new java.awt.Color(255, 255, 255));
+        bntPagarTarjeta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/credit_card_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
+        bntPagarTarjeta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        bntPagarTarjeta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bntPagarTarjeta.setFocusPainted(false);
+        bntPagarTarjeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntPagarTarjetaActionPerformed(evt);
+            }
+        });
+
+        lblPagarTarjeta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblPagarTarjeta.setText("<html>Pagar<p>Tarjetas<html>");
+
+        txtFooter1.setFont(new java.awt.Font("Segoe UI Variable", 0, 9)); // NOI18N
+        txtFooter1.setForeground(new java.awt.Color(153, 153, 153));
+        txtFooter1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtFooter1.setText("Escuela Politécnica Nacional, Ecuador");
+
+        txtFooter2.setFont(new java.awt.Font("Segoe UI Variable", 0, 9)); // NOI18N
+        txtFooter2.setForeground(new java.awt.Color(153, 153, 153));
+        txtFooter2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtFooter2.setText("Programación II, GR1COM, 2022A");
+
+        txtFooter3.setFont(new java.awt.Font("Segoe UI Variable", 0, 9)); // NOI18N
+        txtFooter3.setForeground(new java.awt.Color(153, 153, 153));
+        txtFooter3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtFooter3.setText("Grupo H: Carpio X. Guallichico R. & Martinez K.");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -152,38 +193,48 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
-                                        .addComponent(lblBienvenido))
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(lblSaludo))))
+                                .addGap(9, 9, 9)
+                                .addComponent(lblBienvenido))
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblMiCuenta)))
-                        .addGap(0, 45, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblSaludo))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel1))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(lblMiCuenta))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblOperaciones))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTransferencia))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPagar)
+                            .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPagarTarjeta)
+                            .addComponent(bntPagarTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnTransferencia)
-                    .addComponent(lblTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblOperaciones))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPagar)
-                    .addComponent(lblPagar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtFooter3, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtFooter1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtFooter2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,15 +254,29 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblOperaciones)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnPagar, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(bntPagarTarjeta, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(btnTransferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTransferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPagar))
-                .addContainerGap(49, Short.MAX_VALUE))
+                    .addComponent(lblTransferencia)
+                    .addComponent(lblPagar)
+                    .addComponent(lblPagarTarjeta))
+                .addContainerGap(63, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addComponent(txtFooter3))
+                        .addComponent(txtFooter1)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(txtFooter2)))
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 470));
@@ -261,8 +326,22 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTransferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransferenciaActionPerformed
-
+        Transferencias ventanaTransferencias=new Transferencias(this.saldo);
+        ventanaTransferencias.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnTransferenciaActionPerformed
+
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+        PagoDeServicios ventanaPagoDeServicios=new PagoDeServicios(this.saldo);
+        ventanaPagoDeServicios.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnPagarActionPerformed
+
+    private void bntPagarTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntPagarTarjetaActionPerformed
+        PagoDeTarjetas ventanaPagoDeTarjetas=new PagoDeTarjetas(this.saldo);
+        ventanaPagoDeTarjetas.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_bntPagarTarjetaActionPerformed
 
    
     public static void main(String args[]) {
@@ -278,6 +357,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntPagarTarjeta;
     private javax.swing.JButton btnPagar;
     private javax.swing.JButton btnTransferencia;
     private javax.swing.JLabel jLabel1;
@@ -293,9 +373,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblNro;
     private javax.swing.JLabel lblOperaciones;
     private javax.swing.JLabel lblPagar;
+    private javax.swing.JLabel lblPagarTarjeta;
     private javax.swing.JLabel lblSaldo;
     private javax.swing.JLabel lblSaldoDisp;
     private javax.swing.JLabel lblSaludo;
     private javax.swing.JLabel lblTransferencia;
+    private javax.swing.JLabel txtFooter1;
+    private javax.swing.JLabel txtFooter2;
+    private javax.swing.JLabel txtFooter3;
     // End of variables declaration//GEN-END:variables
 }
