@@ -38,7 +38,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblSaldo = new javax.swing.JLabel();
         lblPagar = new javax.swing.JLabel();
         bntPagarTarjeta = new javax.swing.JButton();
-        lblPagarTarjeta = new javax.swing.JLabel();
+        lblCreditos = new javax.swing.JLabel();
         txtFooter1 = new javax.swing.JLabel();
         txtFooter2 = new javax.swing.JLabel();
         txtFooter3 = new javax.swing.JLabel();
@@ -99,7 +99,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
 
         lblTransferencia.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblTransferencia.setText("<html>Trasnferir<p>Dinero<html>");
+        lblTransferencia.setText("<html>Transferir<p>Dinero<html>");
 
         jPanel2.setBackground(new java.awt.Color(247, 247, 247));
 
@@ -158,7 +158,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblPagar.setText("<html>Pagar<p>Servicios<html>");
 
         bntPagarTarjeta.setBackground(new java.awt.Color(255, 255, 255));
-        bntPagarTarjeta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/credit_card_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
+        bntPagarTarjeta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/paid_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         bntPagarTarjeta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         bntPagarTarjeta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntPagarTarjeta.setFocusPainted(false);
@@ -168,8 +168,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        lblPagarTarjeta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        lblPagarTarjeta.setText("<html>Pagar<p>Tarjetas<html>");
+        lblCreditos.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblCreditos.setText("<html>Créditos<html>");
 
         txtFooter1.setFont(new java.awt.Font("Segoe UI Variable", 0, 9)); // NOI18N
         txtFooter1.setForeground(new java.awt.Color(153, 153, 153));
@@ -224,7 +224,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                             .addComponent(btnPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPagarTarjeta)
+                            .addComponent(lblCreditos)
                             .addComponent(bntPagarTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,7 +263,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTransferencia)
                     .addComponent(lblPagar)
-                    .addComponent(lblPagarTarjeta))
+                    .addComponent(lblCreditos))
                 .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -338,8 +338,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPagarActionPerformed
 
     private void bntPagarTarjetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntPagarTarjetaActionPerformed
-        PagoDeTarjetas ventanaPagoDeTarjetas=new PagoDeTarjetas(this.saldo);
-        ventanaPagoDeTarjetas.setVisible(true);
+        Creditos ventanaCreditos=new Creditos(this.saldo);
+        ventanaCreditos.setVisible(true);
         dispose();
     }//GEN-LAST:event_bntPagarTarjetaActionPerformed
 
@@ -369,11 +369,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel lblAhorros;
     private javax.swing.JLabel lblBienvenido;
+    private javax.swing.JLabel lblCreditos;
     private javax.swing.JLabel lblMiCuenta;
     private javax.swing.JLabel lblNro;
     private javax.swing.JLabel lblOperaciones;
     private javax.swing.JLabel lblPagar;
-    private javax.swing.JLabel lblPagarTarjeta;
     private javax.swing.JLabel lblSaldo;
     private javax.swing.JLabel lblSaldoDisp;
     private javax.swing.JLabel lblSaludo;

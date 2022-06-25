@@ -2,10 +2,10 @@
 package proyectoprimerbimestre;
 
 
-public class PagoDeTarjetas extends javax.swing.JFrame {
+public class Creditos extends javax.swing.JFrame {
 
     
-    public PagoDeTarjetas(int saldo) {
+    public Creditos(int saldo) {
         initComponents();
     }
 
@@ -18,7 +18,7 @@ public class PagoDeTarjetas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("PagoDeTarjetas");
+        jLabel1.setText("Creditos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -27,7 +27,7 @@ public class PagoDeTarjetas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(174, 174, 174)
                 .addComponent(jLabel1)
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(186, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -45,7 +45,7 @@ public class PagoDeTarjetas extends javax.swing.JFrame {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PagoDeTarjetas(-1).setVisible(true);
+                new Creditos(-1).setVisible(true);
             }
         });
     }
