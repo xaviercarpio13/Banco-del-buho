@@ -271,7 +271,7 @@ public class Login extends javax.swing.JFrame {
         }
         if(numero&&letra&&usuario&&(!caracterEspecial)){
             this.nombreUsuario=LecturaUsername.getText();
-            PantallaPrincipal menuPrincipal=new PantallaPrincipal();
+            PantallaPrincipal menuPrincipal=new PantallaPrincipal(this.nombreUsuario);
             menuPrincipal.setVisible(true);
             dispose();
         } 
