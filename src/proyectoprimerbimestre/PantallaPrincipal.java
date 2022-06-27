@@ -79,7 +79,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnTransferencia.setBackground(new java.awt.Color(255, 255, 255));
         btnTransferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/sync_alt_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         btnTransferencia.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        btnTransferencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnTransferencia.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnTransferencia.setFocusPainted(false);
         btnTransferencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +90,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         btnPagar.setBackground(new java.awt.Color(255, 255, 255));
         btnPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/receipt_long_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         btnPagar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        btnPagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnPagar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnPagar.setFocusPainted(false);
         btnPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,7 +160,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         bntPagarTarjeta.setBackground(new java.awt.Color(255, 255, 255));
         bntPagarTarjeta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/paid_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
         bntPagarTarjeta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        bntPagarTarjeta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bntPagarTarjeta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         bntPagarTarjeta.setFocusPainted(false);
         bntPagarTarjeta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,10 +260,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addComponent(bntPagarTarjeta, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                     .addComponent(btnTransferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE))
                 .addGap(14, 14, 14)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTransferencia)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPagar)
-                    .addComponent(lblCreditos))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblTransferencia)
+                        .addComponent(lblCreditos)))
                 .addContainerGap(63, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
