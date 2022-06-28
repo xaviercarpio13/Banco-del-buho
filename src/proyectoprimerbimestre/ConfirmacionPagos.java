@@ -121,6 +121,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         ResivoPago newframe2= new ResivoPago();
         newframe2.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_btnPagarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
