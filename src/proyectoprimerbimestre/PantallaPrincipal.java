@@ -1,6 +1,9 @@
 
 package proyectoprimerbimestre;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 
 public class PantallaPrincipal extends javax.swing.JFrame {
     private int saldo;
@@ -12,6 +15,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         lblNro.setText("Nro. "+String.valueOf(numeroCuenta));
         lblBienvenido.setText("Bienvenido "+nombreUsuario);
         lblSaldo.setText("$"+this.saldo);
+        
+        LocalDate fechaActualIngreso=LocalDate.now();
+        txtFechaIngreso.setText(String.valueOf(fechaActualIngreso));
+        
+        LocalTime horaActual=LocalTime.now();
+        txtHora.setText(String.valueOf(horaActual));
         
     }
 
@@ -42,6 +51,9 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         txtFooter1 = new javax.swing.JLabel();
         txtFooter2 = new javax.swing.JLabel();
         txtFooter3 = new javax.swing.JLabel();
+        txtFechaIngreso = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtHora = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
 
@@ -186,6 +198,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         txtFooter3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtFooter3.setText("Grupo H: Carpio X. Guallichico R. & Martinez K.");
 
+        txtFechaIngreso.setBackground(new java.awt.Color(255, 255, 255));
+        txtFechaIngreso.setForeground(new java.awt.Color(0, 0, 0));
+        txtFechaIngreso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Ultimo ingreso");
+
+        txtHora.setBackground(new java.awt.Color(255, 255, 255));
+        txtHora.setForeground(new java.awt.Color(0, 0, 0));
+        txtHora.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -196,14 +220,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblSaludo)
+                            .addComponent(lblBienvenido)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(9, 9, 9)
-                                .addComponent(lblBienvenido))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblSaludo))))
+                                .addComponent(txtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtHora))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(57, 57, 57)
                         .addComponent(jLabel1))
@@ -241,14 +268,21 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblBienvenido)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblSaludo))
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblSaludo)))
+                .addGap(3, 3, 3)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFechaIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblMiCuenta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -265,7 +299,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblTransferencia)
                         .addComponent(lblCreditos)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -363,6 +397,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnTransferencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -379,8 +414,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblSaldoDisp;
     private javax.swing.JLabel lblSaludo;
     private javax.swing.JLabel lblTransferencia;
+    private javax.swing.JTextField txtFechaIngreso;
     private javax.swing.JLabel txtFooter1;
     private javax.swing.JLabel txtFooter2;
     private javax.swing.JLabel txtFooter3;
+    private javax.swing.JTextField txtHora;
     // End of variables declaration//GEN-END:variables
 }
