@@ -48,7 +48,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgLogoBanco.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgLogoBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LocoCuadrado.png"))); // NOI18N
+        imgLogoBanco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/LocoCuadrado.png"))); // NOI18N
         jPanel1.add(imgLogoBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 280, -1));
 
         txtContrasenia.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
@@ -85,10 +85,10 @@ public class Login extends javax.swing.JFrame {
         txtUsuario.setText("Usuario:");
         jPanel1.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 30));
 
-        imgUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/person_3_FILL0_wght400_GRAD0_opsz48.png"))); // NOI18N
+        imgUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoPersonaPequeño.png"))); // NOI18N
         jPanel1.add(imgUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
-        imgContrasenia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/iconoCandadoCerrado.png"))); // NOI18N
+        imgContrasenia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoCandadoCerrado.png"))); // NOI18N
         jPanel1.add(imgContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         imgFondoAzulBoton.setBackground(new java.awt.Color(15, 34, 64));
