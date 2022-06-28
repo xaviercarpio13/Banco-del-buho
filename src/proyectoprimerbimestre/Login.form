@@ -55,7 +55,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/Webp.net-resizeimage.png"/>
+              <Image iconType="3" name="/imagenes/LocoCuadrado.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -167,7 +167,7 @@
         <Component class="javax.swing.JLabel" name="imgContrasenia">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/lock_FILL0_wght400_GRAD0_opsz48.png"/>
+              <Image iconType="3" name="/imagenes/iconoCandadoCerrado.png"/>
             </Property>
           </Properties>
           <Constraints>
