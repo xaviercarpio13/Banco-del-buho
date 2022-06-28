@@ -8,7 +8,7 @@ import java.awt.Color;
 public class Login extends javax.swing.JFrame {
     
     private String nombreUsuario;
-   
+    
     public Login() {
         initComponents();
     }
@@ -270,8 +270,9 @@ public class Login extends javax.swing.JFrame {
             }
         }
         if(numero&&letra&&usuario&&(!caracterEspecial)){
+            
             this.nombreUsuario=LecturaUsername.getText();
-            ModeloPantallaPrincipal menuPrincipal=new ModeloPantallaPrincipal(this.nombreUsuario);
+            PantallaPrincipal menuPrincipal=new PantallaPrincipal();
             menuPrincipal.setVisible(true);
             dispose();
         } 
@@ -279,7 +280,6 @@ public class Login extends javax.swing.JFrame {
 
     
     public static void main(String args[]) {
-        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);

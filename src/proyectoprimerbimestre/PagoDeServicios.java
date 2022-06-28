@@ -5,7 +5,7 @@ package proyectoprimerbimestre;
 public class PagoDeServicios extends javax.swing.JFrame {
 
     
-    public PagoDeServicios(int saldo) {
+    public PagoDeServicios() {
         initComponents();
     }
 
@@ -270,7 +270,7 @@ public class PagoDeServicios extends javax.swing.JFrame {
       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PagoDeServicios(-1).setVisible(true);
+                new PagoDeServicios().setVisible(true);
             }
         });
     }

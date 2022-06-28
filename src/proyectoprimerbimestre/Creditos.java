@@ -5,7 +5,7 @@ package proyectoprimerbimestre;
 public class Creditos extends javax.swing.JFrame {
 
     
-    public Creditos(int saldo) {
+    public Creditos() {
         initComponents();
     }
 
@@ -45,7 +45,7 @@ public class Creditos extends javax.swing.JFrame {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Creditos(-1).setVisible(true);
+                new Creditos().setVisible(true);
             }
         });
     }

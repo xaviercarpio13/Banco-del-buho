@@ -5,7 +5,7 @@ package proyectoprimerbimestre;
 public class Transferencias extends javax.swing.JFrame {
 
     
-    public Transferencias(int saldo) {
+    public Transferencias() {
         initComponents();
     }
 
@@ -68,7 +68,7 @@ public class Transferencias extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Transferencias(-1).setVisible(true);
+                new Transferencias().setVisible(true);
             }
         });
     }
