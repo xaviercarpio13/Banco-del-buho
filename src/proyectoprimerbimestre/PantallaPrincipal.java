@@ -75,7 +75,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         PanelAzulFooter = new javax.swing.JPanel();
-        imgLogoLargoHeader = new javax.swing.JLabel();
         lblBienvenido = new javax.swing.JLabel();
         txtNombreCliente = new javax.swing.JLabel();
         txtHoraFecha = new javax.swing.JLabel();
@@ -131,10 +130,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         );
 
         jPanel1.add(PanelAzulFooter, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 280, 30));
-
-        imgLogoLargoHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgLogoLargoHeader.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/LogoLargov1.png"))); // NOI18N
-        jPanel1.add(imgLogoLargoHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 281, -1));
 
         lblBienvenido.setBackground(new java.awt.Color(0, 0, 0));
         lblBienvenido.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -222,12 +217,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         txtSaldoCuenta3.setText("$25486.36");
         jPanel1.add(txtSaldoCuenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 60, -1));
 
-        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator2.setForeground(new java.awt.Color(204, 204, 204));
         jSeparator2.setEnabled(false);
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 240, 10));
 
-        jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator6.setForeground(new java.awt.Color(204, 204, 204));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 240, 10));
 
@@ -380,7 +373,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel btnPagar;
     private javax.swing.JPanel btnTransferencia;
     private javax.swing.JLabel imgCreditos;
-    private javax.swing.JLabel imgLogoLargoHeader;
     private javax.swing.JLabel imgPagar;
     private javax.swing.JLabel imgTransferencia;
     private javax.swing.JLabel imgUsuario;
