@@ -14,25 +14,57 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         
         lblBienvenido.setText("Bienvenido,");
         txtNombreCliente.setText(cliente.getNombre()+" "+cliente.getApellido());
-        /*
-        this.cantidadCuentas = (int)Math.round(Math.random()*3+1);
-        this.numeroDeCuenta = new String[this.cantidadCuentas];
-        for(int i=0; i<this.cantidadCuentas; i++){
-            this.numeroDeCuenta[i]="";
-            for(int j=0; j<10; j++){
-                this.numeroDeCuenta[i]=this.numeroDeCuenta[i]+String.valueOf((int)Math.round(Math.random()*8+1));
-            }
-        }
-        */
-        
         LocalDate fechaActualIngreso=LocalDate.now();
         LocalTime horaActual=LocalTime.now();
         String ingresoFechaHora = "Ultimo ingreso: "+String.valueOf(fechaActualIngreso)+
                                   " a las "+String.valueOf(horaActual).substring(0, 8); 
-        
-        
         txtHoraFecha.setText(String.valueOf(ingresoFechaHora));
-        
+        switch (cliente.getCantidadCuentas()) {
+            case 1:
+                txtTipoCuenta4.setText(""); txtSaldoCuenta4.setText(""); txtNumeroCuenta4.setText("");
+                txtTipoCuenta3.setText(""); txtSaldoCuenta3.setText(""); txtNumeroCuenta3.setText("");
+                txtTipoCuenta2.setText(""); txtSaldoCuenta2.setText(""); txtNumeroCuenta2.setText("");
+                txtTipoCuenta1.setText(String.valueOf(cliente.getTipoDeCuenta(0))); 
+                txtSaldoCuenta1.setText(String.valueOf(cliente.getSaldo(0)));
+                txtNumeroCuenta1.setText(String.valueOf(cliente.getNumeroDeCuenta(0)));
+                break;
+            case 2:
+                txtTipoCuenta4.setText(""); txtSaldoCuenta4.setText(""); txtNumeroCuenta4.setText("");
+                txtTipoCuenta3.setText(""); txtSaldoCuenta3.setText(""); txtNumeroCuenta3.setText("");
+                txtTipoCuenta1.setText(String.valueOf(cliente.getTipoDeCuenta(0))); 
+                txtSaldoCuenta1.setText(String.valueOf(cliente.getSaldo(0)));
+                txtNumeroCuenta1.setText(String.valueOf(cliente.getNumeroDeCuenta(0)));
+                txtTipoCuenta2.setText(String.valueOf(cliente.getTipoDeCuenta(1))); 
+                txtSaldoCuenta2.setText(String.valueOf(cliente.getSaldo(1)));
+                txtNumeroCuenta2.setText(String.valueOf(cliente.getNumeroDeCuenta(1)));
+                break;
+            case 3:
+                txtTipoCuenta4.setText(""); txtSaldoCuenta4.setText(""); txtNumeroCuenta4.setText("");
+                txtTipoCuenta1.setText(String.valueOf(cliente.getTipoDeCuenta(0))); 
+                txtSaldoCuenta1.setText(String.valueOf(cliente.getSaldo(0)));
+                txtNumeroCuenta1.setText(String.valueOf(cliente.getNumeroDeCuenta(0)));
+                txtTipoCuenta2.setText(String.valueOf(cliente.getTipoDeCuenta(1))); 
+                txtSaldoCuenta2.setText(String.valueOf(cliente.getSaldo(1)));
+                txtNumeroCuenta2.setText(String.valueOf(cliente.getNumeroDeCuenta(1)));
+                txtTipoCuenta3.setText(String.valueOf(cliente.getTipoDeCuenta(2))); 
+                txtSaldoCuenta3.setText(String.valueOf(cliente.getSaldo(2)));
+                txtNumeroCuenta3.setText(String.valueOf(cliente.getNumeroDeCuenta(2)));
+                break;
+            default:
+                txtTipoCuenta1.setText(String.valueOf(cliente.getTipoDeCuenta(0))); 
+                txtSaldoCuenta1.setText(String.valueOf(cliente.getSaldo(0)));
+                txtNumeroCuenta1.setText(String.valueOf(cliente.getNumeroDeCuenta(0)));
+                txtTipoCuenta2.setText(String.valueOf(cliente.getTipoDeCuenta(1))); 
+                txtSaldoCuenta2.setText(String.valueOf(cliente.getSaldo(1)));
+                txtNumeroCuenta2.setText(String.valueOf(cliente.getNumeroDeCuenta(1)));
+                txtTipoCuenta3.setText(String.valueOf(cliente.getTipoDeCuenta(2))); 
+                txtSaldoCuenta3.setText(String.valueOf(cliente.getSaldo(2)));
+                txtNumeroCuenta3.setText(String.valueOf(cliente.getNumeroDeCuenta(2)));
+                txtTipoCuenta4.setText(String.valueOf(cliente.getTipoDeCuenta(3))); 
+                txtSaldoCuenta4.setText(String.valueOf(cliente.getSaldo(3)));
+                txtNumeroCuenta4.setText(String.valueOf(cliente.getNumeroDeCuenta(3)));
+                break;
+        }
     }
 
 

@@ -7,6 +7,7 @@ public class Usuario {
     private int cantidadCuentas; //Aleatorio entre 1 y 4 cuentas
     private String Cuentas[];
     private float Saldos[];
+    private String TiposDeCuenta[];
     
     public Usuario(){
         String apellidos[] = {"Rojas", "Cajas", "Rodas", "Perez", "Guerra", "Genes"};
@@ -25,7 +26,15 @@ public class Usuario {
         for(int i=0; i<this.cantidadCuentas; i++){
             this.Saldos[i] = (float)(1+(Math.random()*1000));
         }
-        
+        this.TiposDeCuenta = new String[this.cantidadCuentas];
+        for(int i=0; i<this.cantidadCuentas; i++){
+            int j = (int)(Math.round(Math.random()));
+            if(j==0){
+                this.TiposDeCuenta[i]="Ahorros";
+            }else{
+                this.TiposDeCuenta[i]="Corriente";
+            }
+        }
     }
 
     public String getNombre() {
@@ -46,5 +55,9 @@ public class Usuario {
     
     public float getSaldo(int indice) {
         return Saldos[indice];
+    }
+    
+    public String getTipoDeCuenta(int indice) {
+        return TiposDeCuenta[indice];
     }
 }
