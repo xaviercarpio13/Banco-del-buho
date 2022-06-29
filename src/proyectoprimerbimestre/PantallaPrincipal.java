@@ -1,6 +1,7 @@
 
 package proyectoprimerbimestre;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,7 +12,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     public PantallaPrincipal(Usuario cliente) {
         
         initComponents();
+        DecimalFormat frmt=new DecimalFormat();
+        frmt.setMaximumFractionDigits(2);
+        
         this.usuario=cliente;
+       
         
         lblBienvenido.setText("Bienvenido,");
         txtNombreCliente.setText(cliente.getNombre()+" "+cliente.getApellido());
@@ -26,43 +31,43 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 txtTipoCuenta3.setText(""); txtSaldoCuenta3.setText(""); txtNumeroCuenta3.setText("");
                 txtTipoCuenta2.setText(""); txtSaldoCuenta2.setText(""); txtNumeroCuenta2.setText("");
                 txtTipoCuenta1.setText(String.valueOf(cliente.getTipoDeCuenta(0))); 
-                txtSaldoCuenta1.setText(String.valueOf(cliente.getSaldo(0)));
+                txtSaldoCuenta1.setText(String.valueOf(frmt.format(cliente.getSaldo(0))));
                 txtNumeroCuenta1.setText(String.valueOf(cliente.getNumeroDeCuenta(0)));
                 break;
             case 2:
                 txtTipoCuenta4.setText(""); txtSaldoCuenta4.setText(""); txtNumeroCuenta4.setText("");
                 txtTipoCuenta3.setText(""); txtSaldoCuenta3.setText(""); txtNumeroCuenta3.setText("");
                 txtTipoCuenta1.setText(String.valueOf(cliente.getTipoDeCuenta(0))); 
-                txtSaldoCuenta1.setText(String.valueOf(cliente.getSaldo(0)));
+                txtSaldoCuenta1.setText(String.valueOf(frmt.format(cliente.getSaldo(0))));
                 txtNumeroCuenta1.setText(String.valueOf(cliente.getNumeroDeCuenta(0)));
                 txtTipoCuenta2.setText(String.valueOf(cliente.getTipoDeCuenta(1))); 
-                txtSaldoCuenta2.setText(String.valueOf(cliente.getSaldo(1)));
+                txtSaldoCuenta2.setText(String.valueOf(frmt.format(cliente.getSaldo(1))));
                 txtNumeroCuenta2.setText(String.valueOf(cliente.getNumeroDeCuenta(1)));
                 break;
             case 3:
                 txtTipoCuenta4.setText(""); txtSaldoCuenta4.setText(""); txtNumeroCuenta4.setText("");
                 txtTipoCuenta1.setText(String.valueOf(cliente.getTipoDeCuenta(0))); 
-                txtSaldoCuenta1.setText(String.valueOf(cliente.getSaldo(0)));
-                txtNumeroCuenta1.setText(String.valueOf(cliente.getNumeroDeCuenta(0)));
+                txtSaldoCuenta1.setText(String.valueOf(frmt.format(cliente.getSaldo(0))));
+                txtNumeroCuenta1.setText(String.valueOf(frmt.format(cliente.getSaldo(0))));
                 txtTipoCuenta2.setText(String.valueOf(cliente.getTipoDeCuenta(1))); 
-                txtSaldoCuenta2.setText(String.valueOf(cliente.getSaldo(1)));
+                txtSaldoCuenta2.setText(String.valueOf(frmt.format(cliente.getSaldo(1))));
                 txtNumeroCuenta2.setText(String.valueOf(cliente.getNumeroDeCuenta(1)));
                 txtTipoCuenta3.setText(String.valueOf(cliente.getTipoDeCuenta(2))); 
-                txtSaldoCuenta3.setText(String.valueOf(cliente.getSaldo(2)));
+                txtSaldoCuenta3.setText(String.valueOf(frmt.format(cliente.getSaldo(2))));
                 txtNumeroCuenta3.setText(String.valueOf(cliente.getNumeroDeCuenta(2)));
                 break;
             default:
                 txtTipoCuenta1.setText(String.valueOf(cliente.getTipoDeCuenta(0))); 
-                txtSaldoCuenta1.setText(String.valueOf(cliente.getSaldo(0)));
+                txtSaldoCuenta1.setText(String.valueOf(frmt.format(cliente.getSaldo(0))));
                 txtNumeroCuenta1.setText(String.valueOf(cliente.getNumeroDeCuenta(0)));
                 txtTipoCuenta2.setText(String.valueOf(cliente.getTipoDeCuenta(1))); 
-                txtSaldoCuenta2.setText(String.valueOf(cliente.getSaldo(1)));
+                txtSaldoCuenta2.setText(String.valueOf(frmt.format(cliente.getSaldo(1))));
                 txtNumeroCuenta2.setText(String.valueOf(cliente.getNumeroDeCuenta(1)));
                 txtTipoCuenta3.setText(String.valueOf(cliente.getTipoDeCuenta(2))); 
-                txtSaldoCuenta3.setText(String.valueOf(cliente.getSaldo(2)));
+                txtSaldoCuenta3.setText(String.valueOf(frmt.format(cliente.getSaldo(2))));
                 txtNumeroCuenta3.setText(String.valueOf(cliente.getNumeroDeCuenta(2)));
                 txtTipoCuenta4.setText(String.valueOf(cliente.getTipoDeCuenta(3))); 
-                txtSaldoCuenta4.setText(String.valueOf(cliente.getSaldo(3)));
+                txtSaldoCuenta4.setText(String.valueOf(frmt.format(cliente.getSaldo(3))));
                 txtNumeroCuenta4.setText(String.valueOf(cliente.getNumeroDeCuenta(3)));
                 break;
         }
@@ -311,7 +316,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTransferenciaMousePressed
 
     private void bntCreditosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntCreditosMousePressed
-        PagoDeServicios ventanaPagoDeServicios=new PagoDeServicios(usuario);
+        PagoTarjetas ventanaPagoDeServicios=new PagoTarjetas(usuario);
         ventanaPagoDeServicios.setVisible(true);
         dispose();
     }//GEN-LAST:event_bntCreditosMousePressed

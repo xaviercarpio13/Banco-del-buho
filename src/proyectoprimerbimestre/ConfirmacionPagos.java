@@ -114,7 +114,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPagarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        PagoDeServicios ventanaPagoDeServicios=new PagoDeServicios(usuario);
+        PagoTarjetas ventanaPagoDeServicios=new PagoTarjetas(usuario);
         ventanaPagoDeServicios.setVisible(true);
         dispose();
        
