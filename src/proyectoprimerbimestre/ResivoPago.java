@@ -7,12 +7,18 @@ import java.time.LocalDate;
 public class ResivoPago extends javax.swing.JFrame {
 
     public Usuario usuario;
-    public ResivoPago(Usuario cliente) {
+    public ResivoPago(Usuario cliente, float valor, String numCuenta, String numTarjeta) {
         initComponents();
+        
         this.usuario=cliente;
         LocalDate fechaActual=LocalDate.now();
-        txtFecha.setText(String.valueOf(fechaActual));
         
+        PagoTarjetas aux=new PagoTarjetas(cliente);
+        
+        lblValor.setText(String.valueOf(valor));
+        lblCuenta.setText(numCuenta);
+        lblTarjeta.setText(numTarjeta);
+        txtFecha.setText(String.valueOf(fechaActual));
     }
 
    
@@ -23,18 +29,18 @@ public class ResivoPago extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
         btnMenuPrincipal = new javax.swing.JButton();
         bntSalir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        lblValor = new javax.swing.JLabel();
+        lblCuenta = new javax.swing.JLabel();
+        lblTarjeta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 125));
@@ -49,13 +55,6 @@ public class ResivoPago extends javax.swing.JFrame {
         jLabel2.setText("Valor");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 88, 31));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 130, 20));
-
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Desde");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 60, 20));
@@ -69,25 +68,20 @@ public class ResivoPago extends javax.swing.JFrame {
         jLabel5.setText("Tarjeta");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, 130, -1));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 130, -1));
-
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Fecha");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
 
+        txtFecha.setEditable(false);
+        txtFecha.setBackground(new java.awt.Color(255, 255, 255));
+        txtFecha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtFecha.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         txtFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 80, -1));
+        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 110, -1));
 
         btnMenuPrincipal.setBackground(new java.awt.Color(0, 0, 51));
         btnMenuPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -141,6 +135,18 @@ public class ResivoPago extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 280, 30));
 
+        lblValor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblValor.setText("0");
+        jPanel1.add(lblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, 110, -1));
+
+        lblCuenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblCuenta.setText("0");
+        jPanel1.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 110, -1));
+
+        lblTarjeta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTarjeta.setText("0");
+        jPanel1.add(lblTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 110, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,26 +167,16 @@ public class ResivoPago extends javax.swing.JFrame {
         
     }//GEN-LAST:event_bntSalirActionPerformed
 
-    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
-        // TODO add your handling code here:
-       
-        
-        
-    }//GEN-LAST:event_txtFechaActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
     private void btnMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuPrincipalActionPerformed
         PantallaPrincipal menuPrincipal=new PantallaPrincipal(this.usuario);
         menuPrincipal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMenuPrincipalActionPerformed
+
+    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtFechaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,7 +208,7 @@ public class ResivoPago extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ResivoPago(null).setVisible(true);
+                new ResivoPago(null, -1, null, null).setVisible(true);
             }
         });
     }
@@ -229,9 +225,9 @@ public class ResivoPago extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel lblCuenta;
+    private javax.swing.JLabel lblTarjeta;
+    private javax.swing.JLabel lblValor;
     private javax.swing.JTextField txtFecha;
     // End of variables declaration//GEN-END:variables
 }

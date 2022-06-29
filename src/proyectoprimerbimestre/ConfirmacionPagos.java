@@ -5,9 +5,16 @@ package proyectoprimerbimestre;
 public class ConfirmacionPagos extends javax.swing.JFrame {
 
     public Usuario usuario;
-    public ConfirmacionPagos(Usuario cliente) {
+    float valor;
+    String cuenta;
+    String tarjeta;
+    
+    public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuenta, String numTarjeta) {
         initComponents();
         this.usuario=cliente;
+        valor=valorPagado;
+        cuenta=numCuenta;
+        tarjeta=numTarjeta;
         
     }
 
@@ -107,7 +114,8 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
-        ResivoPago newframe2= new ResivoPago(this.usuario);
+       
+        ResivoPago newframe2= new ResivoPago(this.usuario, valor,cuenta,tarjeta);
         newframe2.setVisible(true);
         this.dispose();
         
@@ -124,7 +132,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConfirmacionPagos(null).setVisible(true);
+                new ConfirmacionPagos(null, -1, null, null).setVisible(true);
             }
         });
     }

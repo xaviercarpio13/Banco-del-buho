@@ -7,6 +7,7 @@ import java.text.DecimalFormat;
 public class PagoTarjetas extends javax.swing.JFrame {
     public Usuario cliente;
     
+    
     DecimalFormat frmt=new DecimalFormat();
     
     public PagoTarjetas(Usuario cliente) {
@@ -253,6 +254,10 @@ public class PagoTarjetas extends javax.swing.JFrame {
         boolean onlyNum=false;
         boolean onlyLet=false;
         boolean comb=false;
+        String numTarjeta=txtNumTarjeta.getText();
+        String nombreBanco=txtBanco.getText();
+        float montoPagado=-1;
+        String cuenta=cliente.getNumeroDeCuenta(cmbCuentas.getSelectedIndex()-1);
         
         try {
             float monto=Float.parseFloat(txtMonto.getText());
@@ -265,6 +270,7 @@ public class PagoTarjetas extends javax.swing.JFrame {
                 else{
                     validMonto=true;
                     lblValidMonto.setText("");
+                    montoPagado=monto;
                     }
             }
         } catch (Exception e) {
@@ -272,8 +278,7 @@ public class PagoTarjetas extends javax.swing.JFrame {
             lblValidMonto.setText("*Cantidad no válida");
         }
         
-        String numTarjeta=txtNumTarjeta.getText();
-        String nombreBanco=txtBanco.getText();
+        
         
         if(numTarjeta.isEmpty()){
             lblValidNum.setText("*Campo obligatorio");
@@ -320,8 +325,10 @@ public class PagoTarjetas extends javax.swing.JFrame {
         }
         
         if(validMonto&&onlyLet&&onlyNum&&comb){
-        
-        ConfirmacionPagos newframe= new ConfirmacionPagos(this.cliente);
+            cliente.Saldos[cmbCuentas.getSelectedIndex()-1]=
+                (cliente.getSaldo(cmbCuentas.getSelectedIndex()-1)-montoPagado);
+        ConfirmacionPagos newframe= new ConfirmacionPagos(
+            this.cliente,montoPagado,cuenta, numTarjeta);
         newframe.setVisible(true);
         dispose();
         }
