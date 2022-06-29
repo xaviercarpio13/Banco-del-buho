@@ -81,29 +81,33 @@ public class ResivoPago extends javax.swing.JFrame {
         });
         jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 110, -1));
 
-        btnMenuPrincipal.setBackground(new java.awt.Color(0, 0, 51));
+        btnMenuPrincipal.setBackground(new java.awt.Color(15, 34, 64));
         btnMenuPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnMenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
         btnMenuPrincipal.setText("Menu Principal");
+        btnMenuPrincipal.setBorder(null);
+        btnMenuPrincipal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuPrincipalActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
+        jPanel1.add(btnMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 110, 30));
 
-        bntSalir.setBackground(new java.awt.Color(0, 0, 51));
+        bntSalir.setBackground(new java.awt.Color(227, 29, 26));
         bntSalir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         bntSalir.setForeground(new java.awt.Color(255, 255, 255));
         bntSalir.setText("Salir");
+        bntSalir.setBorder(null);
+        bntSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(bntSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
+        jPanel1.add(bntSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 90, 30));
 
-        jPanel2.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(227, 29, 26));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -118,7 +122,7 @@ public class ResivoPago extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 280, 10));
 
-        jPanel3.setBackground(new java.awt.Color(0, 0, 51));
+        jPanel3.setBackground(new java.awt.Color(15, 34, 64));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

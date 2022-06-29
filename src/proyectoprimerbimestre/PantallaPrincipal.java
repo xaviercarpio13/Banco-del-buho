@@ -109,6 +109,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         imgCreditos = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 125));
@@ -293,6 +294,19 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel2.setText("Transferencia");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 80, 20));
 
+        btnSalir.setBackground(new java.awt.Color(227, 29, 26));
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir");
+        btnSalir.setBorder(null);
+        btnSalir.setFocusPainted(false);
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 50, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -321,6 +335,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_bntCreditosMousePressed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
+
    
     public static void main(String args[]) {
        
@@ -338,6 +356,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel PanelAzulFooter;
     private javax.swing.JPanel PanelRojoFooter;
     private javax.swing.JPanel bntCreditos;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JPanel btnTransferencia;
     private javax.swing.JLabel imgCreditos;
     private javax.swing.JLabel imgTransferencia;

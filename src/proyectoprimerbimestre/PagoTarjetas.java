@@ -188,7 +188,8 @@ public class PagoTarjetas extends javax.swing.JFrame {
         btnContinuar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnContinuar.setForeground(new java.awt.Color(255, 255, 255));
         btnContinuar.setText("Continuar");
-        btnContinuar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 102)));
+        btnContinuar.setBorder(null);
+        btnContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContinuarActionPerformed(evt);
@@ -200,6 +201,8 @@ public class PagoTarjetas extends javax.swing.JFrame {
         btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Volver");
+        btnSalir.setBorder(null);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnSalir.setMaximumSize(new java.awt.Dimension(57, 19));
         btnSalir.setMinimumSize(new java.awt.Dimension(57, 19));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -250,6 +253,8 @@ public class PagoTarjetas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
+
+        try{
         boolean validMonto=false;
         boolean onlyNum=false;
         boolean onlyLet=false;
@@ -259,27 +264,29 @@ public class PagoTarjetas extends javax.swing.JFrame {
         float montoPagado=-1;
         String cuenta=cliente.getNumeroDeCuenta(cmbCuentas.getSelectedIndex()-1);
         
-        try {
-            float monto=Float.parseFloat(txtMonto.getText());
-            if(monto<0){
-            lblValidMonto.setText("*Introduzca una cantidad positiva");
-            } else{
-                if(monto>cliente.getSaldo((cmbCuentas.getSelectedIndex())-1)){
-                    lblValidMonto.setText("*Saldo insuficiente");
-                    }
-                else{
-                    validMonto=true;
-                    lblValidMonto.setText("");
-                    montoPagado=monto;
-                    }
-            }
-        } catch (Exception e) {
+        if(txtMonto.getText().isEmpty()){
+            lblValidMonto.setText("*Campo obligatorio");
+        } else{
+            try {
+              float monto=Float.parseFloat(txtMonto.getText());
+              if(monto<0){
+              lblValidMonto.setText("*Introduzca una cantidad positiva");
+              } else{
+                  if(monto>cliente.getSaldo((cmbCuentas.getSelectedIndex())-1)){
+                      lblValidMonto.setText("*Saldo insuficiente");
+                      }
+                  else{
+                      validMonto=true;
+                      lblValidMonto.setText("");
+                      montoPagado=monto;
+                      }
+              }
+            } catch (Exception e) {
             
             lblValidMonto.setText("*Cantidad no válida");
+            }  
         }
-        
-        
-        
+ 
         if(numTarjeta.isEmpty()){
             lblValidNum.setText("*Campo obligatorio");
         } else{
@@ -331,6 +338,10 @@ public class PagoTarjetas extends javax.swing.JFrame {
             this.cliente,montoPagado,cuenta, numTarjeta);
         newframe.setVisible(true);
         dispose();
+        }
+        
+        }catch(Exception e){                  //Todos los campos vacíos
+            
         }
         
         
