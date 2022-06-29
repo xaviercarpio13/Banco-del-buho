@@ -6,7 +6,7 @@ public class Usuario {
     private String Apellido;
     private int cantidadCuentas; //Aleatorio entre 1 y 4 cuentas
     private String Cuentas[];
-    public float Saldos[];
+    private float Saldos[];
     private String TiposDeCuenta[];
     
     public Usuario(){
@@ -61,8 +61,8 @@ public class Usuario {
         return TiposDeCuenta[indice];
     }
 
-    public void setSaldos(float[] Saldos) {
-        this.Saldos = Saldos;
+    public void setSaldos(float Saldos, int indice) {
+        this.Saldos[indice] = Saldos;
     }
     
 }

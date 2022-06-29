@@ -325,8 +325,8 @@ public class PagoTarjetas extends javax.swing.JFrame {
         }
         
         if(validMonto&&onlyLet&&onlyNum&&comb){
-            cliente.Saldos[cmbCuentas.getSelectedIndex()-1]=
-                (cliente.getSaldo(cmbCuentas.getSelectedIndex()-1)-montoPagado);
+            cliente.setSaldos((cliente.getSaldo(cmbCuentas.getSelectedIndex()-1)
+                    -montoPagado),(cmbCuentas.getSelectedIndex()-1));
         ConfirmacionPagos newframe= new ConfirmacionPagos(
             this.cliente,montoPagado,cuenta, numTarjeta);
         newframe.setVisible(true);

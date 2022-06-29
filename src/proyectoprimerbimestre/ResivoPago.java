@@ -51,24 +51,24 @@ public class ResivoPago extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Valor");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 70, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 70, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Desde");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 60, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 60, 20));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Para");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 153, 153));
         jLabel5.setText("Tarjeta");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Fecha");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
         txtFecha.setEditable(false);
         txtFecha.setBackground(new java.awt.Color(255, 255, 255));
@@ -79,7 +79,7 @@ public class ResivoPago extends javax.swing.JFrame {
                 txtFechaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 110, -1));
+        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 110, -1));
 
         btnMenuPrincipal.setBackground(new java.awt.Color(0, 0, 51));
         btnMenuPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -90,7 +90,7 @@ public class ResivoPago extends javax.swing.JFrame {
                 btnMenuPrincipalActionPerformed(evt);
             }
         });
-        jPanel1.add(btnMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, -1));
+        jPanel1.add(btnMenuPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
 
         bntSalir.setBackground(new java.awt.Color(0, 0, 51));
         bntSalir.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -101,7 +101,7 @@ public class ResivoPago extends javax.swing.JFrame {
                 bntSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(bntSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, -1, -1));
+        jPanel1.add(bntSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 0, 0));
 
@@ -109,11 +109,11 @@ public class ResivoPago extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 10, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 280, 10));
@@ -124,26 +124,26 @@ public class ResivoPago extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 280, 30));
 
         lblValor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblValor.setText("0");
-        jPanel1.add(lblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 110, -1));
+        jPanel1.add(lblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 110, -1));
 
         lblCuenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCuenta.setText("0");
-        jPanel1.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 110, -1));
+        jPanel1.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 110, -1));
 
         lblTarjeta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTarjeta.setText("0");
-        jPanel1.add(lblTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 110, -1));
+        jPanel1.add(lblTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 110, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoCheckPequeño.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 190, 170));
@@ -168,7 +168,7 @@ public class ResivoPago extends javax.swing.JFrame {
 
     private void bntSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntSalirActionPerformed
         
-        this.dispose();
+        System.exit(0);
         
     }//GEN-LAST:event_bntSalirActionPerformed
 
