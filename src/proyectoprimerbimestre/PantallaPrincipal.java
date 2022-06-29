@@ -6,11 +6,12 @@ import java.time.LocalTime;
 
 
 public class PantallaPrincipal extends javax.swing.JFrame {
-    public Usuario cliente;
+       public Usuario usuario;
     
-    public PantallaPrincipal() {
+    public PantallaPrincipal(Usuario cliente) {
+        
         initComponents();
-        cliente = new Usuario();
+        this.usuario=cliente;
         
         lblBienvenido.setText("Bienvenido,");
         txtNombreCliente.setText(cliente.getNombre()+" "+cliente.getApellido());
@@ -65,6 +66,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 txtNumeroCuenta4.setText(String.valueOf(cliente.getNumeroDeCuenta(3)));
                 break;
         }
+        
     }
 
 
@@ -98,13 +100,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         txtMisCuentas = new javax.swing.JLabel();
         btnTransferencia = new javax.swing.JPanel();
         imgTransferencia = new javax.swing.JLabel();
-        btnPagar = new javax.swing.JPanel();
-        imgPagar = new javax.swing.JLabel();
         bntCreditos = new javax.swing.JPanel();
         imgCreditos = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 125));
@@ -251,45 +250,20 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addComponent(imgTransferencia, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
         );
 
-        jPanel1.add(btnTransferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 80, 70));
-
-        btnPagar.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.default.focusedBackground"));
-        btnPagar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
-        btnPagar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnPagar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnPagarMousePressed(evt);
-            }
-        });
-
-        imgPagar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgPagar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoRecibo.png"))); // NOI18N
-
-        javax.swing.GroupLayout btnPagarLayout = new javax.swing.GroupLayout(btnPagar);
-        btnPagar.setLayout(btnPagarLayout);
-        btnPagarLayout.setHorizontalGroup(
-            btnPagarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imgPagar, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-        );
-        btnPagarLayout.setVerticalGroup(
-            btnPagarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imgPagar, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(btnPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, 70));
+        jPanel1.add(btnTransferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 80, 70));
 
         bntCreditos.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.default.focusedBackground"));
         bntCreditos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
         bntCreditos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bntCreditos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                bntCreditosMousePressed(evt);
+            }
+        });
 
         imgCreditos.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.default.focusedBackground"));
         imgCreditos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgCreditos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoSimboloDolarMoneda.png"))); // NOI18N
-        imgCreditos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                imgCreditosMousePressed(evt);
-            }
-        });
 
         javax.swing.GroupLayout bntCreditosLayout = new javax.swing.GroupLayout(bntCreditos);
         bntCreditos.setLayout(bntCreditosLayout);
@@ -302,22 +276,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             .addComponent(imgCreditos, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
         );
 
-        jPanel1.add(bntCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(184, 320, 80, 70));
+        jPanel1.add(bntCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 80, 70));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Créditos");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 80, 20));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 80, 20));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Transferencia");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 80, 20));
-
-        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Pagos");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 80, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 80, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -341,24 +310,18 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnTransferenciaMousePressed
 
-    private void btnPagarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPagarMousePressed
-        PagoDeServicios ventanaPagoDeServicios=new PagoDeServicios();
+    private void bntCreditosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntCreditosMousePressed
+        PagoDeServicios ventanaPagoDeServicios=new PagoDeServicios(usuario);
         ventanaPagoDeServicios.setVisible(true);
         dispose();
-    }//GEN-LAST:event_btnPagarMousePressed
-
-    private void imgCreditosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgCreditosMousePressed
-        Creditos ventanaCreditos=new Creditos();
-        ventanaCreditos.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_imgCreditosMousePressed
+    }//GEN-LAST:event_bntCreditosMousePressed
 
    
     public static void main(String args[]) {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaPrincipal().setVisible(true);
+                new PantallaPrincipal(null).setVisible(true);
             }
         });
         
@@ -370,15 +333,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel PanelAzulFooter;
     private javax.swing.JPanel PanelRojoFooter;
     private javax.swing.JPanel bntCreditos;
-    private javax.swing.JPanel btnPagar;
     private javax.swing.JPanel btnTransferencia;
     private javax.swing.JLabel imgCreditos;
-    private javax.swing.JLabel imgPagar;
     private javax.swing.JLabel imgTransferencia;
     private javax.swing.JLabel imgUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;

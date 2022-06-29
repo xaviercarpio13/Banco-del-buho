@@ -3,10 +3,12 @@ package proyectoprimerbimestre;
 
 
 public class PagoDeServicios extends javax.swing.JFrame {
-
+    public Usuario cliente;
     
-    public PagoDeServicios() {
+    public PagoDeServicios(Usuario cliente) {
         initComponents();
+        this.cliente=cliente;
+        
     }
 
     
@@ -271,9 +273,8 @@ public class PagoDeServicios extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        PantallaPrincipal menuPrincipal=new PantallaPrincipal();
+        PantallaPrincipal menuPrincipal=new PantallaPrincipal(this.cliente);
         menuPrincipal.setVisible(true);
-        dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     
@@ -281,7 +282,7 @@ public class PagoDeServicios extends javax.swing.JFrame {
       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PagoDeServicios().setVisible(true);
+                new PagoDeServicios(null).setVisible(true);
             }
         });
     }
