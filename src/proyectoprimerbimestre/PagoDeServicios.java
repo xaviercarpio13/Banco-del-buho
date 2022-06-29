@@ -262,8 +262,9 @@ public class PagoDeServicios extends javax.swing.JFrame {
     }//GEN-LAST:event_casilla1ActionPerformed
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
-        ConfirmacionPagos newframe= new ConfirmacionPagos();
+        ConfirmacionPagos newframe= new ConfirmacionPagos(this.cliente);
         newframe.setVisible(true);
+        dispose();
          
 
     }//GEN-LAST:event_btnContinuarActionPerformed
