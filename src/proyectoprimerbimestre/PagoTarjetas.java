@@ -57,14 +57,18 @@ public class PagoTarjetas extends javax.swing.JFrame {
         lblSaldo = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtMonto = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtBanco = new javax.swing.JTextField();
         btnContinuar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        txtNumTarjeta = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        lblValidNum = new javax.swing.JLabel();
+        lblValidCuenta = new javax.swing.JLabel();
+        lblValidMonto = new javax.swing.JLabel();
+        lblValidBanco = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 125));
@@ -131,7 +135,7 @@ public class PagoTarjetas extends javax.swing.JFrame {
                 cmbCuentasActionPerformed(evt);
             }
         });
-        jPanel1.add(cmbCuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 100, -1));
+        jPanel1.add(cmbCuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 100, 20));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setText("Saldo disponible");
@@ -151,14 +155,14 @@ public class PagoTarjetas extends javax.swing.JFrame {
         jLabel4.setText("Monto a Pagar");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 155, -1));
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtMonto.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        txtMonto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        txtMonto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtMontoActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 84, 20));
+        jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 84, 20));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 51));
@@ -170,10 +174,14 @@ public class PagoTarjetas extends javax.swing.JFrame {
         jLabel7.setText("Nombre del Banco");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        jTextField3.setText("Banco Pichincha");
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 155, -1));
+        txtBanco.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        txtBanco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        txtBanco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBancoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 155, -1));
 
         btnContinuar.setBackground(new java.awt.Color(15, 34, 64));
         btnContinuar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -200,14 +208,31 @@ public class PagoTarjetas extends javax.swing.JFrame {
         });
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 78, 28));
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 155, -1));
+        txtNumTarjeta.setFont(new java.awt.Font("Segoe UI Light", 0, 11)); // NOI18N
+        txtNumTarjeta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel1.add(txtNumTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 155, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 51));
         jLabel8.setText("Numero de la Tarjeta");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 155, -1));
+
+        lblValidNum.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblValidNum.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(lblValidNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 170, -1));
+
+        lblValidCuenta.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblValidCuenta.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(lblValidCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 130, -1));
+
+        lblValidMonto.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblValidMonto.setForeground(new java.awt.Color(255, 0, 0));
+        lblValidMonto.setToolTipText("");
+        jPanel1.add(lblValidMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 190, 20));
+
+        lblValidBanco.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblValidBanco.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(lblValidBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 170, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,16 +249,92 @@ public class PagoTarjetas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
+        boolean validMonto=false;
+        boolean onlyNum=false;
+        boolean onlyLet=false;
+        boolean comb=false;
+        
+        try {
+            float monto=Float.parseFloat(txtMonto.getText());
+            if(monto<0){
+            lblValidMonto.setText("*Introduzca una cantidad positiva");
+            } else{
+                if(monto>cliente.getSaldo((cmbCuentas.getSelectedIndex())-1)){
+                    lblValidMonto.setText("*Saldo insuficiente");
+                    }
+                else{
+                    validMonto=true;
+                    lblValidMonto.setText("");
+                    }
+            }
+        } catch (Exception e) {
+            
+            lblValidMonto.setText("*Cantidad no válida");
+        }
+        
+        String numTarjeta=txtNumTarjeta.getText();
+        String nombreBanco=txtBanco.getText();
+        
+        if(numTarjeta.isEmpty()){
+            lblValidNum.setText("*Campo obligatorio");
+        } else{
+            
+            for(int i=0;i<numTarjeta.length();i++){
+                if(Character.isAlphabetic(numTarjeta.charAt(i))){
+                    onlyNum=false;
+                    
+                } else{
+                    onlyNum=true;
+                }
+            }
+            if(onlyNum){
+                lblValidNum.setText("");
+            } else{
+                lblValidNum.setText("*Digite solamente números");
+            }
+        }
+        
+        if(nombreBanco.isEmpty()){
+            lblValidBanco.setText("*Campo obligatorio");
+        } else{
+            for(int i=0;i<nombreBanco.length();i++){
+                if(Character.isDigit(nombreBanco.charAt(i))){
+                    onlyLet=false;
+                    
+                } else{
+                    onlyLet=true;
+                }
+            }
+            if(onlyLet){
+                lblValidBanco.setText("");
+            } else{
+                lblValidBanco.setText("*Digite solamente letras");
+            }
+        }
+        
+        if(cmbCuentas.getSelectedIndex()==0){
+            lblValidCuenta.setText("*Seleccione una cuenta");
+        } else{
+            comb=true;
+            lblValidCuenta.setText("");
+        }
+        
+        if(validMonto&&onlyLet&&onlyNum&&comb){
+        
         ConfirmacionPagos newframe= new ConfirmacionPagos(this.cliente);
         newframe.setVisible(true);
         dispose();
+        }
+        
+        
+        
          
 
     }//GEN-LAST:event_btnContinuarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
         
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtMontoActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         PantallaPrincipal menuPrincipal=new PantallaPrincipal(this.cliente);
@@ -263,6 +364,10 @@ public class PagoTarjetas extends javax.swing.JFrame {
             break;
         }
     }//GEN-LAST:event_cmbCuentasItemStateChanged
+
+    private void txtBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBancoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBancoActionPerformed
     
     
     public static void main(String args[]) {
@@ -291,9 +396,13 @@ public class PagoTarjetas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lblSaldo;
+    private javax.swing.JLabel lblValidBanco;
+    private javax.swing.JLabel lblValidCuenta;
+    private javax.swing.JLabel lblValidMonto;
+    private javax.swing.JLabel lblValidNum;
+    private javax.swing.JTextField txtBanco;
+    private javax.swing.JTextField txtMonto;
+    private javax.swing.JTextField txtNumTarjeta;
     // End of variables declaration//GEN-END:variables
 }
