@@ -110,6 +110,14 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        btnInfoCuenta1 = new javax.swing.JPanel();
+        imgFlechaAccesoCuenta1 = new javax.swing.JLabel();
+        btnInfoCuenta2 = new javax.swing.JPanel();
+        imgFlechaAccesoCuenta2 = new javax.swing.JLabel();
+        btnInfoCuenta3 = new javax.swing.JPanel();
+        imgFlechaAccesoCuenta3 = new javax.swing.JLabel();
+        btnInfoCuenta4 = new javax.swing.JPanel();
+        imgFlechaAccesoCuenta4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 125));
@@ -180,7 +188,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         txtNumeroCuenta4.setFont(new java.awt.Font("Segoe UI Variable", 0, 11)); // NOI18N
         txtNumeroCuenta4.setText("#5895896356");
-        jPanel1.add(txtNumeroCuenta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, 80, -1));
+        jPanel1.add(txtNumeroCuenta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 80, -1));
 
         txtTipoCuenta2.setFont(new java.awt.Font("Segoe UI Variable", 0, 11)); // NOI18N
         txtTipoCuenta2.setText("Corriente");
@@ -196,31 +204,31 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         txtSaldoCuenta4.setFont(new java.awt.Font("Segoe UI Variable", 0, 11)); // NOI18N
         txtSaldoCuenta4.setText("$25486.36");
-        jPanel1.add(txtSaldoCuenta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 60, -1));
+        jPanel1.add(txtSaldoCuenta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 60, -1));
 
         txtNumeroCuenta2.setFont(new java.awt.Font("Segoe UI Variable", 0, 11)); // NOI18N
         txtNumeroCuenta2.setText("#5895896356");
-        jPanel1.add(txtNumeroCuenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 80, -1));
+        jPanel1.add(txtNumeroCuenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 80, -1));
 
         txtNumeroCuenta3.setFont(new java.awt.Font("Segoe UI Variable", 0, 11)); // NOI18N
         txtNumeroCuenta3.setText("#5895896356");
-        jPanel1.add(txtNumeroCuenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 80, -1));
+        jPanel1.add(txtNumeroCuenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, 80, -1));
 
         txtNumeroCuenta1.setFont(new java.awt.Font("Segoe UI Variable", 0, 11)); // NOI18N
         txtNumeroCuenta1.setText("#5895896356");
-        jPanel1.add(txtNumeroCuenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 80, -1));
+        jPanel1.add(txtNumeroCuenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 80, -1));
 
         txtSaldoCuenta1.setFont(new java.awt.Font("Segoe UI Variable", 0, 11)); // NOI18N
         txtSaldoCuenta1.setText("$25486.36");
-        jPanel1.add(txtSaldoCuenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 60, -1));
+        jPanel1.add(txtSaldoCuenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 60, -1));
 
         txtSaldoCuenta2.setFont(new java.awt.Font("Segoe UI Variable", 0, 11)); // NOI18N
         txtSaldoCuenta2.setText("$25486.36");
-        jPanel1.add(txtSaldoCuenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 60, -1));
+        jPanel1.add(txtSaldoCuenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 60, -1));
 
         txtSaldoCuenta3.setFont(new java.awt.Font("Segoe UI Variable", 0, 11)); // NOI18N
         txtSaldoCuenta3.setText("$25486.36");
-        jPanel1.add(txtSaldoCuenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 60, -1));
+        jPanel1.add(txtSaldoCuenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 60, -1));
 
         jSeparator2.setForeground(new java.awt.Color(204, 204, 204));
         jSeparator2.setEnabled(false);
@@ -307,6 +315,99 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 50, 20));
 
+        btnInfoCuenta1.setBackground(new java.awt.Color(234, 243, 251));
+        btnInfoCuenta1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
+
+        imgFlechaAccesoCuenta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgFlechaAccesoCuenta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechaDerechaContinuar.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnInfoCuenta1Layout = new javax.swing.GroupLayout(btnInfoCuenta1);
+        btnInfoCuenta1.setLayout(btnInfoCuenta1Layout);
+        btnInfoCuenta1Layout.setHorizontalGroup(
+            btnInfoCuenta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnInfoCuenta1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(imgFlechaAccesoCuenta1))
+        );
+        btnInfoCuenta1Layout.setVerticalGroup(
+            btnInfoCuenta1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnInfoCuenta1Layout.createSequentialGroup()
+                .addComponent(imgFlechaAccesoCuenta1)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(btnInfoCuenta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 16, 16));
+
+        btnInfoCuenta2.setBackground(new java.awt.Color(234, 243, 251));
+        btnInfoCuenta2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
+
+        imgFlechaAccesoCuenta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgFlechaAccesoCuenta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechaDerechaContinuar.png"))); // NOI18N
+        imgFlechaAccesoCuenta2.setPreferredSize(new java.awt.Dimension(16, 16));
+
+        javax.swing.GroupLayout btnInfoCuenta2Layout = new javax.swing.GroupLayout(btnInfoCuenta2);
+        btnInfoCuenta2.setLayout(btnInfoCuenta2Layout);
+        btnInfoCuenta2Layout.setHorizontalGroup(
+            btnInfoCuenta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnInfoCuenta2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(imgFlechaAccesoCuenta2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        btnInfoCuenta2Layout.setVerticalGroup(
+            btnInfoCuenta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnInfoCuenta2Layout.createSequentialGroup()
+                .addComponent(imgFlechaAccesoCuenta2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(btnInfoCuenta2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 16, 16));
+
+        btnInfoCuenta3.setBackground(new java.awt.Color(234, 243, 251));
+        btnInfoCuenta3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
+
+        imgFlechaAccesoCuenta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgFlechaAccesoCuenta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechaDerechaContinuar.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnInfoCuenta3Layout = new javax.swing.GroupLayout(btnInfoCuenta3);
+        btnInfoCuenta3.setLayout(btnInfoCuenta3Layout);
+        btnInfoCuenta3Layout.setHorizontalGroup(
+            btnInfoCuenta3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnInfoCuenta3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(imgFlechaAccesoCuenta3))
+        );
+        btnInfoCuenta3Layout.setVerticalGroup(
+            btnInfoCuenta3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnInfoCuenta3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(imgFlechaAccesoCuenta3))
+        );
+
+        jPanel1.add(btnInfoCuenta3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 16, 16));
+
+        btnInfoCuenta4.setBackground(new java.awt.Color(234, 243, 251));
+        btnInfoCuenta4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
+
+        imgFlechaAccesoCuenta4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgFlechaAccesoCuenta4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechaDerechaContinuar.png"))); // NOI18N
+
+        javax.swing.GroupLayout btnInfoCuenta4Layout = new javax.swing.GroupLayout(btnInfoCuenta4);
+        btnInfoCuenta4.setLayout(btnInfoCuenta4Layout);
+        btnInfoCuenta4Layout.setHorizontalGroup(
+            btnInfoCuenta4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnInfoCuenta4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(imgFlechaAccesoCuenta4))
+        );
+        btnInfoCuenta4Layout.setVerticalGroup(
+            btnInfoCuenta4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btnInfoCuenta4Layout.createSequentialGroup()
+                .addComponent(imgFlechaAccesoCuenta4)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(btnInfoCuenta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -356,9 +457,17 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel PanelAzulFooter;
     private javax.swing.JPanel PanelRojoFooter;
     private javax.swing.JPanel bntCreditos;
+    private javax.swing.JPanel btnInfoCuenta1;
+    private javax.swing.JPanel btnInfoCuenta2;
+    private javax.swing.JPanel btnInfoCuenta3;
+    private javax.swing.JPanel btnInfoCuenta4;
     private javax.swing.JButton btnSalir;
     private javax.swing.JPanel btnTransferencia;
     private javax.swing.JLabel imgCreditos;
+    private javax.swing.JLabel imgFlechaAccesoCuenta1;
+    private javax.swing.JLabel imgFlechaAccesoCuenta2;
+    private javax.swing.JLabel imgFlechaAccesoCuenta3;
+    private javax.swing.JLabel imgFlechaAccesoCuenta4;
     private javax.swing.JLabel imgTransferencia;
     private javax.swing.JLabel imgUsuario;
     private javax.swing.JLabel jLabel1;

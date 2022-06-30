@@ -26,17 +26,54 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        PanelFooterAzul = new javax.swing.JPanel();
+        PanelFooterRojo = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PanelFooterAzul.setBackground(new java.awt.Color(15, 34, 64));
+
+        javax.swing.GroupLayout PanelFooterAzulLayout = new javax.swing.GroupLayout(PanelFooterAzul);
+        PanelFooterAzul.setLayout(PanelFooterAzulLayout);
+        PanelFooterAzulLayout.setHorizontalGroup(
+            PanelFooterAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 280, Short.MAX_VALUE)
+        );
+        PanelFooterAzulLayout.setVerticalGroup(
+            PanelFooterAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(PanelFooterAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 280, 30));
+
+        PanelFooterRojo.setBackground(new java.awt.Color(227, 29, 26));
+
+        javax.swing.GroupLayout PanelFooterRojoLayout = new javax.swing.GroupLayout(PanelFooterRojo);
+        PanelFooterRojo.setLayout(PanelFooterRojoLayout);
+        PanelFooterRojoLayout.setHorizontalGroup(
+            PanelFooterRojoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 280, Short.MAX_VALUE)
+        );
+        PanelFooterRojoLayout.setVerticalGroup(
+            PanelFooterRojoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 10, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(PanelFooterRojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 280, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 281, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -78,5 +115,8 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelFooterAzul;
+    private javax.swing.JPanel PanelFooterRojo;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
