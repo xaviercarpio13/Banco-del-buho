@@ -309,7 +309,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 80, 20));
 
         btnSalir.setBackground(new java.awt.Color(227, 29, 26));
-        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
+        btnSalir.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
