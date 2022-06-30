@@ -44,11 +44,15 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         txtSaldoDisponible = new javax.swing.JLabel();
         txtSaldoCuenta = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        imgTransferencia2 = new javax.swing.JLabel();
+        txtTransMismoBanco = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        imgTransferencia3 = new javax.swing.JLabel();
+        txtTransMismoBanco1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        imgTransferencia4 = new javax.swing.JLabel();
+        txtTransOtroBanco = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -98,85 +102,66 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         txtImgNumeroDeCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtImgNumeroDeCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoNumeros.png"))); // NOI18N
         txtImgNumeroDeCuenta.setText("N° 1324567856");
-        jPanel1.add(txtImgNumeroDeCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, -1));
+        jPanel1.add(txtImgNumeroDeCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 280, -1));
 
         txtSaldoDisponible.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSaldoDisponible.setText("Saldo Disponible");
-        jPanel1.add(txtSaldoDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 280, -1));
+        jPanel1.add(txtSaldoDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 280, -1));
 
         txtSaldoCuenta.setFont(new java.awt.Font("Segoe UI Variable", 0, 48)); // NOI18N
         txtSaldoCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSaldoCuenta.setText("$ 458");
-        jPanel1.add(txtSaldoCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 280, -1));
+        jPanel1.add(txtSaldoCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 280, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Transferir a cuenta propia");
+        imgTransferencia2.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        imgTransferencia2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        imgTransferencia2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechasPequenio.png"))); // NOI18N
+        jPanel2.add(imgTransferencia2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 32, 40));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        txtTransMismoBanco.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        txtTransMismoBanco.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        txtTransMismoBanco.setText("Transf. Banco del Búho");
+        jPanel2.add(txtTransMismoBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 160, 38));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 180, 40));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 200, 40));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Cuenta de otro banco");
+        imgTransferencia3.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        imgTransferencia3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        imgTransferencia3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechasPequenio.png"))); // NOI18N
+        jPanel3.add(imgTransferencia3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 32, 40));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        txtTransMismoBanco1.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        txtTransMismoBanco1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        txtTransMismoBanco1.setText("Transf. Banco del Búho");
+        jPanel3.add(txtTransMismoBanco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 160, 38));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 180, 40));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 40));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Realizar transferencia");
+        imgTransferencia4.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        imgTransferencia4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        imgTransferencia4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechasPequenio.png"))); // NOI18N
+        jPanel4.add(imgTransferencia4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 32, 40));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        txtTransOtroBanco.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        txtTransOtroBanco.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        txtTransOtroBanco.setText("Transf. Otro Banco");
+        jPanel4.add(txtTransOtroBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 160, 38));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 180, 40));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 200, 40));
+
+        jButton1.setBackground(new java.awt.Color(227, 29, 26));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Volver");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -230,9 +215,10 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelFooterAzul;
     private javax.swing.JPanel PanelFooterRojo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel imgTransferencia2;
+    private javax.swing.JLabel imgTransferencia3;
+    private javax.swing.JLabel imgTransferencia4;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -242,5 +228,8 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
     private javax.swing.JLabel txtSaldoCuenta;
     private javax.swing.JLabel txtSaldoDisponible;
     private javax.swing.JLabel txtTituloInformacionCuenta;
+    private javax.swing.JLabel txtTransMismoBanco;
+    private javax.swing.JLabel txtTransMismoBanco1;
+    private javax.swing.JLabel txtTransOtroBanco;
     // End of variables declaration//GEN-END:variables
 }
