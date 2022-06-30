@@ -549,6 +549,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnInfoCuenta1MousePressed"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="240" y="170" width="16" height="16"/>
@@ -638,6 +641,9 @@
                   <Dimension value="[16, 16]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imgFlechaAccesoCuenta2MousePressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -689,6 +695,9 @@
                   <Image iconType="3" name="/IconosYLogos/iconoFlechaDerechaContinuar.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imgFlechaAccesoCuenta3MousePressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -740,6 +749,9 @@
                   <Color id="Hand Cursor"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="imgFlechaAccesoCuenta4MousePressed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -324,6 +324,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         btnInfoCuenta1.setBackground(new java.awt.Color(234, 243, 251));
         btnInfoCuenta1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
+        btnInfoCuenta1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnInfoCuenta1MousePressed(evt);
+            }
+        });
 
         imgFlechaAccesoCuenta1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgFlechaAccesoCuenta1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechaDerechaContinuar.png"))); // NOI18N
@@ -353,6 +358,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         imgFlechaAccesoCuenta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechaDerechaContinuar.png"))); // NOI18N
         imgFlechaAccesoCuenta2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         imgFlechaAccesoCuenta2.setPreferredSize(new java.awt.Dimension(16, 16));
+        imgFlechaAccesoCuenta2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                imgFlechaAccesoCuenta2MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnInfoCuenta2Layout = new javax.swing.GroupLayout(btnInfoCuenta2);
         btnInfoCuenta2.setLayout(btnInfoCuenta2Layout);
@@ -377,6 +387,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         imgFlechaAccesoCuenta3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgFlechaAccesoCuenta3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechaDerechaContinuar.png"))); // NOI18N
+        imgFlechaAccesoCuenta3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                imgFlechaAccesoCuenta3MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnInfoCuenta3Layout = new javax.swing.GroupLayout(btnInfoCuenta3);
         btnInfoCuenta3.setLayout(btnInfoCuenta3Layout);
@@ -401,6 +416,11 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         imgFlechaAccesoCuenta4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgFlechaAccesoCuenta4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechaDerechaContinuar.png"))); // NOI18N
         imgFlechaAccesoCuenta4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        imgFlechaAccesoCuenta4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                imgFlechaAccesoCuenta4MousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout btnInfoCuenta4Layout = new javax.swing.GroupLayout(btnInfoCuenta4);
         btnInfoCuenta4.setLayout(btnInfoCuenta4Layout);
@@ -450,6 +470,30 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnInfoCuenta1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInfoCuenta1MousePressed
+        PantallaInfoCuenta pantallaCuenta1=new PantallaInfoCuenta(cliente, 0);
+        pantallaCuenta1.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnInfoCuenta1MousePressed
+
+    private void imgFlechaAccesoCuenta2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgFlechaAccesoCuenta2MousePressed
+        PantallaInfoCuenta pantallaCuenta2=new PantallaInfoCuenta(cliente, 1);
+        pantallaCuenta2.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_imgFlechaAccesoCuenta2MousePressed
+
+    private void imgFlechaAccesoCuenta3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgFlechaAccesoCuenta3MousePressed
+        PantallaInfoCuenta pantallaCuenta3=new PantallaInfoCuenta(cliente, 2);
+        pantallaCuenta3.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_imgFlechaAccesoCuenta3MousePressed
+
+    private void imgFlechaAccesoCuenta4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgFlechaAccesoCuenta4MousePressed
+        PantallaInfoCuenta pantallaCuenta4=new PantallaInfoCuenta(cliente, 3);
+        pantallaCuenta4.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_imgFlechaAccesoCuenta4MousePressed
 
    
     public static void main(String args[]) {

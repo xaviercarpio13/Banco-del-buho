@@ -9,12 +9,15 @@ package proyectoprimerbimestre;
  * @author nivek
  */
 public class PantallaInfoCuenta extends javax.swing.JFrame {
-
+    Usuario cliente;
+    int indiceDeCuenta;
     /**
      * Creates new form PantallaInfoCuenta
      */
-    public PantallaInfoCuenta() {
+    public PantallaInfoCuenta(Usuario cliente, int indice) {
         initComponents();
+        this.cliente = cliente;
+        this.indiceDeCuenta = indice;
     }
 
     /**
@@ -109,7 +112,7 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaInfoCuenta().setVisible(true);
+                new PantallaInfoCuenta(null, 0).setVisible(true);
             }
         });
     }
