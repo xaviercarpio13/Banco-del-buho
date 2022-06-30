@@ -4,6 +4,8 @@
  */
 package proyectoprimerbimestre;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author nivek
@@ -16,8 +18,12 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
      */
     public PantallaInfoCuenta(Usuario cliente, int indice) {
         initComponents();
+        DecimalFormat frmt=new DecimalFormat();
+        frmt.setMaximumFractionDigits(2);
         this.cliente = cliente;
         this.indiceDeCuenta = indice;
+        txtImgNumeroDeCuenta.setText("N°"+String.valueOf(cliente.getNumeroDeCuenta(indiceDeCuenta)));
+        txtSaldoCuenta.setText("$ "+String.valueOf(frmt.format((long)cliente.getSaldo(indiceDeCuenta))));
     }
 
     /**
@@ -32,8 +38,20 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         PanelFooterAzul = new javax.swing.JPanel();
         PanelFooterRojo = new javax.swing.JPanel();
+        txtTituloInformacionCuenta = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        txtImgNumeroDeCuenta = new javax.swing.JLabel();
+        txtSaldoDisponible = new javax.swing.JLabel();
+        txtSaldoCuenta = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,6 +85,98 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         );
 
         jPanel1.add(PanelFooterRojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 280, 10));
+
+        txtTituloInformacionCuenta.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        txtTituloInformacionCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtTituloInformacionCuenta.setText("Información de la cuenta");
+        jPanel1.add(txtTituloInformacionCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 260, -1));
+
+        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 260, -1));
+
+        txtImgNumeroDeCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtImgNumeroDeCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoNumeros.png"))); // NOI18N
+        txtImgNumeroDeCuenta.setText("N° 1324567856");
+        jPanel1.add(txtImgNumeroDeCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, -1));
+
+        txtSaldoDisponible.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtSaldoDisponible.setText("Saldo Disponible");
+        jPanel1.add(txtSaldoDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 280, -1));
+
+        txtSaldoCuenta.setFont(new java.awt.Font("Segoe UI Variable", 0, 48)); // NOI18N
+        txtSaldoCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtSaldoCuenta.setText("$ 458");
+        jPanel1.add(txtSaldoCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 280, -1));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Transferir a cuenta propia");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 180, 40));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Cuenta de otro banco");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 180, 40));
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Realizar transferencia");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 180, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -120,6 +230,17 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelFooterAzul;
     private javax.swing.JPanel PanelFooterRojo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel txtImgNumeroDeCuenta;
+    private javax.swing.JLabel txtSaldoCuenta;
+    private javax.swing.JLabel txtSaldoDisponible;
+    private javax.swing.JLabel txtTituloInformacionCuenta;
     // End of variables declaration//GEN-END:variables
 }
