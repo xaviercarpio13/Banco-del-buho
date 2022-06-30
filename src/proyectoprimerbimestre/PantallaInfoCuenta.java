@@ -125,7 +125,7 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
 
         txtTransMismoBanco.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
         txtTransMismoBanco.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        txtTransMismoBanco.setText("Transf. Banco del Búho");
+        txtTransMismoBanco.setText("Transf. Cuenta propia");
         jPanel2.add(txtTransMismoBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 160, 38));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 200, 40));
