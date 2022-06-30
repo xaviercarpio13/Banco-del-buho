@@ -24,6 +24,7 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         this.indiceDeCuenta = indice;
         txtImgNumeroDeCuenta.setText("N°"+String.valueOf(cliente.getNumeroDeCuenta(indiceDeCuenta)));
         txtSaldoCuenta.setText("$ "+String.valueOf(frmt.format((long)cliente.getSaldo(indiceDeCuenta))));
+        txtImgTipoDeCuenta.setText(String.valueOf(cliente.getTipoDeCuenta(indiceDeCuenta)));
     }
 
     /**
@@ -40,7 +41,7 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         PanelFooterRojo = new javax.swing.JPanel();
         txtTituloInformacionCuenta = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        txtImgNumeroDeCuenta = new javax.swing.JLabel();
+        txtImgTipoDeCuenta = new javax.swing.JLabel();
         txtSaldoDisponible = new javax.swing.JLabel();
         txtSaldoCuenta = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -53,6 +54,7 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         imgTransferencia4 = new javax.swing.JLabel();
         txtTransOtroBanco = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        txtImgNumeroDeCuenta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -99,10 +101,10 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 260, -1));
 
-        txtImgNumeroDeCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtImgNumeroDeCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoNumeros.png"))); // NOI18N
-        txtImgNumeroDeCuenta.setText("N° 1324567856");
-        jPanel1.add(txtImgNumeroDeCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 280, -1));
+        txtImgTipoDeCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtImgTipoDeCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoBancoPequeño.png"))); // NOI18N
+        txtImgTipoDeCuenta.setText("Ahorros");
+        jPanel1.add(txtImgTipoDeCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 280, -1));
 
         txtSaldoDisponible.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSaldoDisponible.setText("Saldo Disponible");
@@ -111,7 +113,7 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         txtSaldoCuenta.setFont(new java.awt.Font("Segoe UI Variable", 0, 48)); // NOI18N
         txtSaldoCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSaldoCuenta.setText("$ 458");
-        jPanel1.add(txtSaldoCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 280, -1));
+        jPanel1.add(txtSaldoCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 280, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -126,7 +128,7 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         txtTransMismoBanco.setText("Transf. Banco del Búho");
         jPanel2.add(txtTransMismoBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 160, 38));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 200, 40));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 200, 40));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -141,7 +143,7 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         txtTransMismoBanco1.setText("Transf. Banco del Búho");
         jPanel3.add(txtTransMismoBanco1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 160, 38));
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 40));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 200, 40));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -156,12 +158,17 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         txtTransOtroBanco.setText("Transf. Otro Banco");
         jPanel4.add(txtTransOtroBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 160, 38));
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 200, 40));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 200, 40));
 
         jButton1.setBackground(new java.awt.Color(227, 29, 26));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Volver");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, 30));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 410, 80, 30));
+
+        txtImgNumeroDeCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtImgNumeroDeCuenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoNumeros.png"))); // NOI18N
+        txtImgNumeroDeCuenta.setText("N° 1324567856");
+        jPanel1.add(txtImgNumeroDeCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 280, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,6 +232,7 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel txtImgNumeroDeCuenta;
+    private javax.swing.JLabel txtImgTipoDeCuenta;
     private javax.swing.JLabel txtSaldoCuenta;
     private javax.swing.JLabel txtSaldoDisponible;
     private javax.swing.JLabel txtTituloInformacionCuenta;
