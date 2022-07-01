@@ -128,7 +128,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
         String movimiento=String.valueOf(fechaActual)+"\nPago de tarjeta  "+tarjeta+
-                "\t-$"+valor+"\n\n"+usuario.getMovimientos(cuentas);
+                "\t- $"+valor+"\n\n"+usuario.getMovimientos(cuentas);
         this.usuario.setMovimientos(movimiento,cuentas);
         ReciboPago newframe2= new ReciboPago(this.usuario, valor,cuenta,tarjeta);
         newframe2.setVisible(true);
