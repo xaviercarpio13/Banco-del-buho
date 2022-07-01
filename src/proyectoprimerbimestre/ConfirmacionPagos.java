@@ -1,6 +1,8 @@
 
 package proyectoprimerbimestre;
 
+import java.time.LocalDate;
+
 
 public class ConfirmacionPagos extends javax.swing.JFrame {
 
@@ -8,13 +10,18 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     float valor;
     String cuenta;
     String tarjeta;
+    int cuentas;
+    LocalDate fechaActual;
+   
     
-    public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuenta, String numTarjeta) {
+    public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuenta, String numTarjeta, int cuentaSeleccionada) {
         initComponents();
         this.usuario=cliente;
         valor=valorPagado;
         cuenta=numCuenta;
         tarjeta=numTarjeta;
+        cuentas=cuentaSeleccionada;
+        fechaActual=LocalDate.now();
         
     }
 
@@ -120,8 +127,10 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
-       
-        ResivoPago newframe2= new ResivoPago(this.usuario, valor,cuenta,tarjeta);
+        String movimiento=String.valueOf(fechaActual)+"\nPago de tarjeta  "+tarjeta+
+                "\t-$"+valor+"\n\n"+usuario.getMovimientos(cuentas);
+        this.usuario.setMovimientos(movimiento,cuentas);
+        ReciboPago newframe2= new ReciboPago(this.usuario, valor,cuenta,tarjeta);
         newframe2.setVisible(true);
         this.dispose();
         
@@ -138,7 +147,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConfirmacionPagos(null, -1, null, null).setVisible(true);
+                new ConfirmacionPagos(null, -1, null, null, -1).setVisible(true);
             }
         });
     }

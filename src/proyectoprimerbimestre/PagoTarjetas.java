@@ -335,7 +335,8 @@ public class PagoTarjetas extends javax.swing.JFrame {
             cliente.setSaldos((cliente.getSaldo(cmbCuentas.getSelectedIndex()-1)
                     -montoPagado),(cmbCuentas.getSelectedIndex()-1));
         ConfirmacionPagos newframe= new ConfirmacionPagos(
-            this.cliente,montoPagado,cuenta, numTarjeta);
+            this.cliente,montoPagado,cuenta, numTarjeta, 
+            (cmbCuentas.getSelectedIndex()-1));
         newframe.setVisible(true);
         dispose();
         }

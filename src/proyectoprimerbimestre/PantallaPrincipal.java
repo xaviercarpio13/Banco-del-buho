@@ -36,6 +36,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 btnInfoCuenta4.setVisible(false);
                 btnInfoCuenta3.setVisible(false);
                 btnInfoCuenta2.setVisible(false);
+                
                 break;
             case 2:
                 txtTipoCuenta4.setText(""); txtSaldoCuenta4.setText(""); txtNumeroCuenta4.setText("");
@@ -48,6 +49,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 txtNumeroCuenta2.setText("#"+String.valueOf(cliente.getNumeroDeCuenta(1)));
                 btnInfoCuenta4.setVisible(false);
                 btnInfoCuenta3.setVisible(false);
+               
                 break;
             case 3:
                 txtTipoCuenta4.setText(""); txtSaldoCuenta4.setText(""); txtNumeroCuenta4.setText("");
@@ -61,6 +63,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 txtSaldoCuenta3.setText("$"+String.valueOf(frmt.format((long)cliente.getSaldo(2))));
                 txtNumeroCuenta3.setText("#"+String.valueOf(cliente.getNumeroDeCuenta(2)));
                 btnInfoCuenta4.setVisible(false);
+               
                 break;
             default:
                 txtTipoCuenta1.setText(String.valueOf(cliente.getTipoDeCuenta(0))); 
@@ -75,6 +78,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 txtTipoCuenta4.setText(String.valueOf(cliente.getTipoDeCuenta(3))); 
                 txtSaldoCuenta4.setText("$"+String.valueOf(frmt.format((long)cliente.getSaldo(3))));
                 txtNumeroCuenta4.setText("#"+String.valueOf(cliente.getNumeroDeCuenta(3)));
+                
                 break;
         }
         
@@ -320,7 +324,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 50, 20));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 60, 20));
 
         btnInfoCuenta1.setBackground(new java.awt.Color(234, 243, 251));
         btnInfoCuenta1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
@@ -357,7 +361,6 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         imgFlechaAccesoCuenta2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgFlechaAccesoCuenta2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoFlechaDerechaContinuar.png"))); // NOI18N
         imgFlechaAccesoCuenta2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        imgFlechaAccesoCuenta2.setPreferredSize(new java.awt.Dimension(16, 16));
         imgFlechaAccesoCuenta2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 imgFlechaAccesoCuenta2MousePressed(evt);
@@ -370,12 +373,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
             btnInfoCuenta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnInfoCuenta2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(imgFlechaAccesoCuenta2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(imgFlechaAccesoCuenta2))
         );
         btnInfoCuenta2Layout.setVerticalGroup(
             btnInfoCuenta2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btnInfoCuenta2Layout.createSequentialGroup()
-                .addComponent(imgFlechaAccesoCuenta2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(imgFlechaAccesoCuenta2)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
