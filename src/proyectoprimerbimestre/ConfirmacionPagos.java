@@ -10,9 +10,11 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     float valor;
     String cuenta;
     String tarjeta;
+    String nombre=null;
     int cuentas;
     LocalDate fechaActual;
     int cuentaSeleccionada;
+    int tipo;           //1 para transferencias, 2 para Pago Tarjetas
    
     
     public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuenta, String numTarjeta, int cuentaSeleccionada) {
@@ -24,6 +26,20 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         tarjeta=numTarjeta;
         cuentas=cuentaSeleccionada;
         fechaActual=LocalDate.now();
+        tipo=1;
+        
+    }
+    public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuenta, String numTarjeta, int cuentaSeleccionada, String nombre) {
+        initComponents();
+        this.cuentaSeleccionada=cuentaSeleccionada;
+        this.usuario=cliente;
+        valor=valorPagado;
+        cuenta=numCuenta;
+        tarjeta=numTarjeta;
+        cuentas=cuentaSeleccionada;
+        this.nombre=nombre;
+        fechaActual=LocalDate.now();
+        tipo=2;
         
     }
 
@@ -129,14 +145,25 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+        if(this.tipo==1){
         usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
                     -valor),(cuentaSeleccionada));
         String movimiento=String.valueOf(fechaActual)+"\nPago de tarjeta  "+tarjeta+
-                "\t- $"+valor+"\n\n"+usuario.getMovimientos(cuentas);
+                "\n- $"+valor+"\n\n"+usuario.getMovimientos(cuentas);
         this.usuario.setMovimientos(movimiento,cuentas);
         ReciboPago newframe2= new ReciboPago(this.usuario, valor,cuenta,tarjeta);
         newframe2.setVisible(true);
         this.dispose();
+        } else {
+            usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
+                    -valor),(cuentaSeleccionada));
+        String movimiento=String.valueOf(fechaActual)+"\nTransferencia a "+nombre+
+                "\n- $"+valor+"\n\n"+usuario.getMovimientos(cuentas);
+        this.usuario.setMovimientos(movimiento,cuentas);
+        ReciboPago newframe2= new ReciboPago(this.usuario, valor,cuenta,tarjeta,nombre);
+        newframe2.setVisible(true);
+        this.dispose();
+        }
         
     }//GEN-LAST:event_btnPagarActionPerformed
 

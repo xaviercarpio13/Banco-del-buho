@@ -12,13 +12,30 @@ public class ReciboPago extends javax.swing.JFrame {
         
         this.usuario=cliente;
         LocalDate fechaActual=LocalDate.now();
-        
-        PagoTarjetas aux=new PagoTarjetas(cliente);
-        
+        lblPagoExitoso.setText("¡Pago exitoso!");
+        lblTipoTransaccion.setText("Tarjeta");
+        lblBeneficiario.setText("");
+        lblNombre.setText("");
         lblValor.setText(String.valueOf(valor));
         lblCuenta.setText(numCuenta);
         lblTarjeta.setText(numTarjeta);
         txtFecha.setText(String.valueOf(fechaActual));
+    }
+    
+    public ReciboPago(Usuario cliente, float valor, String numCuenta ,String numCuentaBene,String nombre){
+        initComponents();
+        
+        this.usuario=cliente;
+        LocalDate fechaActual=LocalDate.now();
+        lblPagoExitoso.setText("¡Transferencia exitosa!");
+        lblTipoTransaccion.setText("Cuenta");
+        lblBeneficiario.setText("Beneficiario");
+        lblNombre.setText(nombre);
+        lblValor.setText(String.valueOf(valor));
+        lblCuenta.setText(numCuenta);
+        lblTarjeta.setText(numCuentaBene);
+        txtFecha.setText(String.valueOf(fechaActual));
+        
     }
 
    
@@ -30,7 +47,7 @@ public class ReciboPago extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblTipoTransaccion = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
         btnMenuPrincipal = new javax.swing.JButton();
@@ -41,7 +58,9 @@ public class ReciboPago extends javax.swing.JFrame {
         lblCuenta = new javax.swing.JLabel();
         lblTarjeta = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblPagoExitoso = new javax.swing.JLabel();
+        lblBeneficiario = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 125));
@@ -51,20 +70,20 @@ public class ReciboPago extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Valor");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 70, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 70, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setText("Desde");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 60, 20));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 60, 20));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Para");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("Tarjeta");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+        lblTipoTransaccion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTipoTransaccion.setForeground(new java.awt.Color(153, 153, 153));
+        lblTipoTransaccion.setText("Tarjeta");
+        jPanel1.add(lblTipoTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel6.setText("Fecha");
@@ -79,7 +98,7 @@ public class ReciboPago extends javax.swing.JFrame {
                 txtFechaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 110, -1));
+        jPanel1.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 370, 110, -1));
 
         btnMenuPrincipal.setBackground(new java.awt.Color(15, 34, 64));
         btnMenuPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -139,22 +158,30 @@ public class ReciboPago extends javax.swing.JFrame {
 
         lblValor.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblValor.setText("0");
-        jPanel1.add(lblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 110, -1));
+        jPanel1.add(lblValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 110, -1));
 
         lblCuenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCuenta.setText("0");
-        jPanel1.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 110, -1));
+        jPanel1.add(lblCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 110, -1));
 
         lblTarjeta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblTarjeta.setText("0");
-        jPanel1.add(lblTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 320, 110, -1));
+        jPanel1.add(lblTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 110, 30));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoCheckPequeño.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 190, 170));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 180, 160));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("¡Transferencia exitosa!");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+        lblPagoExitoso.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblPagoExitoso.setText("¡Transferencia exitosa!");
+        jPanel1.add(lblPagoExitoso, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+
+        lblBeneficiario.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblBeneficiario.setText("Beneficiario");
+        jPanel1.add(lblBeneficiario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+
+        lblNombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblNombre.setText("nom");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 100, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,18 +253,20 @@ public class ReciboPago extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntSalir;
     private javax.swing.JButton btnMenuPrincipal;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblBeneficiario;
     private javax.swing.JLabel lblCuenta;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPagoExitoso;
     private javax.swing.JLabel lblTarjeta;
+    private javax.swing.JLabel lblTipoTransaccion;
     private javax.swing.JLabel lblValor;
     private javax.swing.JTextField txtFecha;
     // End of variables declaration//GEN-END:variables

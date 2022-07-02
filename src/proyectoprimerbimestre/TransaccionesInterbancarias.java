@@ -440,16 +440,14 @@ public class TransaccionesInterbancarias extends javax.swing.JFrame {
                 for(int i=0;i<numeroCuenta.length();i++){
                     if(Character.isAlphabetic(numeroCuenta.charAt(i))){
                         onlyNum=false;
+                        lblValidNum.setText("*Dato no válido");
 
                     } else{
                         onlyNum=true;
+                        lblValidNum.setText("");
                     }
                 }
-                if(onlyNum){
-                    lblValidNum.setText("");
-                } else{
-                    lblValidNum.setText("*Digite solamente números");
-                }
+                
             }
 
             if(nombreBanco.isEmpty()){
@@ -466,7 +464,7 @@ public class TransaccionesInterbancarias extends javax.swing.JFrame {
                 if(onlyLet){
                     lblValidBanco.setText("");
                 } else{
-                    lblValidBanco.setText("*Digite solamente letras");
+                    lblValidBanco.setText("*Dato no válido");
                 }
             }
 
@@ -507,13 +505,13 @@ public class TransaccionesInterbancarias extends javax.swing.JFrame {
 
             if(validMonto&&onlyLet&&onlyNum&&comb&&onlyLetNombre&&onlyNumCI){
                 
-            /*
+            
             ConfirmacionPagos newframe= new ConfirmacionPagos(
                 this.cliente,montoPagado,cuenta, numeroCuenta,
-                (cmbCuentas.getSelectedIndex()-1));
+                (cmbCuentas.getSelectedIndex()-1),nombre);
             newframe.setVisible(true);
             dispose();
-            */
+            
         }
 
         }catch(Exception e){                  //Todos los campos vacíos
