@@ -128,6 +128,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         imgFlechaAccesoCuenta3 = new javax.swing.JLabel();
         btnInfoCuenta4 = new javax.swing.JPanel();
         imgFlechaAccesoCuenta4 = new javax.swing.JLabel();
+        imgLogoHeader = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 125));
@@ -442,6 +443,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(btnInfoCuenta4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 16, 16));
 
+        imgLogoHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        imgLogoHeader.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/LogoLargov1.png"))); // NOI18N
+        jPanel1.add(imgLogoHeader, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 280, 50));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -459,7 +464,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTransferenciaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransferenciaMousePressed
-        Transferencias ventanaTransferencias=new Transferencias();
+        TransaccionesInterbancarias ventanaTransferencias=new TransaccionesInterbancarias(this.cliente);
         ventanaTransferencias.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTransferenciaMousePressed
@@ -526,6 +531,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel imgFlechaAccesoCuenta2;
     private javax.swing.JLabel imgFlechaAccesoCuenta3;
     private javax.swing.JLabel imgFlechaAccesoCuenta4;
+    private javax.swing.JLabel imgLogoHeader;
     private javax.swing.JLabel imgTransferencia;
     private javax.swing.JLabel imgUsuario;
     private javax.swing.JLabel jLabel1;

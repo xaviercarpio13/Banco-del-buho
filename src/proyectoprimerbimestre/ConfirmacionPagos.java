@@ -12,10 +12,12 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     String tarjeta;
     int cuentas;
     LocalDate fechaActual;
+    int cuentaSeleccionada;
    
     
     public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuenta, String numTarjeta, int cuentaSeleccionada) {
         initComponents();
+        this.cuentaSeleccionada=cuentaSeleccionada;
         this.usuario=cliente;
         valor=valorPagado;
         cuenta=numCuenta;
@@ -127,6 +129,8 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
+        usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
+                    -valor),(cuentaSeleccionada));
         String movimiento=String.valueOf(fechaActual)+"\nPago de tarjeta  "+tarjeta+
                 "\t- $"+valor+"\n\n"+usuario.getMovimientos(cuentas);
         this.usuario.setMovimientos(movimiento,cuentas);

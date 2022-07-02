@@ -12,10 +12,11 @@ public class PagoTarjetas extends javax.swing.JFrame {
     
     public PagoTarjetas(Usuario cliente) {
         initComponents();
+        this.cliente=cliente;
         
         frmt.setMaximumFractionDigits(2);
         
-        this.cliente=cliente;
+        
         switch(cliente.getCantidadCuentas()){
             case 1:
                 cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(0)));
@@ -152,7 +153,6 @@ public class PagoTarjetas extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(204, 204, 204));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 51));
         jLabel4.setText("Monto a Pagar");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 155, -1));
 
@@ -166,12 +166,10 @@ public class PagoTarjetas extends javax.swing.JFrame {
         jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 84, 20));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 51));
         jLabel6.setText("USD");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 51));
         jLabel7.setText("Nombre del Banco");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
 
@@ -217,7 +215,6 @@ public class PagoTarjetas extends javax.swing.JFrame {
         jPanel1.add(txtNumTarjeta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 155, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 51));
         jLabel8.setText("Numero de la Tarjeta");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 155, -1));
 
@@ -332,8 +329,7 @@ public class PagoTarjetas extends javax.swing.JFrame {
         }
         
         if(validMonto&&onlyLet&&onlyNum&&comb){
-            cliente.setSaldos((cliente.getSaldo(cmbCuentas.getSelectedIndex()-1)
-                    -montoPagado),(cmbCuentas.getSelectedIndex()-1));
+            
         ConfirmacionPagos newframe= new ConfirmacionPagos(
             this.cliente,montoPagado,cuenta, numTarjeta, 
             (cmbCuentas.getSelectedIndex()-1));
