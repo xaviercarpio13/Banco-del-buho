@@ -63,6 +63,11 @@ public class Login extends javax.swing.JFrame {
                 LecturaUsernameMousePressed(evt);
             }
         });
+        LecturaUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LecturaUsernameActionPerformed(evt);
+            }
+        });
         jPanel1.add(LecturaUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 200, -1));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
@@ -93,7 +98,7 @@ public class Login extends javax.swing.JFrame {
 
         imgFondoAzulBoton.setBackground(new java.awt.Color(15, 34, 64));
         imgFondoAzulBoton.setForeground(new java.awt.Color(15, 34, 64));
-        imgFondoAzulBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        imgFondoAzulBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         imgFondoAzulBoton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imgFondoAzulBotonMouseClicked(evt);
@@ -162,7 +167,7 @@ public class Login extends javax.swing.JFrame {
         txtSalir.setForeground(new java.awt.Color(255, 255, 255));
         txtSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSalir.setText("SALIR");
-        txtSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txtSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout imgFondoRojoBotonLayout = new javax.swing.GroupLayout(imgFondoRojoBoton);
         imgFondoRojoBoton.setLayout(imgFondoRojoBotonLayout);
@@ -276,6 +281,10 @@ public class Login extends javax.swing.JFrame {
             dispose();
         } 
     }//GEN-LAST:event_imgFondoAzulBotonMouseClicked
+
+    private void LecturaUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LecturaUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LecturaUsernameActionPerformed
 
     
     public static void main(String args[]) {
