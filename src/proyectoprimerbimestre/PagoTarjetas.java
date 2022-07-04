@@ -354,6 +354,7 @@ public class PagoTarjetas extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         PantallaPrincipal menuPrincipal=new PantallaPrincipal(this.cliente);
         menuPrincipal.setVisible(true);
+
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void cmbCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCuentasActionPerformed
