@@ -520,8 +520,9 @@ public class TransaccionesInterbancarias extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContinuarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        PantallaPrincipal menuPrincipal=new PantallaPrincipal(this.cliente);
-        menuPrincipal.setVisible(true);
+        Transferencias pantallaTransferencias=new Transferencias(this.cliente);
+        pantallaTransferencias.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void txtBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBancoActionPerformed

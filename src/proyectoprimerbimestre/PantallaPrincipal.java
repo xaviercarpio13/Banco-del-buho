@@ -464,7 +464,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTransferenciaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransferenciaMousePressed
-        TransaccionesInterbancarias ventanaTransferencias=new TransaccionesInterbancarias(this.cliente);
+        Transferencias ventanaTransferencias=new Transferencias(this.cliente);
         ventanaTransferencias.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTransferenciaMousePressed

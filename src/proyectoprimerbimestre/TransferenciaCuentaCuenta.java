@@ -13,8 +13,10 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
     /**
      * Creates new form TransferenciaCuentaCuenta
      */
-    public TransferenciaCuentaCuenta() {
+    Usuario cliente;
+    public TransferenciaCuentaCuenta(Usuario cliente) {
         initComponents();
+        this.cliente = cliente;
     }
 
     /**
@@ -222,7 +224,7 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TransferenciaCuentaCuenta().setVisible(true);
+                new TransferenciaCuentaCuenta(null).setVisible(true);
             }
         });
     }
