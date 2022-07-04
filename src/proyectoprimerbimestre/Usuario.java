@@ -106,4 +106,5 @@ public class Usuario {
         return this.movimientos[indice];
     }
     
+    
 }
