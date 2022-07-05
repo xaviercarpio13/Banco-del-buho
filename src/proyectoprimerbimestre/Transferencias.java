@@ -24,9 +24,11 @@ public class Transferencias extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        bntVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocation(new java.awt.Point(500, 125));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -128,15 +130,17 @@ public class Transferencias extends javax.swing.JFrame {
         jLabel7.setText("Seleccione el tipo de Transferencia");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 250, -1));
 
-        jButton4.setBackground(new java.awt.Color(255, 0, 0));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton4.setText("Salir");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        bntVolver.setBackground(new java.awt.Color(227, 29, 26));
+        bntVolver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bntVolver.setForeground(new java.awt.Color(255, 255, 255));
+        bntVolver.setText("Volver");
+        bntVolver.setBorder(null);
+        bntVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                bntVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, -1, -1));
+        jPanel1.add(bntVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 60, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,8 +164,8 @@ public class Transferencias extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        TransferenciaMismoBanco transferenciaBB= new TransferenciaMismoBanco();
+        
+        TransferenciaMismoBanco transferenciaBB= new TransferenciaMismoBanco(this.cliente);
         transferenciaBB.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -172,11 +176,12 @@ public class Transferencias extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton3MousePressed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+    private void bntVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntVolverActionPerformed
+       PantallaPrincipal pantPrinc=new PantallaPrincipal(this.cliente);
+       pantPrinc.setVisible(true);
+       dispose();
         
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_bntVolverActionPerformed
 
 
     public static void main(String args[]) {
@@ -212,10 +217,10 @@ public class Transferencias extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bntVolver;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
