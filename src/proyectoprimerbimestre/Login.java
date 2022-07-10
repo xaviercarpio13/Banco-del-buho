@@ -98,7 +98,7 @@ public class Login extends javax.swing.JFrame {
 
         imgFondoAzulBoton.setBackground(new java.awt.Color(15, 34, 64));
         imgFondoAzulBoton.setForeground(new java.awt.Color(15, 34, 64));
-        imgFondoAzulBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        imgFondoAzulBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         imgFondoAzulBoton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imgFondoAzulBotonMouseClicked(evt);
@@ -157,6 +157,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.add(txtFooter2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 280, -1));
 
         imgFondoRojoBoton.setBackground(new java.awt.Color(227, 29, 26));
+        imgFondoRojoBoton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         imgFondoRojoBoton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 imgFondoRojoBotonMousePressed(evt);
@@ -167,7 +168,7 @@ public class Login extends javax.swing.JFrame {
         txtSalir.setForeground(new java.awt.Color(255, 255, 255));
         txtSalir.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSalir.setText("SALIR");
-        txtSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        txtSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout imgFondoRojoBotonLayout = new javax.swing.GroupLayout(imgFondoRojoBoton);
         imgFondoRojoBoton.setLayout(imgFondoRojoBotonLayout);
