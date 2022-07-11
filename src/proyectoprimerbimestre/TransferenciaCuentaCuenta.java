@@ -236,6 +236,7 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         cmbCuentasUsuarioDestino.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         cmbCuentasUsuarioDestino.setForeground(new java.awt.Color(255, 255, 255));
         cmbCuentasUsuarioDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+        cmbCuentasUsuarioDestino.setFocusable(false);
         cmbCuentasUsuarioDestino.setOpaque(false);
         cmbCuentasUsuarioDestino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -279,6 +280,8 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
 
         btnValidar3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         btnValidar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IconosYLogos/iconoVistoSmall.png"))); // NOI18N
+        btnValidar3.setFocusPainted(false);
+        btnValidar3.setFocusable(false);
         btnValidar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnValidar3ActionPerformed(evt);
