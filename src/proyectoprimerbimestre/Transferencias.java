@@ -8,6 +8,9 @@ public class Transferencias extends javax.swing.JFrame {
     public Transferencias(Usuario cliente) {
         initComponents();
         this.cliente = cliente;
+        if(cliente.getCantidadCuentas()==1){
+            btnTransCC.setEnabled(false);
+        }
     }
 
    
@@ -20,9 +23,9 @@ public class Transferencias extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnTransCC = new javax.swing.JButton();
+        btnTransBB = new javax.swing.JButton();
+        btnTransInter = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         bntVolver = new javax.swing.JButton();
 
@@ -70,33 +73,33 @@ public class Transferencias extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton1.setText("Transferencia Cuenta-Cuenta");
-        jButton1.setFocusable(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnTransCC.setBackground(new java.awt.Color(204, 204, 204));
+        btnTransCC.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnTransCC.setText("Transferencia Cuenta-Cuenta");
+        btnTransCC.setFocusable(false);
+        btnTransCC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnTransCCActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton2.setText("Transferencia Banco del Buho");
-        jButton2.setFocusable(false);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnTransBB.setBackground(new java.awt.Color(204, 204, 204));
+        btnTransBB.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnTransBB.setText("Transferencia Banco del Buho");
+        btnTransBB.setFocusable(false);
+        btnTransBB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnTransBBActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton3.setText("Transferencia Interbancaria");
-        jButton3.setFocusable(false);
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnTransInter.setBackground(new java.awt.Color(204, 204, 204));
+        btnTransInter.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnTransInter.setText("Transferencia Interbancaria");
+        btnTransInter.setFocusable(false);
+        btnTransInter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButton3MousePressed(evt);
+                btnTransInterMousePressed(evt);
             }
         });
 
@@ -109,21 +112,21 @@ public class Transferencias extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnTransBB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnTransInter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 3, Short.MAX_VALUE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnTransCC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jButton1)
+                .addComponent(btnTransCC)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btnTransBB)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnTransInter)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -160,25 +163,25 @@ public class Transferencias extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnTransCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransCCActionPerformed
         TransferenciaCuentaCuenta pantallaCuentaCuenta = new TransferenciaCuentaCuenta(this.cliente);
         pantallaCuentaCuenta.setVisible(true);
         this.dispose();
    
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnTransCCActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnTransBBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransBBActionPerformed
         
         TransferenciaMismoBanco transferenciaBB= new TransferenciaMismoBanco(this.cliente);
         transferenciaBB.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnTransBBActionPerformed
 
-    private void jButton3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MousePressed
+    private void btnTransInterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransInterMousePressed
         TransaccionesInterbancarias ventanaTransferencias=new TransaccionesInterbancarias(this.cliente);
         ventanaTransferencias.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton3MousePressed
+    }//GEN-LAST:event_btnTransInterMousePressed
 
     private void bntVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntVolverActionPerformed
        PantallaPrincipal pantPrinc=new PantallaPrincipal(this.cliente);
@@ -222,9 +225,9 @@ public class Transferencias extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bntVolver;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnTransBB;
+    private javax.swing.JButton btnTransCC;
+    private javax.swing.JButton btnTransInter;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
