@@ -183,7 +183,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
                     + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentaSeleccionada);
             this.usuario.setMovimientos(movimiento, cuentaSeleccionada);
             String movimiento2 = String.valueOf(fechaActual) + "\nTransferencia de " + nombre
-                    + "\n- $" + valor + "\n\n" + usuario.getMovimientos(indiceCuentaDestino);
+                    + "\n+ $" + valor + "\n\n" + usuario.getMovimientos(indiceCuentaDestino);
             this.usuario.setMovimientos(movimiento2, indiceCuentaDestino);
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, usuario.getNumeroDeCuenta(cuentaSeleccionada),
                     usuario.getNumeroDeCuenta(indiceCuentaDestino), nombre);
