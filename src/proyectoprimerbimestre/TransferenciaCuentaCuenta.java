@@ -11,6 +11,7 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
     
     public TransferenciaCuentaCuenta(Usuario cliente) {
         initComponents();
+        frmt.setMaximumFractionDigits(2);
         this.cliente = cliente;
         switch (cliente.getCantidadCuentas()) {
             case 1:
