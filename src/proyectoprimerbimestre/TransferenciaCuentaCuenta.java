@@ -2,16 +2,12 @@
 package proyectoprimerbimestre;
 
 import java.text.DecimalFormat;
-import java.time.LocalDate;
 
 public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
 
     Usuario cliente;
     DecimalFormat frmt=new DecimalFormat();
     int indiceComboBox;
-    String numeroCuentaOrigen;
-    String numeroCuentaDestino;
-    LocalDate fechaActual;
     
     public TransferenciaCuentaCuenta(Usuario cliente) {
         initComponents();
