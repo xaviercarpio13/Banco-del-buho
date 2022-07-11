@@ -14,6 +14,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     int cuentas;
     LocalDate fechaActual;
     int cuentaSeleccionada;
+    int indiceCuentaDestino;
     int tipo;           //1 para transferencias, 2 para Pago Tarjetas
    
     
@@ -41,6 +42,16 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         fechaActual=LocalDate.now();
         tipo=2;
         
+    }
+    public ConfirmacionPagos(Usuario cliente, int indiceCuentaOrigen, int indiceCuentaDestino, float transferencia ){
+        initComponents();
+        tipo=3;
+        fechaActual=LocalDate.now();
+        this.indiceCuentaDestino=indiceCuentaDestino;
+        this.cuentaSeleccionada=indiceCuentaOrigen;
+        this.usuario=cliente;
+        this.valor=transferencia;
+        this.nombre=usuario.getNombre()+" "+usuario.getApellido();
     }
 
    
@@ -145,31 +156,46 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
-        if(this.tipo==1){
-        usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
-                    -valor),(cuentaSeleccionada));
-        String movimiento=String.valueOf(fechaActual)+"\nPago de tarjeta  "+tarjeta+
-                "\n- $"+valor+"\n\n"+usuario.getMovimientos(cuentas);
-        this.usuario.setMovimientos(movimiento,cuentas);
-        ReciboPago newframe2= new ReciboPago(this.usuario, valor,cuenta,tarjeta);
-        newframe2.setVisible(true);
-        this.dispose();
+        if (this.tipo == 1) {
+            usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
+                    - valor), (cuentaSeleccionada));
+            String movimiento = String.valueOf(fechaActual) + "\nPago de tarjeta  " + tarjeta
+                    + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentas);
+            this.usuario.setMovimientos(movimiento, cuentas);
+            ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta);
+            newframe2.setVisible(true);
+            this.dispose();
+        } else if (this.tipo == 2) {
+            usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
+                    - valor), (cuentaSeleccionada));
+            String movimiento = String.valueOf(fechaActual) + "\nTransferencia a " + nombre
+                    + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentas);
+            this.usuario.setMovimientos(movimiento, cuentas);
+            ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta, nombre);
+            newframe2.setVisible(true);
+            this.dispose();
         } else {
             usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
-                    -valor),(cuentaSeleccionada));
-        String movimiento=String.valueOf(fechaActual)+"\nTransferencia a "+nombre+
-                "\n- $"+valor+"\n\n"+usuario.getMovimientos(cuentas);
-        this.usuario.setMovimientos(movimiento,cuentas);
-        ReciboPago newframe2= new ReciboPago(this.usuario, valor,cuenta,tarjeta,nombre);
-        newframe2.setVisible(true);
-        this.dispose();
+                    - valor), (cuentaSeleccionada));
+            usuario.setSaldos((usuario.getSaldo(indiceCuentaDestino)
+                    + valor), (indiceCuentaDestino));
+            String movimiento = String.valueOf(fechaActual) + "\nTransferencia a " + nombre
+                    + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentaSeleccionada);
+            this.usuario.setMovimientos(movimiento, cuentaSeleccionada);
+            String movimiento2 = String.valueOf(fechaActual) + "\nTransferencia de " + nombre
+                    + "\n- $" + valor + "\n\n" + usuario.getMovimientos(indiceCuentaDestino);
+            this.usuario.setMovimientos(movimiento2, indiceCuentaDestino);
+            ReciboPago newframe2 = new ReciboPago(this.usuario, valor, usuario.getNumeroDeCuenta(cuentaSeleccionada),
+                    usuario.getNumeroDeCuenta(indiceCuentaDestino), nombre);
+            newframe2.setVisible(true);
+            this.dispose();
         }
         
     }//GEN-LAST:event_btnPagarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        PagoTarjetas ventanaPagoDeServicios=new PagoTarjetas(usuario);
-        ventanaPagoDeServicios.setVisible(true);
+        Transferencias ventanaTransferencias=new Transferencias(usuario);
+       ventanaTransferencias.setVisible(true);
         dispose();
        
     }//GEN-LAST:event_btnCancelarActionPerformed
