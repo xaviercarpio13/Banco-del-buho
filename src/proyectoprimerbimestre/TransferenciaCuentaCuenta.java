@@ -151,7 +151,11 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         txtSubtituloResumen.setText("CUENTA ORIGEN");
         panelFondoBlanco.add(txtSubtituloResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
+        cmbCuentasUsuarioOrigen.setBackground(new java.awt.Color(15, 34, 64));
+        cmbCuentasUsuarioOrigen.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        cmbCuentasUsuarioOrigen.setForeground(new java.awt.Color(255, 255, 255));
         cmbCuentasUsuarioOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+        cmbCuentasUsuarioOrigen.setOpaque(false);
         cmbCuentasUsuarioOrigen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCuentasUsuarioOrigenActionPerformed(evt);
@@ -219,6 +223,7 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
 
         panelFondoBlanco.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
+        txtFieldDineroTransferencia.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtFieldDineroTransferencia.setText("10000.00");
         txtFieldDineroTransferencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +232,11 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         });
         panelFondoBlanco.add(txtFieldDineroTransferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 60, 20));
 
+        cmbCuentasUsuarioDestino.setBackground(new java.awt.Color(15, 34, 64));
+        cmbCuentasUsuarioDestino.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        cmbCuentasUsuarioDestino.setForeground(new java.awt.Color(255, 255, 255));
         cmbCuentasUsuarioDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+        cmbCuentasUsuarioDestino.setOpaque(false);
         cmbCuentasUsuarioDestino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCuentasUsuarioDestinoActionPerformed(evt);

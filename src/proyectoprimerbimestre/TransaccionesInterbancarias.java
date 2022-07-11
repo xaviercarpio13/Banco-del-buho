@@ -70,6 +70,7 @@ public class TransaccionesInterbancarias extends javax.swing.JFrame {
         lblValidNombre = new javax.swing.JLabel();
         lblValidCI = new javax.swing.JLabel();
         lblValidNum = new javax.swing.JLabel();
+        lblAdvertencia = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 125));
@@ -241,6 +242,9 @@ public class TransaccionesInterbancarias extends javax.swing.JFrame {
         lblValidNum.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         lblValidNum.setForeground(new java.awt.Color(255, 0, 0));
 
+        lblAdvertencia.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        lblAdvertencia.setText("* El valor de esta transacción es $0.40");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -309,7 +313,9 @@ public class TransaccionesInterbancarias extends javax.swing.JFrame {
                                 .addComponent(jLabel6)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblValidMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblValidMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblAdvertencia, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -368,15 +374,13 @@ public class TransaccionesInterbancarias extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblValidNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblValidCI, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 52, Short.MAX_VALUE)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAdvertencia)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -417,7 +421,7 @@ public class TransaccionesInterbancarias extends javax.swing.JFrame {
                     if(monto<0){
                         lblValidMonto.setText("*Introduzca una cantidad positiva");
                     } else{
-                        if(monto>cliente.getSaldo((cmbCuentas.getSelectedIndex())-1)){
+                        if(monto>(cliente.getSaldo((cmbCuentas.getSelectedIndex())-1))-0.4){
                             lblValidMonto.setText("*Saldo insuficiente");
                         }
                         else{
@@ -504,7 +508,7 @@ public class TransaccionesInterbancarias extends javax.swing.JFrame {
 
             if(validMonto&&onlyLet&&onlyNum&&comb&&onlyLetNombre&&onlyNumCI){
                 
-            
+            montoPagado+=0.4;
             ConfirmacionPagos newframe= new ConfirmacionPagos(
                 this.cliente,montoPagado,cuenta, numeroCuenta,
                 (cmbCuentas.getSelectedIndex()-1),nombre);
@@ -590,6 +594,7 @@ public class TransaccionesInterbancarias extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JLabel lblAdvertencia;
     private javax.swing.JLabel lblSaldo;
     private javax.swing.JLabel lblValidBanco;
     private javax.swing.JLabel lblValidCI;

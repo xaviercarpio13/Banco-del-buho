@@ -17,7 +17,7 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         this.cliente = cliente;
         this.indiceDeCuenta = indice;
         txtImgNumeroDeCuenta.setText("N°"+String.valueOf(cliente.getNumeroDeCuenta(indiceDeCuenta)));
-        txtSaldoCuenta.setText("$ "+String.valueOf(frmt.format((long)cliente.getSaldo(indiceDeCuenta))));
+        txtSaldoCuenta.setText("$ "+String.valueOf(frmt.format(cliente.getSaldo(indiceDeCuenta))));
         txtImgTipoDeCuenta.setText(String.valueOf(cliente.getTipoDeCuenta(indiceDeCuenta)));
         
         txtMovimientos.setText(cliente.getMovimientos(indice));

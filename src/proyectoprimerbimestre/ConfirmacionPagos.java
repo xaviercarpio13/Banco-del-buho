@@ -15,7 +15,8 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     LocalDate fechaActual;
     int cuentaSeleccionada;
     int indiceCuentaDestino;
-    int tipo;           //1 para transferencias, 2 para Pago Tarjetas
+    int tipo;           //1 pago de tarjetas, 2 trans. Interbancarias
+                        //3 transferencias entre cuentas 
    
     
     public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuenta, String numTarjeta, int cuentaSeleccionada) {
@@ -168,9 +169,11 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         } else if (this.tipo == 2) {
             usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
                     - valor), (cuentaSeleccionada));
+           
             String movimiento = String.valueOf(fechaActual) + "\nTransferencia a " + nombre
                     + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentas);
             this.usuario.setMovimientos(movimiento, cuentas);
+            valor-=0.4;
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta, nombre);
             newframe2.setVisible(true);
             this.dispose();
