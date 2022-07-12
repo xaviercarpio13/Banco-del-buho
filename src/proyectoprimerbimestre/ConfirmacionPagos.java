@@ -202,9 +202,25 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPagarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        PantallaTipoTransferencias ventanaTransferencias=new PantallaTipoTransferencias(usuario);
-       ventanaTransferencias.setVisible(true);
-        dispose();
+        if(tipo==1){
+            PagoTarjetas ventanaTarjetas = new PagoTarjetas(usuario);
+            ventanaTarjetas.setVisible(true);
+            dispose();
+        }else if(tipo==3){
+            TransferenciaCuentaCuenta ventanaTransferenciaCC=new TransferenciaCuentaCuenta(usuario);
+            ventanaTransferenciaCC.setVisible(true);
+            dispose();
+        }else if(this.transf.equalsIgnoreCase("Directa")){
+            TransferenciasDirectas ventanaTransferenciaDR = new TransferenciasDirectas(usuario);
+            ventanaTransferenciaDR.setVisible(true);
+            dispose();
+        }else if(this.transf.equalsIgnoreCase("Interbancaria")){
+            TransferenciasInterbancarias ventanaTransferenciaIB = new TransferenciasInterbancarias(usuario);
+            ventanaTransferenciaIB.setVisible(true);
+            dispose();
+        }
+        
+        
        
     }//GEN-LAST:event_btnCancelarActionPerformed
 
