@@ -15,6 +15,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     LocalDate fechaActual;
     int cuentaSeleccionada;
     int indiceCuentaDestino;
+    String transf=null;  //Interbancaria o Directa
     int tipo;           //1 pago de tarjetas, 2 trans. Interbancarias
                         //3 transferencias entre cuentas 
    
@@ -31,7 +32,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         tipo=1;
         
     }
-    public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuenta, String numTarjeta, int cuentaSeleccionada, String nombre) {
+    public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuenta, String numTarjeta, int cuentaSeleccionada, String nombre, String TipoTransf) {
         initComponents();
         this.cuentaSeleccionada=cuentaSeleccionada;
         this.usuario=cliente;
@@ -42,6 +43,8 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         this.nombre=nombre;
         fechaActual=LocalDate.now();
         tipo=2;
+        this.transf=TipoTransf;
+        
         
     }
     public ConfirmacionPagos(Usuario cliente, int indiceCuentaOrigen, int indiceCuentaDestino, float transferencia ){
@@ -173,7 +176,9 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             String movimiento = String.valueOf(fechaActual) + "\nTransferencia a " + nombre
                     + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentas);
             this.usuario.setMovimientos(movimiento, cuentas);
-            valor-=0.4;
+            if(this.transf.equalsIgnoreCase("Interbancaria")){
+                valor-=0.4;
+            }
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta, nombre);
             newframe2.setVisible(true);
             this.dispose();
@@ -197,7 +202,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPagarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        Transferencias ventanaTransferencias=new Transferencias(usuario);
+        PantallaTipoTransferencias ventanaTransferencias=new PantallaTipoTransferencias(usuario);
        ventanaTransferencias.setVisible(true);
         dispose();
        

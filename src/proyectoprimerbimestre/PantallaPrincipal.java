@@ -314,7 +314,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 80, 20));
 
         btnSalir.setBackground(new java.awt.Color(227, 29, 26));
-        btnSalir.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
@@ -325,7 +325,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 430, 60, 20));
+        jPanel1.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 70, 20));
 
         btnInfoCuenta1.setBackground(new java.awt.Color(234, 243, 251));
         btnInfoCuenta1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(222, 222, 222)));
@@ -464,7 +464,7 @@ public class PantallaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTransferenciaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransferenciaMousePressed
-        Transferencias ventanaTransferencias=new Transferencias(this.cliente);
+        PantallaTipoTransferencias ventanaTransferencias=new PantallaTipoTransferencias(this.cliente);
         ventanaTransferencias.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnTransferenciaMousePressed

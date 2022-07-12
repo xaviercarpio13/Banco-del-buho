@@ -2,10 +2,10 @@
 package proyectoprimerbimestre;
 
 
-public class Transferencias extends javax.swing.JFrame {
+public class PantallaTipoTransferencias extends javax.swing.JFrame {
 
     Usuario cliente;
-    public Transferencias(Usuario cliente) {
+    public PantallaTipoTransferencias(Usuario cliente) {
         initComponents();
         this.cliente = cliente;
         if(cliente.getCantidadCuentas()==1){
@@ -85,7 +85,7 @@ public class Transferencias extends javax.swing.JFrame {
 
         btnTransBB.setBackground(new java.awt.Color(204, 204, 204));
         btnTransBB.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnTransBB.setText("Transferencia Banco del Buho");
+        btnTransBB.setText("Transferencia Directa");
         btnTransBB.setFocusable(false);
         btnTransBB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,12 +110,9 @@ public class Transferencias extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnTransBB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnTransInter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 3, Short.MAX_VALUE))
-                    .addComponent(btnTransCC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnTransInter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnTransCC, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(btnTransBB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -172,13 +169,13 @@ public class Transferencias extends javax.swing.JFrame {
 
     private void btnTransBBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransBBActionPerformed
         
-        TransferenciaMismoBanco transferenciaBB= new TransferenciaMismoBanco(this.cliente);
+        TransferenciasDirectas transferenciaBB= new TransferenciasDirectas(this.cliente);
         transferenciaBB.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnTransBBActionPerformed
 
     private void btnTransInterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTransInterMousePressed
-        TransaccionesInterbancarias ventanaTransferencias=new TransaccionesInterbancarias(this.cliente);
+        TransferenciasInterbancarias ventanaTransferencias=new TransferenciasInterbancarias(this.cliente);
         ventanaTransferencias.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnTransInterMousePressed
@@ -205,20 +202,21 @@ public class Transferencias extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Transferencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaTipoTransferencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Transferencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaTipoTransferencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Transferencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaTipoTransferencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Transferencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaTipoTransferencias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Transferencias(null).setVisible(true);
+                new PantallaTipoTransferencias(null).setVisible(true);
             }
         });
     }

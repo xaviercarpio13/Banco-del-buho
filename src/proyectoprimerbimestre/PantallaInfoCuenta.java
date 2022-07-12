@@ -113,8 +113,10 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         jPanel1.add(txtSaldoCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 280, -1));
 
         bntSalir.setBackground(new java.awt.Color(227, 29, 26));
+        bntSalir.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         bntSalir.setForeground(new java.awt.Color(255, 255, 255));
         bntSalir.setText("Volver");
+        bntSalir.setBorder(null);
         bntSalir.setFocusPainted(false);
         bntSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

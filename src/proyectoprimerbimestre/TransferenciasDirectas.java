@@ -2,12 +2,12 @@ package proyectoprimerbimestre;
 
 import java.text.DecimalFormat;
 
-public class TransferenciaMismoBanco extends javax.swing.JFrame {
+public class TransferenciasDirectas extends javax.swing.JFrame {
 
     public Usuario cliente;
     DecimalFormat frmt = new DecimalFormat();
 
-    public TransferenciaMismoBanco(Usuario cliente) {
+    public TransferenciasDirectas(Usuario cliente) {
         initComponents();
         frmt.setMaximumFractionDigits(2);
         this.cliente = cliente;
@@ -44,20 +44,25 @@ public class TransferenciaMismoBanco extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtSaldo1 = new javax.swing.JTextField();
         txtNum = new javax.swing.JTextField();
         btnContinuar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        lblValidarN = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtMonto = new javax.swing.JTextField();
         cmbCuentas = new javax.swing.JComboBox<>();
         btnVolver = new javax.swing.JButton();
-        lblValidar1 = new javax.swing.JLabel();
-        lblValidarC = new javax.swing.JLabel();
+        lblValMonto = new javax.swing.JLabel();
+        lblValNum = new javax.swing.JLabel();
+        lblValNom = new javax.swing.JLabel();
+        lblSaldo = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        lblValidCuenta = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 125));
@@ -65,42 +70,35 @@ public class TransferenciaMismoBanco extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setText("BANCO DEL BÚHO");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 180, 30));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(15, 34, 64));
+        jLabel2.setText("Transferencias directas");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 210, 30));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel3.setText("Ingresar Nro. de cuenta del Beneficiario");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(15, 34, 64));
+        jLabel3.setText("Datos del beneficiario");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 51));
-        jLabel1.setText("Elija el Nro. de cuenta");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(15, 34, 64));
+        jLabel1.setText("Elija la cuenta");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Saldo Disponible");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Monto a Transferir");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, 20));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, 20));
 
-        txtSaldo1.setBackground(new java.awt.Color(255, 255, 255));
-        txtSaldo1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtSaldo1.setForeground(new java.awt.Color(255, 255, 255));
-        txtSaldo1.setText("0");
-        txtSaldo1.setBorder(null);
-        jPanel1.add(txtSaldo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 60, -1));
-
-        txtNum.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        jPanel1.add(txtNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 120, -1));
+        txtNum.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        txtNum.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jPanel1.add(txtNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 120, 20));
 
         btnContinuar.setBackground(new java.awt.Color(15, 34, 64));
-        btnContinuar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnContinuar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnContinuar.setForeground(new java.awt.Color(255, 255, 255));
         btnContinuar.setText("Continuar");
         btnContinuar.setToolTipText("");
@@ -110,7 +108,7 @@ public class TransferenciaMismoBanco extends javax.swing.JFrame {
                 btnContinuarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 410, 90, 30));
+        jPanel1.add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 90, 30));
 
         jPanel2.setBackground(new java.awt.Color(227, 29, 26));
 
@@ -142,58 +140,89 @@ public class TransferenciaMismoBanco extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 280, 40));
 
-        lblValidarN.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jPanel1.add(lblValidarN, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 120, -1));
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 120, 20));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 51));
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Nombre");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setText("USD");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("USD");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
 
-        txtMonto.setBackground(new java.awt.Color(0, 0, 51));
-        txtMonto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtMonto.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtMonto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         txtMonto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMontoActionPerformed(evt);
             }
         });
-        jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 70, -1));
+        jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 80, 20));
 
-        cmbCuentas.setBackground(new java.awt.Color(0, 0, 51));
+        cmbCuentas.setBackground(new java.awt.Color(15, 34, 64));
+        cmbCuentas.setForeground(new java.awt.Color(255, 255, 255));
         cmbCuentas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
-        cmbCuentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCuentasActionPerformed(evt);
+        cmbCuentas.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                TransferenciasDirectas.this.itemStateChanged(evt);
             }
         });
-        jPanel1.add(cmbCuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 120, -1));
+        jPanel1.add(cmbCuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 120, -1));
 
-        btnVolver.setBackground(new java.awt.Color(255, 0, 51));
+        btnVolver.setBackground(new java.awt.Color(227, 29, 26));
         btnVolver.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnVolver.setForeground(new java.awt.Color(255, 255, 255));
         btnVolver.setText("Volver");
+        btnVolver.setBorder(null);
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, -1, -1));
+        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 90, 30));
 
-        lblValidar1.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jPanel1.add(lblValidar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 140, 10));
+        lblValMonto.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblValMonto.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(lblValMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 110, 20));
 
-        lblValidarC.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        jPanel1.add(lblValidarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 180, 10));
+        lblValNum.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblValNum.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(lblValNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 110, 10));
+
+        lblValNom.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblValNom.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(lblValNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
+
+        lblSaldo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblSaldo.setText("0");
+        jPanel1.add(lblSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 60, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setText("Nro. Cuenta");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+
+        lblValidCuenta.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        lblValidCuenta.setForeground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(lblValidCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel10.setText("Nro. Cuenta");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 230, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -213,100 +242,89 @@ public class TransferenciaMismoBanco extends javax.swing.JFrame {
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         // TODO add your handling code here:
          try{
-             boolean onlyNum=false;
-             boolean Validar1=false;
-             boolean onlyLetNombre=false;
-             /*
-            boolean validMonto=false;
             boolean onlyNum=false;
-            boolean onlyLet=false;
-            boolean comb=false;
+            boolean Validar1=false;
             boolean onlyLetNombre=false;
-            boolean onlyNumCI=false;
-*/
-            String numeroCuenta=txtNum.getText();
-            //String nombreBanco=txtBanco.getText();
+            boolean comb=false;
+            String numeroCuentaDestino=txtNum.getText();
+            
             float montoPagado=-1;
-            String cuenta=cliente.getNumeroDeCuenta(cmbCuentas.getSelectedIndex()-1);
-            String nombre=lblValidarN.getText();
-            //String CI=txtCI.getText();
+            String cuentaClienteEmisor=cliente.getNumeroDeCuenta(cmbCuentas.getSelectedIndex()-1);
+            String nombre=txtNombre.getText();
 
             if(txtMonto.getText().isEmpty()){
-                lblValidar1.setText("*Campo obligatorio");
+                lblValMonto.setText("*Campo obligatorio");
             } else{
                 try {
                     float monto=Float.parseFloat(txtMonto.getText());
                     if(monto<0){
-                        lblValidar1.setText("*Introduzca una cantidad positiva");
+                        lblValMonto.setText("*Dato no válido");
                     } else{
                         if(monto>(cliente.getSaldo((cmbCuentas.getSelectedIndex())-1))-0.4){
-                            lblValidar1.setText("*Saldo insuficiente");
+                            lblValMonto.setText("*Saldo insuficiente");
                         }
                         else{
                             Validar1=true;
-                            lblValidar1.setText("");
+                            lblValMonto.setText("");
                             montoPagado=monto;
                         }
                     }
                 } catch (Exception e) {
 
-                    lblValidar1.setText("*Cantidad no válida");
+                    lblValMonto.setText("*Dato no válido");
                 }
             }
 
-            if(numeroCuenta.isEmpty()){
-                lblValidarC.setText("*Campo obligatorio");
+            if(numeroCuentaDestino.isEmpty()){
+                lblValNum.setText("*Campo obligatorio");
             } else{
 
-                for(int i=0;i<numeroCuenta.length();i++){
-                    if(Character.isAlphabetic(numeroCuenta.charAt(i))){
+                for(int i=0;i<numeroCuentaDestino.length();i++){
+                    if(Character.isAlphabetic(numeroCuentaDestino.charAt(i))){
                         onlyNum=false;
-                        lblValidarC.setText("*Dato no válido");
+                        lblValNum.setText("*Dato no válido");
 
                     } else{
                         onlyNum=true;
-                        lblValidarC.setText("");
+                        lblValNum.setText("");
                     }
                 }
                 
             }
 
-            
-
-            /*if(cmbCuentas.getSelectedIndex()==0){
+           
+            if(cmbCuentas.getSelectedIndex()==0){
                 lblValidCuenta.setText("*Seleccione una cuenta");
             } else{
                 comb=true;
                 lblValidCuenta.setText("");
             }
-            */
+            
             if(nombre.isEmpty()){
-                lblValidarN.setText("*Campo obligatorio");
+                lblValNom.setText("*Campo obligatorio");
             } else{
                 for (int i=0;i<nombre.length();i++){
                     if(Character.isDigit(nombre.charAt(i))){
                         onlyLetNombre=false;
-                        lblValidarN.setText("*Dato no válido");
+                        lblValNom.setText("*Dato no válido");
                     } else{
                         onlyLetNombre=true;
-                        lblValidarN.setText("");
+                        lblValNom.setText("");
                     }
                 }
             }
           
-
-            if(Validar1&&onlyNum&&onlyLetNombre){
+            if(Validar1&&onlyNum&&onlyLetNombre&&comb){
                 
-            montoPagado+=0.4;
             ConfirmacionPagos newframe= new ConfirmacionPagos(
-                this.cliente,montoPagado,cuenta, numeroCuenta,
-                (cmbCuentas.getSelectedIndex()-1),nombre);
+                this.cliente,montoPagado,cuentaClienteEmisor, numeroCuentaDestino,
+                (cmbCuentas.getSelectedIndex()-1),nombre, "Directa");
             newframe.setVisible(true);
             dispose();
             
         }
 
-        }catch(Exception e){                  //Todos los campos vacíos
+        }catch(Exception e){                  
 
         }
         
@@ -317,41 +335,45 @@ public class TransferenciaMismoBanco extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContinuarActionPerformed
 
     private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtMontoActionPerformed
 
-    private void cmbCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCuentasActionPerformed
-
-        switch (cmbCuentas.getSelectedIndex()) {
-            case 0:
-                txtSaldo1.setText("0");
-                break;
-            case 1:
-                txtSaldo1.setText(String.valueOf(frmt.format(cliente.getSaldo(0))));
-                break;
-            case 2:
-                txtSaldo1.setText(String.valueOf(frmt.format(cliente.getSaldo(1))));
-                break;
-            case 3:
-                txtSaldo1.setText(String.valueOf(frmt.format(cliente.getSaldo(2))));
-                break;
-            case 4:
-                txtSaldo1.setText(String.valueOf(frmt.format(cliente.getSaldo(3))));
-                break;
-        }
-
-    }//GEN-LAST:event_cmbCuentasActionPerformed
-
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
-        Transferencias pantallaVolver = new Transferencias(this.cliente);
+        
+        PantallaTipoTransferencias pantallaVolver = new PantallaTipoTransferencias(this.cliente);
         pantallaVolver.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void itemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_itemStateChanged
+      switch (cmbCuentas.getSelectedIndex()){
+            case 0:
+            lblSaldo.setText("0");
+            break;
+            case 1:
+            lblSaldo.setText(String.valueOf(frmt.format(cliente.getSaldo(0))));
+            break;
+            case 2:
+            lblSaldo.setText(String.valueOf(frmt.format(cliente.getSaldo(1))));
+            break;
+            case 3:
+            lblSaldo.setText(String.valueOf(frmt.format(cliente.getSaldo(2))));
+            break;
+            case 4:
+            lblSaldo.setText(String.valueOf(frmt.format(cliente.getSaldo(3))));
+            break;
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_itemStateChanged
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+       
+    }//GEN-LAST:event_txtNombreActionPerformed
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -366,20 +388,21 @@ public class TransferenciaMismoBanco extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TransferenciaMismoBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransferenciasDirectas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TransferenciaMismoBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransferenciasDirectas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TransferenciaMismoBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransferenciasDirectas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TransferenciaMismoBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransferenciasDirectas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TransferenciaMismoBanco(null).setVisible(true);
+                new TransferenciasDirectas(null).setVisible(true);
             }
         });
     }
@@ -389,6 +412,7 @@ public class TransferenciaMismoBanco extends javax.swing.JFrame {
     private javax.swing.JButton btnVolver;
     private javax.swing.JComboBox<String> cmbCuentas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -396,14 +420,18 @@ public class TransferenciaMismoBanco extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JLabel lblValidar1;
-    private javax.swing.JLabel lblValidarC;
-    private javax.swing.JTextField lblValidarN;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblSaldo;
+    private javax.swing.JLabel lblValMonto;
+    private javax.swing.JLabel lblValNom;
+    private javax.swing.JLabel lblValNum;
+    private javax.swing.JLabel lblValidCuenta;
     private javax.swing.JTextField txtMonto;
+    private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNum;
-    private javax.swing.JTextField txtSaldo1;
     // End of variables declaration//GEN-END:variables
 }

@@ -88,7 +88,8 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         panelFondoBlanco.setBackground(new java.awt.Color(255, 255, 255));
         panelFondoBlanco.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtTituloTransferencia.setFont(new java.awt.Font("Segoe UI Variable", 1, 18)); // NOI18N
+        txtTituloTransferencia.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtTituloTransferencia.setForeground(new java.awt.Color(15, 34, 64));
         txtTituloTransferencia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtTituloTransferencia.setText("Transferir a otra cuenta");
         panelFondoBlanco.add(txtTituloTransferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 280, -1));
@@ -123,31 +124,33 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
 
         panelFondoBlanco.add(panelRojoFooter, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 281, 10));
 
-        txtSimboloDolar.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        txtSimboloDolar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtSimboloDolar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSimboloDolar.setText("$");
         panelFondoBlanco.add(txtSimboloDolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 20, -1));
 
-        txtValorTransferencia.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        txtValorTransferencia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtValorTransferencia.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtValorTransferencia.setText("Valor a transferir:  ");
         panelFondoBlanco.add(txtValorTransferencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 280, -1));
 
-        txtSeleccioneCuenta.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        txtSeleccioneCuenta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtSeleccioneCuenta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSeleccioneCuenta.setText("Seleccione la cuenta destino:");
         panelFondoBlanco.add(txtSeleccioneCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 280, -1));
 
-        txtCuentaOrigen.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        txtCuentaOrigen.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtCuentaOrigen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtCuentaOrigen.setText("Seleccione la cuenta origen:");
         panelFondoBlanco.add(txtCuentaOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 280, -1));
 
-        txtSubtituloDestino.setFont(new java.awt.Font("Segoe UI Variable", 1, 12)); // NOI18N
+        txtSubtituloDestino.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtSubtituloDestino.setForeground(new java.awt.Color(15, 34, 64));
         txtSubtituloDestino.setText("CUENTA DESTINO");
         panelFondoBlanco.add(txtSubtituloDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
-        txtSubtituloResumen.setFont(new java.awt.Font("Segoe UI Variable", 1, 12)); // NOI18N
+        txtSubtituloResumen.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtSubtituloResumen.setForeground(new java.awt.Color(15, 34, 64));
         txtSubtituloResumen.setText("CUENTA ORIGEN");
         panelFondoBlanco.add(txtSubtituloResumen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
@@ -163,7 +166,7 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         });
         panelFondoBlanco.add(cmbCuentasUsuarioOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 190, 20));
 
-        txtSaldo.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        txtSaldo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtSaldo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSaldo.setText("Saldo disponible:  ");
         panelFondoBlanco.add(txtSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 280, -1));
@@ -195,7 +198,7 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
             .addComponent(txtConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelFondoBlanco.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, -1, 30));
+        panelFondoBlanco.add(btnConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, -1, 30));
 
         btnVolver.setBackground(new java.awt.Color(227, 29, 26));
         btnVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -221,7 +224,7 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
             .addComponent(txtVolver, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        panelFondoBlanco.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        panelFondoBlanco.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
 
         txtFieldDineroTransferencia.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtFieldDineroTransferencia.setText("10000.00");
@@ -254,7 +257,7 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         });
         panelFondoBlanco.add(btnValidar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 20, 20));
 
-        txtSaldoOrigen.setFont(new java.awt.Font("Segoe UI Variable", 0, 14)); // NOI18N
+        txtSaldoOrigen.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtSaldoOrigen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtSaldoOrigen.setText("$1012.25");
         panelFondoBlanco.add(txtSaldoOrigen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 280, -1));
@@ -268,12 +271,12 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         });
         panelFondoBlanco.add(btnValidar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 20, 20));
 
-        txtError1.setFont(new java.awt.Font("Segoe UI Variable", 0, 10)); // NOI18N
+        txtError1.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         txtError1.setForeground(new java.awt.Color(227, 29, 26));
         txtError1.setText("* Por favor, seleccione una cuenta válida");
         panelFondoBlanco.add(txtError1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
-        txtError2.setFont(new java.awt.Font("Segoe UI Variable", 0, 10)); // NOI18N
+        txtError2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         txtError2.setForeground(new java.awt.Color(227, 29, 26));
         txtError2.setText("* Por favor, ingrese una cantidad válida");
         panelFondoBlanco.add(txtError2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
@@ -289,7 +292,7 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         });
         panelFondoBlanco.add(btnValidar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 20, 20));
 
-        txtError3.setFont(new java.awt.Font("Segoe UI Variable", 0, 10)); // NOI18N
+        txtError3.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         txtError3.setForeground(new java.awt.Color(227, 29, 26));
         txtError3.setText("* Campo requerido");
         panelFondoBlanco.add(txtError3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
@@ -313,7 +316,7 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFieldDineroTransferenciaActionPerformed
 
     private void txtVolverMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtVolverMouseClicked
-       Transferencias pantTrans=new Transferencias(this.cliente);
+       PantallaTipoTransferencias pantTrans=new PantallaTipoTransferencias(this.cliente);
        pantTrans.setVisible(true);
        dispose();
     }//GEN-LAST:event_txtVolverMouseClicked
