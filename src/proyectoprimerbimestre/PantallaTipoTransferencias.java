@@ -102,11 +102,6 @@ public class PantallaTipoTransferencias extends javax.swing.JFrame {
                 btnTransInterMousePressed(evt);
             }
         });
-        btnTransInter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTransInterActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -191,10 +186,6 @@ public class PantallaTipoTransferencias extends javax.swing.JFrame {
        dispose();
         
     }//GEN-LAST:event_bntVolverActionPerformed
-
-    private void btnTransInterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTransInterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTransInterActionPerformed
 
 
     public static void main(String args[]) {

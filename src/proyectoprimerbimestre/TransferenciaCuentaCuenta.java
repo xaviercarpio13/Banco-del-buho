@@ -241,11 +241,6 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         cmbCuentasUsuarioDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
         cmbCuentasUsuarioDestino.setFocusable(false);
         cmbCuentasUsuarioDestino.setOpaque(false);
-        cmbCuentasUsuarioDestino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCuentasUsuarioDestinoActionPerformed(evt);
-            }
-        });
         panelFondoBlanco.add(cmbCuentasUsuarioDestino, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 190, 20));
 
         btnValidar2.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
@@ -415,10 +410,6 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnValidar3ActionPerformed
 
-    private void cmbCuentasUsuarioDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCuentasUsuarioDestinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbCuentasUsuarioDestinoActionPerformed
-
     private void btnConfirmarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmarMousePressed
         switch (cmbCuentasUsuarioOrigen.getSelectedIndex()) {
             case 1:
@@ -512,34 +503,9 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnConfirmarMousePressed
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TransferenciaCuentaCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TransferenciaCuentaCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TransferenciaCuentaCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TransferenciaCuentaCuenta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+    
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TransferenciaCuentaCuenta(null).setVisible(true);

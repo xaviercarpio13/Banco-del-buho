@@ -142,11 +142,6 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 120, 20));
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 51));
@@ -164,11 +159,6 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
 
         txtMonto.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtMonto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        txtMonto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMontoActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 80, 20));
 
         cmbCuentas.setBackground(new java.awt.Color(15, 34, 64));
@@ -334,10 +324,6 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnContinuarActionPerformed
 
-    private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
-        
-    }//GEN-LAST:event_txtMontoActionPerformed
-
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         
         PantallaTipoTransferencias pantallaVolver = new PantallaTipoTransferencias(this.cliente);
@@ -369,37 +355,9 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_itemStateChanged
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-       
-    }//GEN-LAST:event_txtNombreActionPerformed
-
     
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TransferenciasDirectas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TransferenciasDirectas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TransferenciasDirectas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TransferenciasDirectas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TransferenciasDirectas(null).setVisible(true);

@@ -131,11 +131,6 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                 cmbCuentasItemStateChanged(evt);
             }
         });
-        cmbCuentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCuentasActionPerformed(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel9.setText("Saldo disponible");
@@ -152,11 +147,6 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
 
         txtMonto.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtMonto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        txtMonto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMontoActionPerformed(evt);
-            }
-        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("USD");
@@ -166,11 +156,6 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
 
         txtBanco.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtBanco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        txtBanco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBancoActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Nro. Cuenta ");
@@ -189,11 +174,6 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
 
         txtCI.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtCI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        txtCI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCIActionPerformed(evt);
-            }
-        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(15, 34, 64));
@@ -538,18 +518,6 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void txtBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBancoActionPerformed
-
-    }//GEN-LAST:event_txtBancoActionPerformed
-
-    private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
-
-    }//GEN-LAST:event_txtMontoActionPerformed
-
-    private void cmbCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCuentasActionPerformed
-
-    }//GEN-LAST:event_cmbCuentasActionPerformed
-
     private void cmbCuentasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCuentasItemStateChanged
 
         switch (cmbCuentas.getSelectedIndex()){
@@ -570,10 +538,6 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
             break;
         }
     }//GEN-LAST:event_cmbCuentasItemStateChanged
-
-    private void txtCIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCIActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCIActionPerformed
     
 
     public static void main(String args[]) {

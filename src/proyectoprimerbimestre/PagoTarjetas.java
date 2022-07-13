@@ -132,11 +132,6 @@ public class PagoTarjetas extends javax.swing.JFrame {
                 cmbCuentasItemStateChanged(evt);
             }
         });
-        cmbCuentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCuentasActionPerformed(evt);
-            }
-        });
         jPanel1.add(cmbCuentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 100, 20));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -158,11 +153,6 @@ public class PagoTarjetas extends javax.swing.JFrame {
 
         txtMonto.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtMonto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        txtMonto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMontoActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 84, 20));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -175,11 +165,6 @@ public class PagoTarjetas extends javax.swing.JFrame {
 
         txtBanco.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtBanco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        txtBanco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtBancoActionPerformed(evt);
-            }
-        });
         jPanel1.add(txtBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 155, -1));
 
         btnContinuar.setBackground(new java.awt.Color(15, 34, 64));
@@ -187,7 +172,7 @@ public class PagoTarjetas extends javax.swing.JFrame {
         btnContinuar.setForeground(new java.awt.Color(255, 255, 255));
         btnContinuar.setText("Continuar");
         btnContinuar.setBorder(null);
-        btnContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContinuarActionPerformed(evt);
@@ -200,7 +185,7 @@ public class PagoTarjetas extends javax.swing.JFrame {
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Volver");
         btnSalir.setBorder(null);
-        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSalir.setMaximumSize(new java.awt.Dimension(57, 19));
         btnSalir.setMinimumSize(new java.awt.Dimension(57, 19));
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -347,19 +332,11 @@ public class PagoTarjetas extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnContinuarActionPerformed
 
-    private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
-        
-    }//GEN-LAST:event_txtMontoActionPerformed
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         PantallaPrincipal menuPrincipal=new PantallaPrincipal(this.cliente);
         menuPrincipal.setVisible(true);
 
     }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void cmbCuentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCuentasActionPerformed
-       
-    }//GEN-LAST:event_cmbCuentasActionPerformed
 
     private void cmbCuentasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCuentasItemStateChanged
         switch (cmbCuentas.getSelectedIndex()){
@@ -380,10 +357,6 @@ public class PagoTarjetas extends javax.swing.JFrame {
             break;
         }
     }//GEN-LAST:event_cmbCuentasItemStateChanged
-
-    private void txtBancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBancoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtBancoActionPerformed
     
     
     public static void main(String args[]) {
