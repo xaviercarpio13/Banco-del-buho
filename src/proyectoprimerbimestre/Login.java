@@ -294,7 +294,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_imgFondoAzulBotonMouseClicked
 
     private void lblRegistrarseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarseMousePressed
-        // TODO add your handling code here: abrir pantalla de registro
+        PantallaRegistro registro = new PantallaRegistro();
+        registro.setVisible(true);
+        dispose();
     }//GEN-LAST:event_lblRegistrarseMousePressed
 
     
