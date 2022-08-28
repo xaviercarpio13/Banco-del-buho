@@ -35,6 +35,8 @@ public class Login extends javax.swing.JFrame {
         txtSalir = new javax.swing.JLabel();
         lblValidacionUsuario = new javax.swing.JLabel();
         lblValidacionPassword = new javax.swing.JLabel();
+        lblRegistrarse = new javax.swing.JLabel();
+        jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
@@ -113,7 +115,7 @@ public class Login extends javax.swing.JFrame {
             .addComponent(txtIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(imgFondoAzulBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 220, 30));
+        jPanel1.add(imgFondoAzulBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 315, 220, 30));
 
         panelVacio.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -173,7 +175,7 @@ public class Login extends javax.swing.JFrame {
             .addComponent(txtSalir, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        jPanel1.add(imgFondoRojoBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 220, 30));
+        jPanel1.add(imgFondoRojoBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 355, 220, 30));
 
         lblValidacionUsuario.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         lblValidacionUsuario.setForeground(new java.awt.Color(255, 0, 0));
@@ -182,6 +184,22 @@ public class Login extends javax.swing.JFrame {
         lblValidacionPassword.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         lblValidacionPassword.setForeground(new java.awt.Color(255, 0, 0));
         jPanel1.add(lblValidacionPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 220, 30));
+
+        lblRegistrarse.setFont(new java.awt.Font("Arial", 2, 10)); // NOI18N
+        lblRegistrarse.setForeground(new java.awt.Color(15, 34, 64));
+        lblRegistrarse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRegistrarse.setText("¿No tienes una cuenta? Click aqui para registrarte");
+        lblRegistrarse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblRegistrarse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblRegistrarseMousePressed(evt);
+            }
+        });
+        jPanel1.add(lblRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 280, 20));
+
+        jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
+        jSeparator3.setForeground(new java.awt.Color(204, 204, 204));
+        jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 240, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -275,6 +293,10 @@ public class Login extends javax.swing.JFrame {
         } 
     }//GEN-LAST:event_imgFondoAzulBotonMouseClicked
 
+    private void lblRegistrarseMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblRegistrarseMousePressed
+        // TODO add your handling code here: abrir pantalla de registro
+    }//GEN-LAST:event_lblRegistrarseMousePressed
+
     
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -299,6 +321,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lblRegistrarse;
     private javax.swing.JLabel lblValidacionPassword;
     private javax.swing.JLabel lblValidacionUsuario;
     private javax.swing.JPanel panelVacio;
