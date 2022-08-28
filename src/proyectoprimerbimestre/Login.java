@@ -1,13 +1,30 @@
 
 package proyectoprimerbimestre;
 import java.awt.Color;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
     
     public Usuario cliente;
+    public ArrayList<String> archivo;
     
     public Login() {
         initComponents();
+        archivo = new ArrayList<>();
+        try {
+            Scanner lector = new Scanner(new FileReader("usuarios.txt"));
+            while (lector.hasNextLine()) {
+                archivo.add(lector.nextLine());
+            }
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error FileNotFoundException");
+        }
+        
     }
 
    
@@ -40,7 +57,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
-        setLocation(new java.awt.Point(500, 125));
+        setLocation(new java.awt.Point(535, 125));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -197,7 +214,6 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(lblRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 280, 20));
 
-        jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator3.setForeground(new java.awt.Color(204, 204, 204));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 240, 10));
 
@@ -244,52 +260,54 @@ public class Login extends javax.swing.JFrame {
   
     
     private void imgFondoAzulBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgFondoAzulBotonMouseClicked
+        String username=LecturaUsername.getText();
         String password=new String(LecturaPassword.getPassword());
-        boolean usuario=false;
-        boolean letra=false;
-        boolean numero=false;
-        boolean caracterEspecial=false;
+        boolean usuarioNoVacio=false;
+        boolean passwordNoVacio=false;
+        boolean validacion=false;
+        
         
         if(LecturaUsername.getText().equals("Ingrese su nombre de usuario")||
                 LecturaUsername.getText().isEmpty()){
             lblValidacionUsuario.setText("* Campo obligatorio");
         } else{
-            usuario=true;
             lblValidacionUsuario.setText("");
+            usuarioNoVacio=true;
+              
         }
         
         if(password.equals("**********")||password.isEmpty()){
             lblValidacionPassword.setText("* Campo obligatorio");
         } else{
-            if(password.length()<8){
-            lblValidacionPassword.setText("* Digite mínimo 8 caracteres");
-            } else{
-                for(int i=0;i<password.length();i++){
-                    if(Character.isDigit(password.charAt(i))){
-                        numero=true;
+            lblValidacionPassword.setText("");
+            passwordNoVacio=true;
+                
+            }
+        
+        if(passwordNoVacio&&usuarioNoVacio){
+            for(String fila:archivo) {
+                String filaDeDatos[]=fila.split(";");
+                if(filaDeDatos.length>2){
+                    String nombreUsuario=filaDeDatos[0];
+                    String passwordUsuario=filaDeDatos[1];
+                    if(nombreUsuario.equals(username)&&passwordUsuario.equals(password)){
+                        validacion=true;
+                        break;
                     }
-                    if(Character.isAlphabetic(password.charAt(i))){
-                        letra=true;
-                    }
-                    if(!(Character.isAlphabetic(password.charAt(i))||Character.isDigit(password.charAt(i)))){
-                        caracterEspecial=true;
-                    }
-                }
-                if(caracterEspecial){
-                    lblValidacionPassword.setText("* Evite usar caracteres especiales");
-                }
-                else if(!numero||!letra){
-                    lblValidacionPassword.setText("* Use al menos una letra y un número");
-                } else{
-                    lblValidacionPassword.setText("");
                 }
             }
-        }
-        if(numero&&letra&&usuario&&(!caracterEspecial)){
-            cliente = new Usuario();
-            PantallaPrincipal menuPrincipal=new PantallaPrincipal(cliente);
-            menuPrincipal.setVisible(true);
-            dispose();
+            if(validacion){
+                cliente = new Usuario();
+                PantallaPrincipal menuPrincipal=new PantallaPrincipal(cliente);
+                menuPrincipal.setVisible(true);
+                dispose();
+                }
+            else{
+                JOptionPane.showMessageDialog(null, "Usuario no encontrado\n"
+                        + "Verifique usuario y contraseña", 
+                        "Error", JOptionPane.WARNING_MESSAGE);
+            }
+
         } 
     }//GEN-LAST:event_imgFondoAzulBotonMouseClicked
 
