@@ -55,7 +55,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         this.cuentaSeleccionada=indiceCuentaOrigen;
         this.usuario=cliente;
         this.valor=transferencia;
-        this.nombre=usuario.getNombre()+" "+usuario.getApellido();
+        this.nombre=usuario.getNombreCompleto();
     }
 
    
@@ -193,8 +193,8 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             String movimiento2 = String.valueOf(fechaActual) + "\nTransferencia de " + nombre
                     + "\n+ $" + valor + "\n\n" + usuario.getMovimientos(indiceCuentaDestino);
             this.usuario.setMovimientos(movimiento2, indiceCuentaDestino);
-            ReciboPago newframe2 = new ReciboPago(this.usuario, valor, usuario.getNumeroDeCuenta(cuentaSeleccionada),
-                    usuario.getNumeroDeCuenta(indiceCuentaDestino), nombre);
+            ReciboPago newframe2 = new ReciboPago(this.usuario, valor, usuario.getCuenta(cuentaSeleccionada),
+                    usuario.getCuenta(indiceCuentaDestino), nombre);
             newframe2.setVisible(true);
             this.dispose();
         }

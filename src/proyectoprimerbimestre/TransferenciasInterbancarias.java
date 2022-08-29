@@ -13,7 +13,7 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
         frmt.setMaximumFractionDigits(2);
         this.cliente=cliente;
         
-        
+        /*
         switch(cliente.getCantidadCuentas()){
             case 1:
                 cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(0)));
@@ -32,7 +32,8 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                 cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(1)));
                 cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(2)));
                 cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(3)));
-    }
+        }
+        */
     }
 
    
@@ -399,7 +400,7 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
             String numeroCuenta=txtNumCuenta.getText();
             String nombreBanco=txtBanco.getText();
             float montoPagado=-1;
-            String cuenta=cliente.getNumeroDeCuenta(cmbCuentas.getSelectedIndex()-1);
+            //String cuenta=cliente.getNumeroDeCuenta(cmbCuentas.getSelectedIndex()-1);
             String nombre=txtNombre.getText();
             String CI=txtCI.getText();
 
@@ -499,10 +500,10 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
             if(validMonto&&onlyLet&&onlyNum&&comb&&onlyLetNombre&&onlyNumCI){
                 
             montoPagado+=0.4;
-            ConfirmacionPagos newframe= new ConfirmacionPagos(
-                this.cliente,montoPagado,cuenta, numeroCuenta,
-                (cmbCuentas.getSelectedIndex()-1),nombre, "Interbancaria");
-            newframe.setVisible(true);
+            //ConfirmacionPagos newframe= new ConfirmacionPagos(
+               // this.cliente,montoPagado,cuenta, numeroCuenta,
+               // (cmbCuentas.getSelectedIndex()-1),nombre, "Interbancaria");
+            //newframe.setVisible(true);
             dispose();
             
         }

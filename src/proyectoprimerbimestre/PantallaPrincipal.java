@@ -19,7 +19,8 @@ public class PantallaPrincipal extends javax.swing.JFrame {
        
         
         lblBienvenido.setText("Bienvenido,");
-        txtNombreCliente.setText(cliente.getNombre()+" "+cliente.getApellido());
+        txtNombreCliente.setText(cliente.getNombreCompleto());
+        /*
         LocalDate fechaActualIngreso=LocalDate.now();
         LocalTime horaActual=LocalTime.now();
         String ingresoFechaHora = "Ultimo ingreso: "+String.valueOf(fechaActualIngreso)+
@@ -80,9 +81,10 @@ public class PantallaPrincipal extends javax.swing.JFrame {
                 txtNumeroCuenta4.setText("#"+String.valueOf(cliente.getNumeroDeCuenta(3)));
                 
                 break;
+    */
         }
         
-    }
+    
 
 
     @SuppressWarnings("unchecked")

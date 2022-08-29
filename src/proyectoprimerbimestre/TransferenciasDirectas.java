@@ -11,7 +11,7 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
         initComponents();
         frmt.setMaximumFractionDigits(2);
         this.cliente = cliente;
-
+        /*
         switch (cliente.getCantidadCuentas()) {
             case 1:
                 cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(0)));
@@ -31,7 +31,7 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
                 cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(2)));
                 cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(3)));
         }
-
+        */
     }
 
     @SuppressWarnings("unchecked")
@@ -239,7 +239,7 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
             String numeroCuentaDestino=txtNum.getText();
             
             float montoPagado=-1;
-            String cuentaClienteEmisor=cliente.getNumeroDeCuenta(cmbCuentas.getSelectedIndex()-1);
+            //String cuentaClienteEmisor=cliente.getNumeroDeCuenta(cmbCuentas.getSelectedIndex()-1);
             String nombre=txtNombre.getText();
 
             if(txtMonto.getText().isEmpty()){
@@ -306,10 +306,10 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
           
             if(Validar1&&onlyNum&&onlyLetNombre&&comb){
                 
-            ConfirmacionPagos newframe= new ConfirmacionPagos(
-                this.cliente,montoPagado,cuentaClienteEmisor, numeroCuentaDestino,
-                (cmbCuentas.getSelectedIndex()-1),nombre, "Directa");
-            newframe.setVisible(true);
+            //ConfirmacionPagos newframe= new ConfirmacionPagos(
+               // this.cliente,montoPagado,cuentaClienteEmisor, numeroCuentaDestino,
+                //(cmbCuentas.getSelectedIndex()-1),nombre, "Directa");
+            //newframe.setVisible(true);
             dispose();
             
         }

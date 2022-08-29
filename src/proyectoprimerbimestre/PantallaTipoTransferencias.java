@@ -8,9 +8,9 @@ public class PantallaTipoTransferencias extends javax.swing.JFrame {
     public PantallaTipoTransferencias(Usuario cliente) {
         initComponents();
         this.cliente = cliente;
-        if(cliente.getCantidadCuentas()==1){
-            btnTransCC.setEnabled(false);
-        }
+        //if(cliente.getCantidadCuentas()==1){
+            //btnTransCC.setEnabled(false);
+        //}
     }
 
    

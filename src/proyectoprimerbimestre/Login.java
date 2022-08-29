@@ -262,6 +262,7 @@ public class Login extends javax.swing.JFrame {
     private void imgFondoAzulBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgFondoAzulBotonMouseClicked
         String username=LecturaUsername.getText();
         String password=new String(LecturaPassword.getPassword());
+        int contador=0;
         boolean usuarioNoVacio=false;
         boolean passwordNoVacio=false;
         boolean validacion=false;
@@ -295,9 +296,30 @@ public class Login extends javax.swing.JFrame {
                         break;
                     }
                 }
+                contador++;
             }
+            System.out.println(contador);
             if(validacion){
-                cliente = new Usuario();
+                String datosUsuario=archivo.get(contador);
+                String splitDatosUsuario[]=datosUsuario.split(";");
+                String nombreCompleto=splitDatosUsuario[2];
+                ArrayList<String> cuentas=new ArrayList<>();
+                ArrayList<String> tipoCuentas=new ArrayList<>();
+                ArrayList<Float> saldos=new ArrayList<>();
+                ArrayList<String> movimientos=new ArrayList<>();
+                for(int i=0;i<splitDatosUsuario.length;i++){
+                   if(i==4||i==7||i==10||i==13){
+                       cuentas.add(splitDatosUsuario[i]);
+                   }
+                    if(i==5||i==8||i==11||i==14){
+                       tipoCuentas.add(splitDatosUsuario[i]);
+                   }
+                     if(i==6||i==9||i==12||i==15){
+                       saldos.add(Float.parseFloat(splitDatosUsuario[i]));
+                   }
+                }
+                cliente = new Usuario(nombreCompleto,cuentas,tipoCuentas,
+                        saldos,movimientos);
                 PantallaPrincipal menuPrincipal=new PantallaPrincipal(cliente);
                 menuPrincipal.setVisible(true);
                 dispose();
