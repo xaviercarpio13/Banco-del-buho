@@ -2,13 +2,15 @@
 package proyectoprimerbimestre;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.ArrayList;
 
 
 public class ConfirmacionPagos extends javax.swing.JFrame {
 
     public Usuario usuario;
-    int fila;
-    int columna;
+    int filaReceptor;
+    int columnaReceptor;
     float valor;
     String cuenta;
     String tarjeta;
@@ -39,8 +41,8 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             String numCuentaReceptor,int filaReceptor, int columnaReceptor, 
             int cuentaSeleccionada, String nombre, String TipoTransf) {
         initComponents();
-        this.fila=filaReceptor;
-        this.columna=columnaReceptor;
+        this.filaReceptor=filaReceptor;
+        this.columnaReceptor=columnaReceptor;
         this.cuentaSeleccionada=cuentaSeleccionada;
         this.usuario=cliente;
         valor=valorPagado;
@@ -173,22 +175,39 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             String movimiento = String.valueOf(fechaActual) + "\nPago de tarjeta  " + tarjeta
                     + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentas);
             this.usuario.setMovimientos(movimiento, cuentas);
-            usuario.anexar(usuario.getFila());
+            ArrayList<String> archivo=usuario.leerArchivo();
+            archivo.get(usuario.getFila());
+            String nuevaFila=usuario.escribirFilaNueva();
+            usuario.anexar(usuario.sobrescribirArchivo(usuario.leerArchivo(), 
+                    usuario.getFila(), nuevaFila));
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta);
             newframe2.setVisible(true);
             this.dispose();
+            
         } else if (this.tipo == 2) {
             usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
                     - valor), (cuentaSeleccionada));
-           
             String movimiento = String.valueOf(fechaActual) + "\nTransferencia a " + nombre
                     + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentas);
             this.usuario.setMovimientos(movimiento, cuentas);
-            
-            
             if(this.transf.equalsIgnoreCase("Interbancaria")){
                 valor-=0.4;
             }
+            ArrayList<String> archivo=usuario.leerArchivo();
+            String datosCuentaDestino[]=archivo.get(filaReceptor).split(";");
+            float saldoDestino=Float.parseFloat(datosCuentaDestino[columnaReceptor+2]);
+            saldoDestino+=valor;
+            datosCuentaDestino[columnaReceptor+2]=String.valueOf(saldoDestino);
+            String mensaje=(Arrays.toString(datosCuentaDestino)).replace(", ", ";").replaceAll("[\\[\\]]","");
+
+            ArrayList<String> archivoModif;
+            archivoModif=usuario.sobrescribirArchivo(archivo, 
+                    usuario.getFila(), usuario.escribirFilaNueva());
+            
+            
+            archivoModif=usuario.sobrescribirArchivo(archivoModif, 
+                    filaReceptor, mensaje);
+            usuario.anexar(archivoModif);
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta, nombre);
             newframe2.setVisible(true);
             this.dispose();

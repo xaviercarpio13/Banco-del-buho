@@ -85,12 +85,8 @@ public class Usuario {
         return(this.cuentas.size());
     }
 
-    public boolean anexar(int fila) {
-        boolean r = false;
-        ArrayList<String> archivo = leerArchivo();
-
-        archivo.set(fila, escribirFilaNueva());
-        
+    public boolean anexar(ArrayList<String> archivo) {
+        boolean r = false; 
         try {
             PrintWriter fileOut;
             fileOut = new PrintWriter(new FileWriter("usuarios.txt", false));
@@ -131,6 +127,10 @@ public class Usuario {
         return filaEscrita;
     }
     
+    public ArrayList<String> sobrescribirArchivo(ArrayList<String> archivo,int fila, String mensaje){
+        archivo.set(fila,mensaje);
+        return archivo;
+    }
     
     
     
