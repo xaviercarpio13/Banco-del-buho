@@ -62,7 +62,11 @@ public class Usuario {
     }
     
     public String getTipoCuentas(int indice) {
-        return tipoCuentas.get(indice);
+        if(tipoCuentas.get(indice).equals("0")){
+            return "Ahorros";
+        }else{
+            return "Corriente";
+        }
     }
 
     public void setSaldos(float Saldos, int indice) {
