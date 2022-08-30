@@ -4,18 +4,43 @@
  */
 package proyectoprimerbimestre;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
 /**
  *
  * @author nivek
  */
 public class PantallaRegistro extends javax.swing.JFrame {
+    public String archivo;
 
     /**
      * Creates new form PantallaRegistro
      */
+    
+     public PantallaRegistro(String archivo){
+       this.archivo=archivo;
+   } 
     public PantallaRegistro() {
         initComponents();
+        lblMensaje.setVisible(false);
     }
+    
+    public boolean anexar (String fila){
+        boolean r= false;
+        
+        try {
+            PrintWriter fileOut;
+            fileOut= new PrintWriter(new FileWriter(archivo, true));
+            fileOut.println(fila);
+            fileOut.close();
+            r=true;   
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+        return r;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,7 +60,6 @@ public class PantallaRegistro extends javax.swing.JFrame {
         txtFldNombre = new javax.swing.JTextField();
         lblNombre = new javax.swing.JLabel();
         lblApellido = new javax.swing.JLabel();
-        txtFldApellido = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtFldCedula = new javax.swing.JTextField();
         lblFecha = new javax.swing.JLabel();
@@ -64,6 +88,10 @@ public class PantallaRegistro extends javax.swing.JFrame {
         lblCI = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        lblCedula = new javax.swing.JLabel();
+        lblNombreA = new javax.swing.JLabel();
+        lblAbonoI = new javax.swing.JLabel();
+        lblMensaje = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(500, 125));
@@ -106,19 +134,19 @@ public class PantallaRegistro extends javax.swing.JFrame {
         jPanel1.add(lblDatosPersonales, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
         jPanel1.add(txtFldNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, 180, -1));
 
-        lblNombre.setText("Nombre:");
-        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, 22));
+        lblNombre.setText("Nombre");
+        lblNombre.setToolTipText("");
+        jPanel1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, 22));
 
-        lblApellido.setText("Apellido:");
-        jPanel1.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 22));
-        jPanel1.add(txtFldApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 180, -1));
+        lblApellido.setText("y Apellido:");
+        jPanel1.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 22));
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("AAAA");
         jLabel7.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 40, 10));
-        jPanel1.add(txtFldCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 180, -1));
+        jPanel1.add(txtFldCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 180, -1));
 
         lblFecha.setText("Fecha nacimiento:");
         jPanel1.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, 22));
@@ -236,7 +264,7 @@ public class PantallaRegistro extends javax.swing.JFrame {
         jPanel1.add(BloqueRojoFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 280, 10));
 
         lblCI.setText("C.I.:");
-        jPanel1.add(lblCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, 22));
+        jPanel1.add(lblCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 22));
 
         jLabel18.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -249,6 +277,18 @@ public class PantallaRegistro extends javax.swing.JFrame {
         jLabel19.setText("MM");
         jLabel19.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 30, 10));
+
+        lblCedula.setText(".");
+        jPanel1.add(lblCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 120, -1));
+
+        lblNombreA.setText(".");
+        jPanel1.add(lblNombreA, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 150, -1));
+
+        lblAbonoI.setText(".");
+        jPanel1.add(lblAbonoI, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 110, -1));
+
+        lblMensaje.setText(".");
+        jPanel1.add(lblMensaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -277,6 +317,108 @@ public class PantallaRegistro extends javax.swing.JFrame {
     private void btnFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarActionPerformed
         // AQUI HACER LA RECEPCION Y VALIDACION DE DATOS
         // PARA ESCRIBIR EN EL ARCHIVO
+        try {
+// Condiciones para CI: 
+// Debe ser llenado, no numeros negativos, solo numero no letras
+            boolean Validar1 = false;
+            boolean Validar2 = false;
+            boolean Validar3 = false;
+
+            if (txtFldCedula.getText().isEmpty()) {
+                lblCedula.setText("*Llene por favor");
+            } else {
+
+                for (int i = 0; i < txtFldCedula.getText().length(); i++) {
+                    if (Character.isAlphabetic(txtFldCedula.getText().charAt(i))) {
+                        Validar2 = false;
+                        lblCedula.setText("No válido(solo Numeros)");
+                    } else {
+                        Validar2= true;
+                        lblCedula.setText("");
+                    }
+                }
+
+                try {
+                    float numeroIngreso = Float.parseFloat(txtFldCedula.getText());
+                    if (numeroIngreso < 0) {
+                        lblCedula.setText("No numeros negativos");
+                    } else {
+
+                        Validar1 = true;
+                        lblCedula.setText("");
+                    }
+                } catch (Exception e) {
+
+                    lblCedula.setText("Dato no válido");
+                }
+            }
+//Condiciones para nombre: debe ser llenado y solo letras no numeros             
+            if (txtFldNombre.getText().isEmpty()) {
+                lblNombreA.setText("Llene por favor");
+            } else {
+                for (int i = 0; i < txtFldNombre.getText().length(); i++) {
+                    if (Character.isDigit(txtFldNombre.getText().charAt(i))) {
+                        Validar2 = false;
+                        lblNombreA.setText("No válido(solo Letras)");
+                    } else {
+                        Validar2= true;
+                        lblNombreA.setText("");
+                    }
+                }
+            }
+
+// Condiciones para codigo:
+// Debe ser llenado, no numeros negativos, solo numero no letras
+            if (txtFldAbono.getText().isEmpty()) {
+                lblAbonoI.setText("*Llene por favor");
+            } else {
+
+                for (int i = 0; i < txtFldAbono.getText().length(); i++) {
+                    if (Character.isAlphabetic(txtFldAbono.getText().charAt(i))) {
+                        Validar2 = false;
+                        lblAbonoI.setText("No válido (solo Numeros)");
+                    } else {
+                        Validar3 = true;
+                        lblAbonoI.setText("");
+                    }
+                }
+                
+
+                try { 
+                    float numeroIngreso = Float.parseFloat(txtFldAbono.getText());
+                    if (numeroIngreso < 0) {
+                        txtFldAbono.setText("No numeros negativos");
+                    } else {
+
+                        Validar3 = true;
+                        lblAbonoI.setText("");
+                    }
+                } catch (Exception e) {
+
+                    lblAbonoI.setText("Dato no válido");
+                }
+            }
+
+            if (Validar1 && Validar2 && Validar3) {
+        String fila=txtFldUsuario.getText()+";"+txtFldContra.getText()+";"+ txtFldNombre.getText();
+       
+       
+        String archivoUsuarios="usuarios.txt";
+        PantallaRegistro val= new PantallaRegistro(archivoUsuarios);
+        if(val.anexar(fila)){
+            lblMensaje.setText("Agregado");
+            lblMensaje.setVisible(true);
+            txtFldUsuario.setEnabled(false);
+            txtFldContra.setEnabled(false);
+            txtFldNombre.setEnabled(false);
+            btnFinalizar.setEnabled(false);
+        }
+        
+        }
+
+        } catch (Exception e) {
+
+        }
     }//GEN-LAST:event_btnFinalizarActionPerformed
 
     private void txtFldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldUsuarioActionPerformed
@@ -336,21 +478,24 @@ public class PantallaRegistro extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel lblAbono;
+    private javax.swing.JLabel lblAbonoI;
     private javax.swing.JLabel lblAcceso;
     private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblCI;
+    private javax.swing.JLabel lblCedula;
     private javax.swing.JLabel lblContra;
     private javax.swing.JLabel lblCreacionCuenta;
     private javax.swing.JLabel lblDatosPersonales;
     private javax.swing.JLabel lblFecha;
+    private javax.swing.JLabel lblMensaje;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombreA;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JLabel lblTituloPagina;
     private javax.swing.JLabel lblUSD;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTextField txtFldAbono;
     private javax.swing.JTextField txtFldAnio;
-    private javax.swing.JTextField txtFldApellido;
     private javax.swing.JTextField txtFldCedula;
     private javax.swing.JPasswordField txtFldContra;
     private javax.swing.JTextField txtFldDia;
