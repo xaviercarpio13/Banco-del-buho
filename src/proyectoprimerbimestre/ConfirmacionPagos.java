@@ -30,6 +30,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         cuentas=cuentaSeleccionada;
         fechaActual=LocalDate.now();
         tipo=1;
+       
         
     }
     public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuenta, String numTarjeta, int cuentaSeleccionada, String nombre, String TipoTransf) {
@@ -166,6 +167,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             String movimiento = String.valueOf(fechaActual) + "\nPago de tarjeta  " + tarjeta
                     + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentas);
             this.usuario.setMovimientos(movimiento, cuentas);
+            usuario.anexar(usuario.getFila());
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta);
             newframe2.setVisible(true);
             this.dispose();

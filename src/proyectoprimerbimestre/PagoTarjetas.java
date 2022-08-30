@@ -13,34 +13,29 @@ public class PagoTarjetas extends javax.swing.JFrame {
     public PagoTarjetas(Usuario cliente) {
         initComponents();
         this.cliente=cliente;
-        
         frmt.setMaximumFractionDigits(2);
-        
-        /*
+
         switch(cliente.getCantidadCuentas()){
             case 1:
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(0)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(0)));
             break;
             case 2:
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(0)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(1)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(0)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(1)));
             break;
             case 3:
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(0)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(1)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(2)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(0)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(1)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(2)));
             break;
             case 4:
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(0)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(1)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(2)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(3)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(0)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(1)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(2)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(3)));
                 
         }
-        
-        */
-        
-        
+           
     }
 
     
@@ -244,7 +239,8 @@ public class PagoTarjetas extends javax.swing.JFrame {
         String numTarjeta=txtNumTarjeta.getText();
         String nombreBanco=txtBanco.getText();
         float montoPagado=-1;
-        //String cuenta=cliente.getNumeroDeCuenta(cmbCuentas.getSelectedIndex()-1);
+        String cuenta=cliente.getCuenta(cmbCuentas.getSelectedIndex()-1);
+        
         
         if(txtMonto.getText().isEmpty()){
             lblValidMonto.setText("*Campo obligatorio");
@@ -315,21 +311,16 @@ public class PagoTarjetas extends javax.swing.JFrame {
         
         if(validMonto&&onlyLet&&onlyNum&&comb){
             
-        //ConfirmacionPagos newframe= new ConfirmacionPagos(
-            //this.cliente,montoPagado,cuenta, numTarjeta, 
-            //(cmbCuentas.getSelectedIndex()-1));
-        //newframe.setVisible(true);
+        ConfirmacionPagos newframe= new ConfirmacionPagos(
+            this.cliente,montoPagado,cuenta, numTarjeta, 
+            (cmbCuentas.getSelectedIndex()-1));
+            newframe.setVisible(true);
         dispose();
         }
         
         }catch(Exception e){                  //Todos los campos vacíos
             
         }
-        
-        
-        
-         
-
     }//GEN-LAST:event_btnContinuarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

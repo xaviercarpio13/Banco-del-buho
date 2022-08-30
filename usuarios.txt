@@ -1,5 +1,5 @@
 nombreUsuario;password;Nombre Apellido;Nro.cuenta1;tipoCuenta1;saldo1;Nro.cuenta2;tipoCuenta2;saldo2...
-xavCarp13;xavico2002;Xavier Carpio;2020205250;0;60.2;2021523600;1;150.14
+xavCarp13;xavico2002;Xavier Carpio;2020205250;0;40.2;2021523600;1;150.14
 kevinLoquito;Kev12345;Kevin Martinez;2325624156;1;84.65;2928272625;0;14.65;2020202020;1;25.36
 rikiGualli02;riki_martin;Riki Guallichico;2201020304;1;160.32;2526252630;1;500.21
 adaMaria9;Adolfa02;Adamaris Gavilanez;2165987412;0;0.98;3125645895;0;600.21;2189457465;1;50

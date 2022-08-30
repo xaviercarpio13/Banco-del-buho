@@ -262,7 +262,7 @@ public class Login extends javax.swing.JFrame {
     private void imgFondoAzulBotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imgFondoAzulBotonMouseClicked
         String username=LecturaUsername.getText();
         String password=new String(LecturaPassword.getPassword());
-        int contador=0;
+        int contador=0; //Número de fila donde se encuentra el registro
         boolean usuarioNoVacio=false;
         boolean passwordNoVacio=false;
         boolean validacion=false;
@@ -298,7 +298,6 @@ public class Login extends javax.swing.JFrame {
                 }
                 contador++;
             }
-            System.out.println(contador);
             if(validacion){
                 String datosUsuario=archivo.get(contador);
                 String splitDatosUsuario[]=datosUsuario.split(";");
@@ -308,18 +307,19 @@ public class Login extends javax.swing.JFrame {
                 ArrayList<Float> saldos=new ArrayList<>();
                 ArrayList<String> movimientos=new ArrayList<>();
                 for(int i=0;i<splitDatosUsuario.length;i++){
-                   if(i==4||i==7||i==10||i==13){
+                   if(i==3||i==6||i==9||i==12){
                        cuentas.add(splitDatosUsuario[i]);
                    }
-                    if(i==5||i==8||i==11||i==14){
+                    if(i==4||i==7||i==10||i==13){
                        tipoCuentas.add(splitDatosUsuario[i]);
                    }
-                     if(i==6||i==9||i==12||i==15){
+                     if(i==5||i==8||i==11||i==14){
                        saldos.add(Float.parseFloat(splitDatosUsuario[i]));
                    }
                 }
-                cliente = new Usuario(nombreCompleto,cuentas,tipoCuentas,
-                        saldos,movimientos);
+                
+                cliente = new Usuario(contador,username, password, nombreCompleto,
+                        cuentas,tipoCuentas,saldos,movimientos);
                 PantallaPrincipal menuPrincipal=new PantallaPrincipal(cliente);
                 menuPrincipal.setVisible(true);
                 dispose();
