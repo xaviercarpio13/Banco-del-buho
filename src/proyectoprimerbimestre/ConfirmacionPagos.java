@@ -7,6 +7,8 @@ import java.time.LocalDate;
 public class ConfirmacionPagos extends javax.swing.JFrame {
 
     public Usuario usuario;
+    int fila;
+    int columna;
     float valor;
     String cuenta;
     String tarjeta;
@@ -33,13 +35,17 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
        
         
     }
-    public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuenta, String numTarjeta, int cuentaSeleccionada, String nombre, String TipoTransf) {
+    public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuentaEmisor, 
+            String numCuentaReceptor,int filaReceptor, int columnaReceptor, 
+            int cuentaSeleccionada, String nombre, String TipoTransf) {
         initComponents();
+        this.fila=filaReceptor;
+        this.columna=columnaReceptor;
         this.cuentaSeleccionada=cuentaSeleccionada;
         this.usuario=cliente;
         valor=valorPagado;
-        cuenta=numCuenta;
-        tarjeta=numTarjeta;
+        cuenta=numCuentaEmisor;
+        tarjeta=numCuentaReceptor;
         cuentas=cuentaSeleccionada;
         this.nombre=nombre;
         fechaActual=LocalDate.now();
@@ -178,6 +184,8 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             String movimiento = String.valueOf(fechaActual) + "\nTransferencia a " + nombre
                     + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentas);
             this.usuario.setMovimientos(movimiento, cuentas);
+            
+            
             if(this.transf.equalsIgnoreCase("Interbancaria")){
                 valor-=0.4;
             }
