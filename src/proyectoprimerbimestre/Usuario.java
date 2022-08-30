@@ -83,21 +83,9 @@ public class Usuario {
 
     public boolean anexar(int fila) {
         boolean r = false;
-        ArrayList<String> archivo = new ArrayList<>();
-        
-        try {
-            Scanner lector = new Scanner(new FileReader("usuarios.txt"));
-            while (lector.hasNextLine()) {
-                archivo.add(lector.nextLine());
-            }
-
-        } catch (FileNotFoundException ex) {
-            System.out.println("Error FileNotFoundException");
-        }
+        ArrayList<String> archivo = leerArchivo();
 
         archivo.set(fila, escribirFilaNueva());
-        
-        
         
         try {
             PrintWriter fileOut;
@@ -115,6 +103,21 @@ public class Usuario {
         
     }
     
+    public ArrayList<String> leerArchivo(){
+        ArrayList<String> archivo = new ArrayList<>();
+        try {
+            Scanner lector = new Scanner(new FileReader("usuarios.txt"));
+            while (lector.hasNextLine()) {
+                archivo.add(lector.nextLine());
+            }
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error FileNotFoundException");
+        }
+        return archivo;   
+    }
+    
+    
     public String escribirFilaNueva(){
         String filaEscrita;
         filaEscrita=this.nombreUsuario+";"+this.password+";"+this.nombreCompleto;
@@ -123,5 +126,7 @@ public class Usuario {
         }
         return filaEscrita;
     }
+    
+    
 }
 
