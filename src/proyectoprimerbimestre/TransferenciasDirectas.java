@@ -1,6 +1,7 @@
 package proyectoprimerbimestre;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class TransferenciasDirectas extends javax.swing.JFrame {
 
@@ -11,27 +12,26 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
         initComponents();
         frmt.setMaximumFractionDigits(2);
         this.cliente = cliente;
-        /*
-        switch (cliente.getCantidadCuentas()) {
+         switch(cliente.getCantidadCuentas()){
             case 1:
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(0)));
-                break;
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(0)));
+            break;
             case 2:
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(0)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(1)));
-                break;
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(0)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(1)));
+            break;
             case 3:
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(0)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(1)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(2)));
-                break;
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(0)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(1)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(2)));
+            break;
             case 4:
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(0)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(1)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(2)));
-                cmbCuentas.addItem(String.valueOf(cliente.getNumeroDeCuenta(3)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(0)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(1)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(2)));
+                cmbCuentas.addItem(String.valueOf(cliente.getCuenta(3)));
+                
         }
-        */
     }
 
     @SuppressWarnings("unchecked")
@@ -232,10 +232,14 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         // TODO add your handling code here:
          try{
+            int contadorFila=0;
+            int contadorColumna=0;
             boolean onlyNum=false;
             boolean Validar1=false;
             boolean onlyLetNombre=false;
             boolean comb=false;
+            boolean validCuentaDestino=false;
+            String numeroCuentaEmisor=cliente.getCuenta(cmbCuentas.getSelectedIndex()-1);
             String numeroCuentaDestino=txtNum.getText();
             
             float montoPagado=-1;
@@ -267,27 +271,50 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
 
             if(numeroCuentaDestino.isEmpty()){
                 lblValNum.setText("*Campo obligatorio");
-            } else{
-
-                for(int i=0;i<numeroCuentaDestino.length();i++){
-                    if(Character.isAlphabetic(numeroCuentaDestino.charAt(i))){
-                        onlyNum=false;
+            } else {
+                for (int i = 0; i < numeroCuentaDestino.length(); i++) {
+                    if (Character.isAlphabetic(numeroCuentaDestino.charAt(i))) {
+                        onlyNum = false;
                         lblValNum.setText("*Dato no válido");
 
-                    } else{
-                        onlyNum=true;
+                    } else {
+                        onlyNum = true;
                         lblValNum.setText("");
                     }
                 }
-                
-            }
+                    if(onlyNum){
+                        ArrayList<String> archivo = cliente.leerArchivo();
+                        contadorFila = 0;
+                        String cuentaDest = txtNum.getText();
+                        for (int j = 0; j < archivo.size(); j++) {
+                             String fila = archivo.get(j);
+                             String[] columnas = fila.split(";");
+                            
+                             if (columnas.length > 2) {
+                                 contadorColumna=0;
+                                 for (String columna : columnas) {
+                                     if (columna.equals(cuentaDest)) {
+                                        validCuentaDestino = true;
+                                        break;
+                                    }
+                                     contadorColumna++;
+                                 }
+                             }
+                            if (validCuentaDestino) {
+                                 break;
+                            }
+                            contadorFila++;   
+                         }
+                     }
+                 }
+            
 
-           
             if(cmbCuentas.getSelectedIndex()==0){
                 lblValidCuenta.setText("*Seleccione una cuenta");
             } else{
                 comb=true;
                 lblValidCuenta.setText("");
+                
             }
             
             if(nombre.isEmpty()){
@@ -304,15 +331,16 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
                 }
             }
           
-            if(Validar1&&onlyNum&&onlyLetNombre&&comb){
-                
-            //ConfirmacionPagos newframe= new ConfirmacionPagos(
-               // this.cliente,montoPagado,cuentaClienteEmisor, numeroCuentaDestino,
-                //(cmbCuentas.getSelectedIndex()-1),nombre, "Directa");
-            //newframe.setVisible(true);
-            dispose();
-            
-        }
+            if(Validar1 && onlyNum && onlyLetNombre && comb && validCuentaDestino) {
+
+                 ConfirmacionPagos newframe = new ConfirmacionPagos(
+                         this.cliente, montoPagado, numeroCuentaEmisor, numeroCuentaDestino,
+                         contadorFila,contadorColumna,
+                         (cmbCuentas.getSelectedIndex() - 1), nombre, "Directa");
+                 newframe.setVisible(true);
+                 dispose();
+
+             }
 
         }catch(Exception e){                  
 
