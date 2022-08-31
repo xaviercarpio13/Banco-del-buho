@@ -68,7 +68,7 @@ public class PagoTarjetas extends javax.swing.JFrame {
         lblValidBanco = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 125));
+        setLocation(new java.awt.Point(535, 125));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -326,6 +326,7 @@ public class PagoTarjetas extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         PantallaPrincipal menuPrincipal=new PantallaPrincipal(this.cliente);
         menuPrincipal.setVisible(true);
+        dispose();
 
     }//GEN-LAST:event_btnSalirActionPerformed
 

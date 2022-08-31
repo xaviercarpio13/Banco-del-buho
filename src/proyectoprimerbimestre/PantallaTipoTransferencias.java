@@ -30,7 +30,7 @@ public class PantallaTipoTransferencias extends javax.swing.JFrame {
         bntVolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 125));
+        setLocation(new java.awt.Point(535, 125));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

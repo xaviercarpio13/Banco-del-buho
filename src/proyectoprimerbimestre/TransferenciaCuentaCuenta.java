@@ -84,7 +84,7 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         txtError3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 125));
+        setLocation(new java.awt.Point(535, 125));
         setResizable(false);
 
         panelFondoBlanco.setBackground(new java.awt.Color(255, 255, 255));

@@ -75,7 +75,7 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 125));
+        setLocation(new java.awt.Point(535, 125));
         setResizable(false);
         setSize(new java.awt.Dimension(500, 281));
 

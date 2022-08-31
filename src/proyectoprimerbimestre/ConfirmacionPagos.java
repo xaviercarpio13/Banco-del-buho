@@ -172,14 +172,17 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         if (this.tipo == 1) {
             usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
                     - valor), (cuentaSeleccionada));
-            String movimiento = String.valueOf(fechaActual) + "\nPago de tarjeta  " + tarjeta
-                    + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentas);
+            
+            String movimiento = String.valueOf(fechaActual) + "\nPago de tarjeta" + 
+                    tarjeta + "\n- $" + valor +"\n\n"+ usuario.getMovimientos(cuentas);
+            
+ 
             this.usuario.setMovimientos(movimiento, cuentas);
             ArrayList<String> archivo=usuario.leerArchivo();
             archivo.get(usuario.getFila());
             String nuevaFila=usuario.escribirFilaNueva();
             usuario.anexar(usuario.sobrescribirArchivo(usuario.leerArchivo(), 
-                    usuario.getFila(), nuevaFila));
+                  usuario.getFila(), nuevaFila),"usuarios.txt");
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta);
             newframe2.setVisible(true);
             this.dispose();
@@ -207,7 +210,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             
             archivoModif=usuario.sobrescribirArchivo(archivoModif, 
                     filaReceptor, mensaje);
-            usuario.anexar(archivoModif);
+            usuario.anexar(archivoModif,"usuarios.txt");
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta, nombre);
             newframe2.setVisible(true);
             this.dispose();
