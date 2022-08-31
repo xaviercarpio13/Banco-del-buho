@@ -1,7 +1,7 @@
 nombreUsuario;password;Nombre Apellido;Nro.cuenta1;tipoCuenta1;saldo1;Nro.cuenta2;tipoCuenta2;saldo2...
-xavCarp13;xavico2002;Xavier Carpio;2020205250;0;60.2;2021523600;1;120.14
+xavCarp13;xavico2002;Xavier Carpio;2020205250;0;150.2;2021523600;1;100.14;6523417432;;0;200.3
 kevinLoquito;Kev12345;Kevin Martinez;2325624156;1;84.65;2928272625;0;14.65;2020202020;1;25.36
-rikiGualli02;riki_martin;Riki Guallichico;2201020304;1;160.32;2526252630;1;500.21
+rikiGualli02;riki_martin;Riki Guallichico;2201020304;1;60.320007;2526252630;1;500.21
 adaMaria9;Adolfa02;Adamaris Gavilanez;2165987412;0;30.98;3125645895;0;600.21;2189457465;1;50
 zeldrugs18;w33d;Mishelle Coral;3121312102;1;54.62;2265020345;1;2.54;2332655698;0;87.96;2210121330;0;7.32
 poletaaa;pupis789;Paula Pulupa;6789456231;0;24.21;4546424145;1;870.32;2023651478;0;92.32

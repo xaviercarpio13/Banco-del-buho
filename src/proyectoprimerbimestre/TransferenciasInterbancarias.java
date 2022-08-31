@@ -1,7 +1,6 @@
 package proyectoprimerbimestre;
-
 import java.text.DecimalFormat;
-import java.util.ArrayList;
+
 
 public class TransferenciasInterbancarias extends javax.swing.JFrame {
 
@@ -254,10 +253,14 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblValidCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblValidNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblValidCI, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(lblValidNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lblValidCI, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(txtCI, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,9 +281,7 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                                     .addComponent(txtNumCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel12)
-                                            .addComponent(lblValidNum, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(lblValidNum, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -309,9 +310,7 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(24, 24, 24)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCI, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -400,23 +399,15 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         try {
-            boolean validMonto = false;
-            boolean onlyNum = false;
-            boolean onlyLet = false;
-            boolean comb = false;
-            boolean comb2 = false;
-            boolean onlyLetNombre = false;
-            boolean onlyNumCI = false;
-            boolean validarCD = false;
-            int fila = 0;
-            int columna = 0;
-            String numeroCuenta = txtNumCuenta.getText();//
-            int nombreBanco = cmbBanco.getSelectedIndex();
-            String nombre = txtNombre.getText();
-            String CI = txtCI.getText();
+            boolean montoValido = false;
+            boolean numeroCuentaValido = false;
+            boolean combCuenta = false;
+            boolean combBanco = false;
+            boolean nombreValido = false;
+            boolean cedulaValido = false;
+            
+            //Validacion para agregar un monto 
             float montoPagado = -1;//
-
-            String cuenta = cliente.getCuenta(cmbCuentas.getSelectedIndex() - 1);
 
             if (txtMonto.getText().isEmpty()) {
                 lblValidMonto.setText("*Campo obligatorio");
@@ -429,7 +420,7 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                         if (monto > (cliente.getSaldo((cmbCuentas.getSelectedIndex()) - 1)) - 0.4) {
                             lblValidMonto.setText("*Saldo insuficiente");
                         } else {
-                            validMonto = true;
+                            montoValido= true;
                             lblValidMonto.setText("");
                             montoPagado = monto;
                         }
@@ -439,6 +430,9 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                     lblValidMonto.setText("*Cantidad no válida");
                 }
             }
+//*************************************************************************************************************            
+            //Validacion para agregar un numero de cuenta
+            String numeroCuenta = txtNumCuenta.getText();//
 
             if (numeroCuenta.isEmpty()) {
                 lblValidNum.setText("*Campo obligatorio");
@@ -446,71 +440,56 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
 
                 for (int i = 0; i < numeroCuenta.length(); i++) {
                     if (Character.isAlphabetic(numeroCuenta.charAt(i))) {
-                        onlyNum = false;
+                        numeroCuentaValido = false;
                         lblValidNum.setText("*Dato no válido");
 
                     } else {
-                        onlyNum = true;
+                        numeroCuentaValido = true;
                         lblValidNum.setText("");
                     }
-                }
-
-                if (onlyNum) {
-                    ArrayList<String> archivo = cliente.leerArchivo();
-                    fila = 0;
-                    String destinario = txtNumCuenta.getText();
-
-                    for (int j = 0; j < archivo.size(); j++) {
-                        String filaArchivo = archivo.get(j);
-                        String[] columnaArchivo = filaArchivo.split(";");
-
-                        if (columnaArchivo.length > 2) {
-                            columna = 0;
-                            for (String columnas : columnaArchivo) {
-                                if (columnas.equals(destinario)) {
-                                    validarCD = true;
-                                    break;
-                                }
-                                columna++;
-                            }
-                        }
-                        if (validarCD) {
-                            break;
-                        }
-                        fila++;
-                    }
-
-                }
+                }     
 
             }
+//*****************************************************************************************************************            
+            //Validacion para seleccionar un banco
+             int nombreBanco = cmbBanco.getSelectedIndex()-1;
 
             if (cmbBanco.getSelectedIndex() == 0) {
                 lblValidBanco.setText("*Seleccione un banco");
             } else {
-                comb2 = true;
+                combBanco = true;
                 lblValidBanco.setText("");
             }
+//*****************************************************************************************************************            
+            //Validacion para Seleccionar una cuenta
+             String cuenta = cliente.getCuenta(cmbCuentas.getSelectedIndex() - 1);
 
             if (cmbCuentas.getSelectedIndex() == 0) {
                 lblValidCuenta.setText("*Seleccione una cuenta");
             } else {
-                comb = true;
+                combCuenta = true;
                 lblValidCuenta.setText("");
             }
+//******************************************************************************************************************            
+            //Validacion para Agregar un Nombre
+            String nombre = txtNombre.getText();
 
             if (nombre.isEmpty()) {
                 lblValidNombre.setText("*Campo obligatorio");
             } else {
                 for (int i = 0; i < nombre.length(); i++) {
                     if (Character.isDigit(nombre.charAt(i))) {
-                        onlyLetNombre = false;
+                        nombreValido = false;
                         lblValidNombre.setText("*Dato no válido");
                     } else {
-                        onlyLetNombre = true;
+                        nombreValido = true;
                         lblValidNombre.setText("");
                     }
                 }
             }
+//*******************************************************************************************************************            
+            // Validacion para Ingresar una Cedula
+            String CI = txtCI.getText();
 
             if (CI.isEmpty()) {
                 lblValidCI.setText("*Campo obligatorio");
@@ -518,27 +497,27 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
 
                 for (int i = 0; i < CI.length(); i++) {
                     if (Character.isAlphabetic(CI.charAt(i))) {
-                        onlyNumCI = false;
+                        cedulaValido = false;
                         lblValidCI.setText("*Dato no válido");
                     } else {
-                        onlyNumCI = true;
+                        cedulaValido = true;
                         lblValidCI.setText("");
                     }
                 }
             }
 
-            if (validMonto && onlyLet && onlyNum && comb && onlyLetNombre && onlyNumCI && comb2) {
+            if (montoValido && numeroCuentaValido && combCuenta && combBanco && nombreValido && cedulaValido) {
 
                 montoPagado += 0.4;
                 ConfirmacionPagos newframe = new ConfirmacionPagos(
-                        this.cliente, montoPagado, numeroCuenta, fila, columna, (cmbBanco.getSelectedIndex() - 1),
+                        this.cliente, montoPagado, numeroCuenta,nombreBanco,cuenta,(cmbBanco.getSelectedIndex() - 1),
                         (cmbCuentas.getSelectedIndex() - 1), nombre, "Interbancaria");
                 newframe.setVisible(true);
                 dispose();
 
             }
 
-        } catch (Exception e) {                  //Todos los campos vacíos
+        } catch (Exception e) {                  
 
         }
     }//GEN-LAST:event_btnContinuarActionPerformed
