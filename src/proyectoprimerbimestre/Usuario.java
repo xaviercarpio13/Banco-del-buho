@@ -53,7 +53,7 @@ public class Usuario {
     }
 
 
-    public String getCuenta(int indice) {
+    public String getCuenta(int indice) {//
         return cuentas.get(indice);
     }
     

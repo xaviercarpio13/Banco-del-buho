@@ -95,6 +95,11 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
 
         txtNum.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         txtNum.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        txtNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 120, 20));
 
         btnContinuar.setBackground(new java.awt.Color(15, 34, 64));
@@ -234,17 +239,17 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
          try{
             int contadorFila=0;
             int contadorColumna=0;
-            boolean onlyNum=false;
             boolean Validar1=false;
+            boolean onlyNum=false;
             boolean onlyLetNombre=false;
             boolean comb=false;
             boolean validCuentaDestino=false;
             String numeroCuentaEmisor=cliente.getCuenta(cmbCuentas.getSelectedIndex()-1);
             String numeroCuentaDestino=txtNum.getText();
-            
+            String nombre=txtNombre.getText();
             float montoPagado=-1;
             //String cuentaClienteEmisor=cliente.getNumeroDeCuenta(cmbCuentas.getSelectedIndex()-1);
-            String nombre=txtNombre.getText();
+            
 
             if(txtMonto.getText().isEmpty()){
                 lblValMonto.setText("*Campo obligatorio");
@@ -382,6 +387,10 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_itemStateChanged
+
+    private void txtNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumActionPerformed
 
     
     public static void main(String args[]) {
