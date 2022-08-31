@@ -84,12 +84,24 @@ public class Usuario {
     public int getCantidadCuentas(){
         return(this.cuentas.size());
     }
+    
+    public void addCuenta(String cuenta){
+        this.cuentas.add(cuenta);
+    }
 
-    public boolean anexar(ArrayList<String> archivo) {
+    public void addTipo(String tipo){
+        this.tipoCuentas.add(tipo);
+    }
+    
+    public void addSaldo(Float saldo){
+        this.saldos.add(saldo);
+    }
+    
+    public boolean anexar(ArrayList<String> archivo,String nombreArchivo) {
         boolean r = false; 
         try {
             PrintWriter fileOut;
-            fileOut = new PrintWriter(new FileWriter("usuarios.txt", false));
+            fileOut = new PrintWriter(new FileWriter(nombreArchivo, false));
             for(String filaLectura:archivo){
                 fileOut.println(filaLectura);
             }
@@ -132,7 +144,19 @@ public class Usuario {
         return archivo;
     }
     
-    
+     public ArrayList<String> leerMovimientos(){
+        ArrayList<String> archivo = new ArrayList<>();
+        try {
+            Scanner lector = new Scanner(new FileReader("movimientos.txt"));
+            while (lector.hasNextLine()) {
+                archivo.add(lector.nextLine());
+            }
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error FileNotFoundException");
+        }
+        return archivo;   
+    }
     
     
 }

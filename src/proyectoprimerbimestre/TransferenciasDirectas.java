@@ -2,6 +2,7 @@ package proyectoprimerbimestre;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class TransferenciasDirectas extends javax.swing.JFrame {
 
@@ -65,7 +66,7 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 125));
+        setLocation(new java.awt.Point(535, 125));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -334,6 +335,12 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
                         lblValNom.setText("");
                     }
                 }
+            }
+            
+            if(!validCuentaDestino){
+                JOptionPane.showMessageDialog(null, "Usuario no encontrado\n"
+                        + "Verifique el número de cuenta", 
+                        "Error", JOptionPane.WARNING_MESSAGE);
             }
           
             if(Validar1 && onlyNum && onlyLetNombre && comb && validCuentaDestino) {
