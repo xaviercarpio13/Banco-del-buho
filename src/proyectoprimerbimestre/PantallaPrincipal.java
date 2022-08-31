@@ -451,7 +451,12 @@ public class PantallaPrincipal extends javax.swing.JFrame {
 
         btnNuevaCuenta.setBackground(new java.awt.Color(15, 34, 64));
         btnNuevaCuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnNuevaCuenta.setLayout(new java.awt.GridLayout());
+        btnNuevaCuenta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnNuevaCuentaMousePressed(evt);
+            }
+        });
+        btnNuevaCuenta.setLayout(new java.awt.GridLayout(1, 0));
 
         txtSimboloNuevaCuenta.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 18)); // NOI18N
         txtSimboloNuevaCuenta.setForeground(new java.awt.Color(255, 255, 255));
@@ -516,6 +521,13 @@ public class PantallaPrincipal extends javax.swing.JFrame {
         pantallaCuenta4.setVisible(true);
         dispose();
     }//GEN-LAST:event_imgFlechaAccesoCuenta4MousePressed
+
+    private void btnNuevaCuentaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNuevaCuentaMousePressed
+
+        NuevaCuenta addAccount = new NuevaCuenta(cliente);
+        addAccount.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnNuevaCuentaMousePressed
 
    
     public static void main(String args[]) {
