@@ -73,7 +73,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
 
     ConfirmacionPagos(Usuario cliente, float montoPagado, String numeroCuenta, int nombreBanco, String cuenta, int i, int i0, String nombre, String interbancaria) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  }
 
    
     @SuppressWarnings("unchecked")
