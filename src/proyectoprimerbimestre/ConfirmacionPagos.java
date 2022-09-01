@@ -1,13 +1,14 @@
 
 package proyectoprimerbimestre;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.ArrayList;
 
 
 public class ConfirmacionPagos extends javax.swing.JFrame {
-
+    DecimalFormat frmt=new DecimalFormat();
     public Usuario usuario;
     int filaReceptor;
     int columnaReceptor;
@@ -66,14 +67,15 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         this.valor=transferencia;
         this.nombre=usuario.getNombreCompleto();
     }
-    public ConfirmacionPagos(Usuario cliente, int indiceCuentaOrigen, float transferencia){
+    public ConfirmacionPagos(Usuario cliente, String nombre,int indiceCuentaOrigen, float transferencia){
         initComponents();
         tipo=4;
         this.usuario=cliente;
         this.valor=transferencia;
         this.cuentaSeleccionada=indiceCuentaOrigen;
-        this.nombre=usuario.getNombreCompleto();
+        this.nombre=nombre;
         fechaActual=LocalDate.now();   
+        frmt.setMaximumFractionDigits(2);
     }
      
    
@@ -256,12 +258,10 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         }else if (this.tipo == 4) {
             usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
                     - valor), (cuentaSeleccionada));
-            usuario.setSaldos((usuario.getSaldo(indiceCuentaDestino)
-                    + valor), (indiceCuentaDestino));
             
-            String movimiento2 = String.valueOf(fechaActual) + "\nTransferencia de " + nombre
-                    + "\n+ $" + valor + "\n\n" + usuario.getMovimientos(indiceCuentaDestino);
-            this.usuario.setMovimientos(movimiento2, indiceCuentaDestino);
+            String movimiento2 = String.valueOf(fechaActual) + "\nTransferencia a " + nombre
+                    + "\n- $" + frmt.format(valor-0.4) + "\n\n" + usuario.getMovimientos(cuentaSeleccionada);
+            this.usuario.setMovimientos(movimiento2, cuentaSeleccionada);
 
             ArrayList<String> archivo = usuario.leerArchivo();
             archivo.set(usuario.getFila(), usuario.escribirFilaNueva());

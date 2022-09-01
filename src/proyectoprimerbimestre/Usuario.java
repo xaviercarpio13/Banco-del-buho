@@ -142,21 +142,5 @@ public class Usuario {
         archivo.set(fila,mensaje);
         return archivo;
     }
-    
-     public ArrayList<String> leerMovimientos(){
-        ArrayList<String> archivo = new ArrayList<>();
-        try {
-            Scanner lector = new Scanner(new FileReader("movimientos.txt"));
-            while (lector.hasNextLine()) {
-                archivo.add(lector.nextLine());
-            }
-
-        } catch (FileNotFoundException ex) {
-            System.out.println("Error FileNotFoundException");
-        }
-        return archivo;   
-    }
-    
-    
 }
 

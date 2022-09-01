@@ -16,15 +16,11 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         txtMovimientos.setFocusable(false);
         this.cliente = cliente;
         this.indiceDeCuenta = indice;
-        //txtImgNumeroDeCuenta.setText("N°"+String.valueOf(cliente.getNumeroDeCuenta(indiceDeCuenta)));
+        txtImgNumeroDeCuenta.setText("N°"+String.valueOf(cliente.getCuenta(indiceDeCuenta)));
         txtSaldoCuenta.setText("$ "+String.valueOf(frmt.format(cliente.getSaldo(indiceDeCuenta))));
-        //txtImgTipoDeCuenta.setText(String.valueOf(cliente.getTipoDeCuenta(indiceDeCuenta)));
+        txtImgTipoDeCuenta.setText(String.valueOf(cliente.getTipoCuentas(indiceDeCuenta)));
         
-        txtMovimientos.setText(cliente.getMovimientos(indice));
-        
-        
-
-        
+        txtMovimientos.setText(cliente.getMovimientos(indice));  
     }
 
     

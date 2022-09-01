@@ -191,7 +191,7 @@ public class NuevaCuenta extends javax.swing.JFrame {
             cliente.addSaldo(saldoInicial);
             ArrayList<String> archivo = cliente.leerArchivo();
             String datosUsuario = archivo.get(cliente.getFila());
-            datosUsuario = datosUsuario + ";" + numCuenta + ";" + ";" + tipo + ";" + saldoInicial;
+            datosUsuario = datosUsuario + ";" + numCuenta + ";" + tipo + ";" + saldoInicial;
 
             archivo.set(cliente.getFila(), datosUsuario);
             cliente.anexar(archivo, "usuarios.txt");
