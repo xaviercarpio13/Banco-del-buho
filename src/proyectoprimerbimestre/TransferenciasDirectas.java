@@ -307,24 +307,28 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
                                  }
                              }
                             if (validCuentaDestino) {
-                                 break;
-                            }
-                            contadorFila++;   
-                         }
+                            break;
+                        }
+                         contadorFila++;
                      }
                  }
-            
+                 if (!validCuentaDestino) {
+                     JOptionPane.showMessageDialog(null, "Usuario no encontrado\n"
+                             + "Verifique el número de cuenta",
+                             "Error", JOptionPane.WARNING_MESSAGE);
+                 }
+             }
 
-            if(cmbCuentas.getSelectedIndex()==0){
-                lblValidCuenta.setText("*Seleccione una cuenta");
-            } else{
-                comb=true;
-                lblValidCuenta.setText("");
-                
-            }
-            
-            if(nombre.isEmpty()){
-                lblValNom.setText("*Campo obligatorio");
+             if (cmbCuentas.getSelectedIndex() == 0) {
+                 lblValidCuenta.setText("*Seleccione una cuenta");
+             } else {
+                 comb = true;
+                 lblValidCuenta.setText("");
+
+             }
+
+             if (nombre.isEmpty()) {
+                 lblValNom.setText("*Campo obligatorio");
             } else{
                 for (int i=0;i<nombre.length();i++){
                     if(Character.isDigit(nombre.charAt(i))){
@@ -337,11 +341,7 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
                 }
             }
             
-            if(!validCuentaDestino){
-                JOptionPane.showMessageDialog(null, "Usuario no encontrado\n"
-                        + "Verifique el número de cuenta", 
-                        "Error", JOptionPane.WARNING_MESSAGE);
-            }
+            
           
             if(Validar1 && onlyNum && onlyLetNombre && comb && validCuentaDestino) {
 
