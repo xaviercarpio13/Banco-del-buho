@@ -157,19 +157,19 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Nro. Cuenta ");
 
-        txtNumCuenta.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        txtNumCuenta.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         txtNumCuenta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel11.setText("Nombre ");
 
-        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel12.setText("C.I.");
 
-        txtCI.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        txtCI.setFont(new java.awt.Font("Segoe UI", 1, 11)); // NOI18N
         txtCI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -253,35 +253,27 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblValidCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(lblValidNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(lblValidCI, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblValidNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel12)
-                                    .addComponent(txtCI, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtCI, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblValidCI, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblValidBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(cmbBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(16, 16, 16)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(3, 3, 3)))
+                                        .addComponent(lblValidBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cmbBanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel7))
+                                .addGap(16, 16, 16)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
                                     .addComponent(txtNumCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblValidNum, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(lblValidNum, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -297,7 +289,8 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                                         .addGap(166, 166, 166)
                                         .addComponent(lblSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel10)))))
+                                        .addComponent(jLabel10))))
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -361,9 +354,9 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                     .addComponent(lblValidNum, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblValidBanco, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -399,6 +392,12 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         try {
+            String CI = txtCI.getText();
+            String nombre = txtNombre.getText();
+            String cuenta = cliente.getCuenta(cmbCuentas.getSelectedIndex() - 1);
+            int nombreBanco = cmbBanco.getSelectedIndex();
+            String numeroCuenta = txtNumCuenta.getText();
+            
             boolean montoValido = false;
             boolean numeroCuentaValido = false;
             boolean combCuenta = false;
@@ -423,21 +422,21 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                             montoValido= true;
                             lblValidMonto.setText("");
                             montoPagado = monto;
+                            System.out.println("si funciona1");//Si funciona
                         }
                     }
-                } catch (Exception e) {
+                } catch (NumberFormatException e) {
 
                     lblValidMonto.setText("*Cantidad no válida");
                 }
             }
 //*************************************************************************************************************            
             //Validacion para agregar un numero de cuenta
-            String numeroCuenta = txtNumCuenta.getText();//
+            //String numeroCuenta = txtNumCuenta.getText();//
 
             if (numeroCuenta.isEmpty()) {
                 lblValidNum.setText("*Campo obligatorio");
             } else {
-
                 for (int i = 0; i < numeroCuenta.length(); i++) {
                     if (Character.isAlphabetic(numeroCuenta.charAt(i))) {
                         numeroCuentaValido = false;
@@ -446,33 +445,35 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                     } else {
                         numeroCuentaValido = true;
                         lblValidNum.setText("");
+                        System.out.println("si funciona2");
                     }
-                }     
-
+                }
             }
 //*****************************************************************************************************************            
             //Validacion para seleccionar un banco
-             int nombreBanco = cmbBanco.getSelectedIndex()-1;
+           // int nombreBanco = cmbBanco.getSelectedIndex();
 
             if (cmbBanco.getSelectedIndex() == 0) {
                 lblValidBanco.setText("*Seleccione un banco");
             } else {
                 combBanco = true;
                 lblValidBanco.setText("");
+                System.out.println("si funciona3");//Si funciona
             }
 //*****************************************************************************************************************            
             //Validacion para Seleccionar una cuenta
-             String cuenta = cliente.getCuenta(cmbCuentas.getSelectedIndex() - 1);
+             //String cuenta = cliente.getCuenta(cmbCuentas.getSelectedIndex() - 1);
 
             if (cmbCuentas.getSelectedIndex() == 0) {
                 lblValidCuenta.setText("*Seleccione una cuenta");
             } else {
                 combCuenta = true;
                 lblValidCuenta.setText("");
+                System.out.println("si funciona4");//Si funciona
             }
 //******************************************************************************************************************            
             //Validacion para Agregar un Nombre
-            String nombre = txtNombre.getText();
+           // String nombre = txtNombre.getText();
 
             if (nombre.isEmpty()) {
                 lblValidNombre.setText("*Campo obligatorio");
@@ -484,12 +485,13 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                     } else {
                         nombreValido = true;
                         lblValidNombre.setText("");
+                        System.out.println("si funciona5");
                     }
                 }
             }
 //*******************************************************************************************************************            
             // Validacion para Ingresar una Cedula
-            String CI = txtCI.getText();
+            //String CI = txtCI.getText();
 
             if (CI.isEmpty()) {
                 lblValidCI.setText("*Campo obligatorio");
@@ -502,6 +504,7 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
                     } else {
                         cedulaValido = true;
                         lblValidCI.setText("");
+                        System.out.println("si funciona6");
                     }
                 }
             }
@@ -509,9 +512,11 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
             if (montoValido && numeroCuentaValido && combCuenta && combBanco && nombreValido && cedulaValido) {
 
                 montoPagado += 0.4;
+                System.out.println("si funciona7");
                 ConfirmacionPagos newframe = new ConfirmacionPagos(
-                        this.cliente, montoPagado, numeroCuenta,nombreBanco,cuenta,(cmbBanco.getSelectedIndex() - 1),
+                        this.cliente, montoPagado, numeroCuenta,nombreBanco,cuenta,(cmbBanco.getSelectedIndex() ),
                         (cmbCuentas.getSelectedIndex() - 1), nombre, "Interbancaria");
+                System.out.println("si funciona8");
                 newframe.setVisible(true);
                 dispose();
 

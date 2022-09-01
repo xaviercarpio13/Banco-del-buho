@@ -66,6 +66,17 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         this.valor=transferencia;
         this.nombre=usuario.getNombreCompleto();
     }
+    public ConfirmacionPagos(Usuario cliente, int indiceCuentaOrigen, float transferencia){
+        initComponents();
+        tipo=4;
+        this.usuario=cliente;
+        this.valor=transferencia;
+        this.cuentaSeleccionada=indiceCuentaOrigen;
+        this.nombre=usuario.getNombreCompleto();
+        fechaActual=LocalDate.now();   
+    }
+     
+   
 
     ConfirmacionPagos(Usuario cliente, float montoPagado, String numeroCuenta, int fila, int columna, int i, int i0, String nombre, String interbancaria) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -89,7 +100,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 300));
+        setLocation(new java.awt.Point(535, 300));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -222,7 +233,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta, nombre);
             newframe2.setVisible(true);
             this.dispose();
-        } else {
+        } else if (this.tipo == 3) {
             usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
                     - valor), (cuentaSeleccionada));
             usuario.setSaldos((usuario.getSaldo(indiceCuentaDestino)
@@ -233,6 +244,29 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             String movimiento2 = String.valueOf(fechaActual) + "\nTransferencia de " + nombre
                     + "\n+ $" + valor + "\n\n" + usuario.getMovimientos(indiceCuentaDestino);
             this.usuario.setMovimientos(movimiento2, indiceCuentaDestino);
+
+            ArrayList<String> archivo = usuario.leerArchivo();
+            archivo.set(usuario.getFila(), usuario.escribirFilaNueva());
+            usuario.anexar(archivo, "usuarios.txt");
+
+            ReciboPago newframe2 = new ReciboPago(this.usuario, valor, usuario.getCuenta(cuentaSeleccionada),
+                    usuario.getCuenta(indiceCuentaDestino), nombre);
+            newframe2.setVisible(true);
+            this.dispose();
+        }else if (this.tipo == 4) {
+            usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
+                    - valor), (cuentaSeleccionada));
+            usuario.setSaldos((usuario.getSaldo(indiceCuentaDestino)
+                    + valor), (indiceCuentaDestino));
+            
+            String movimiento2 = String.valueOf(fechaActual) + "\nTransferencia de " + nombre
+                    + "\n+ $" + valor + "\n\n" + usuario.getMovimientos(indiceCuentaDestino);
+            this.usuario.setMovimientos(movimiento2, indiceCuentaDestino);
+
+            ArrayList<String> archivo = usuario.leerArchivo();
+            archivo.set(usuario.getFila(), usuario.escribirFilaNueva());
+            usuario.anexar(archivo, "usuarios.txt");
+
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, usuario.getCuenta(cuentaSeleccionada),
                     usuario.getCuenta(indiceCuentaDestino), nombre);
             newframe2.setVisible(true);
