@@ -13,28 +13,28 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
         initComponents();
         frmt.setMaximumFractionDigits(2);
         this.cliente = cliente;
-        /*
+        
         switch (cliente.getCantidadCuentas()) {
             case 1:
-                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoDeCuenta(0) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(0)));
+                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoCuentas(0) + ": #" + String.valueOf(cliente.getCuenta(0)));
                 break;
             case 2:
-                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoDeCuenta(0) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(0)));
-                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoDeCuenta(1) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(1)));
+                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoCuentas(0) + ": #" + String.valueOf(cliente.getCuenta(0)));
+                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoCuentas(1) + ": #" + String.valueOf(cliente.getCuenta(1)));
                 break;
             case 3:
-                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoDeCuenta(0) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(0)));
-                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoDeCuenta(1) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(1)));
-                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoDeCuenta(2) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(2)));
+                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoCuentas(0) + ": #" + String.valueOf(cliente.getCuenta(0)));
+                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoCuentas(1) + ": #" + String.valueOf(cliente.getCuenta(1)));
+                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoCuentas(2) + ": #" + String.valueOf(cliente.getCuenta(2)));
                 break;
             case 4:
-                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoDeCuenta(0) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(0)));
-                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoDeCuenta(1) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(1)));
-                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoDeCuenta(2) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(2)));
-                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoDeCuenta(3) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(3)));
+                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoCuentas(0) + ": #" + String.valueOf(cliente.getCuenta(0)));
+                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoCuentas(1) + ": #" + String.valueOf(cliente.getCuenta(1)));
+                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoCuentas(2) + ": #" + String.valueOf(cliente.getCuenta(2)));
+                cmbCuentasUsuarioOrigen.addItem(cliente.getTipoCuentas(3) + ": #" + String.valueOf(cliente.getCuenta(3)));
                 break;
         }
-        */
+        
         txtSaldo.setVisible(false);
         txtSaldoOrigen.setVisible(false);
         txtValorTransferencia.setVisible(false);
@@ -328,39 +328,39 @@ public class TransferenciaCuentaCuenta extends javax.swing.JFrame {
             case 1:
                 txtSaldoOrigen.setText("$" + String.valueOf(frmt.format(cliente.getSaldo(0))));
                 indiceComboBox = 0;
-                //for (int i = 0; i < cliente.getCantidadCuentas(); i++) {
-                    //if (i != indiceComboBox) {
-                        //cmbCuentasUsuarioDestino.addItem(cliente.getTipoDeCuenta(i) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(i)));
-                    //}
-               // }
+                for (int i = 0; i < cliente.getCantidadCuentas(); i++) {
+                    if (i != indiceComboBox) {
+                       cmbCuentasUsuarioDestino.addItem(cliente.getTipoCuentas(i) + ": #" + String.valueOf(cliente.getCuenta(i)));
+                    }
+                }
 
                 break;
             case 2:
                 txtSaldoOrigen.setText("$" + String.valueOf(frmt.format(cliente.getSaldo(1))));
                 indiceComboBox = 1;
-               // for (int i = 0; i < cliente.getCantidadCuentas(); i++) {
-                    //if (i != indiceComboBox) {
-                       // cmbCuentasUsuarioDestino.addItem(cliente.getTipoDeCuenta(i) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(i)));
-                   // }
-                //}
+                for (int i = 0; i < cliente.getCantidadCuentas(); i++) {
+                    if (i != indiceComboBox) {
+                        cmbCuentasUsuarioDestino.addItem(cliente.getTipoCuentas(i) + ": #" + String.valueOf(cliente.getCuenta(i)));
+                    }
+                }
                 break;
             case 3:
                 txtSaldoOrigen.setText("$" + String.valueOf(frmt.format(cliente.getSaldo(2))));
                 indiceComboBox = 2;
-                //for (int i = 0; i < cliente.getCantidadCuentas(); i++) {
-                    //if (i != indiceComboBox) {
-                      //  cmbCuentasUsuarioDestino.addItem(cliente.getTipoDeCuenta(i) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(i)));
-                   // }
-              //  }
+                for (int i = 0; i < cliente.getCantidadCuentas(); i++) {
+                    if (i != indiceComboBox) {
+                        cmbCuentasUsuarioDestino.addItem(cliente.getTipoCuentas(i) + ": #" + String.valueOf(cliente.getCuenta(i)));
+                    }
+                }
                 break;
             case 4:
                 txtSaldoOrigen.setText("$" + String.valueOf(frmt.format(cliente.getSaldo(3))));
                 indiceComboBox = 3;
-                //for (int i = 0; i < cliente.getCantidadCuentas(); i++) {
-                   // if (i != indiceComboBox) {
-                     //   cmbCuentasUsuarioDestino.addItem(cliente.getTipoDeCuenta(i) + ": #" + String.valueOf(cliente.getNumeroDeCuenta(i)));
-                   // }
-              //  }
+                for (int i = 0; i < cliente.getCantidadCuentas(); i++) {
+                    if (i != indiceComboBox) {
+                        cmbCuentasUsuarioDestino.addItem(cliente.getTipoCuentas(i) + ": #" + String.valueOf(cliente.getCuenta(i)));
+                    }
+                }
                 break;
         }
     }//GEN-LAST:event_cmbCuentasUsuarioOrigenActionPerformed

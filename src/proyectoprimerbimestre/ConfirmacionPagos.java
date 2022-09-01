@@ -89,7 +89,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocation(new java.awt.Point(500, 300));
+        setLocation(new java.awt.Point(535, 300));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -233,6 +233,11 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             String movimiento2 = String.valueOf(fechaActual) + "\nTransferencia de " + nombre
                     + "\n+ $" + valor + "\n\n" + usuario.getMovimientos(indiceCuentaDestino);
             this.usuario.setMovimientos(movimiento2, indiceCuentaDestino);
+
+            ArrayList<String> archivo = usuario.leerArchivo();
+            archivo.set(usuario.getFila(), usuario.escribirFilaNueva());
+            usuario.anexar(archivo, "usuarios.txt");
+
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, usuario.getCuenta(cuentaSeleccionada),
                     usuario.getCuenta(indiceCuentaDestino), nombre);
             newframe2.setVisible(true);
