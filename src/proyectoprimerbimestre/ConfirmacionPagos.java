@@ -67,7 +67,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         this.valor=transferencia;
         this.nombre=usuario.getNombreCompleto();
     }
-    public ConfirmacionPagos(Usuario cliente, String nombre,int indiceCuentaOrigen, float transferencia){
+    public ConfirmacionPagos(Usuario cliente, String nombre,int indiceCuentaOrigen, float transferencia, String TipoTransf){
         initComponents();
         tipo=4;
         this.usuario=cliente;
@@ -76,6 +76,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         this.nombre=nombre;
         fechaActual=LocalDate.now();   
         frmt.setMaximumFractionDigits(2);
+        this.transf=TipoTransf;
     }
      
    
