@@ -428,18 +428,17 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
             if (cuentaReceptor.isEmpty()) {
                 lblValidNum.setText("*Campo obligatorio");
             } else {
+                numeroCuentaValido = true;
                 for (int i = 0; i < cuentaReceptor.length(); i++) {
                     if (Character.isAlphabetic(cuentaReceptor.charAt(i))) {
                         numeroCuentaValido = false;
                         lblValidNum.setText("*Dato no válido");
-
-                    } else {
-                        numeroCuentaValido = true;
+                        break; 
+                } if (numeroCuentaValido) {
                         lblValidNum.setText("");
                     }
                 }
             }
-
 
             if (cmbBanco.getSelectedIndex() == 0) {
                 lblValidBanco.setText("*Seleccione un banco");
@@ -460,28 +459,29 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
             if (nombre.isEmpty()) {
                 lblValidNombre.setText("*Campo obligatorio");
             } else {
+                nombreValido = true;
                 for (int i = 0; i < nombre.length(); i++) {
                     if (Character.isDigit(nombre.charAt(i))) {
                         nombreValido = false;
                         lblValidNombre.setText("*Dato no válido");
-                    } else {
-                        nombreValido = true;
-                        lblValidNombre.setText("");
-                        
+                        break;
                     }
+                } if (nombreValido){
+                    lblValidNombre.setText("");
                 }
             }
             if (CI.isEmpty()) {
                 lblValidCI.setText("*Campo obligatorio");
             } else {
+                cedulaValido = true;
                 for (int i = 0; i < CI.length(); i++) {
                     if (Character.isAlphabetic(CI.charAt(i))) {
                         cedulaValido = false;
                         lblValidCI.setText("*Dato no válido");
-                    } else {
-                        cedulaValido = true;
-                        lblValidCI.setText("");
+                        break;
                     }
+                } if (cedulaValido){
+                    lblValidCI.setText("");
                 }
             }
 
