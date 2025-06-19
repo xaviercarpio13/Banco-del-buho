@@ -4,6 +4,7 @@ package proyectoprimerbimestre;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
+import baseDeDatos.GestorBD;
 
 
 public class PantallaRegistro extends javax.swing.JFrame {
@@ -346,36 +347,33 @@ public class PantallaRegistro extends javax.swing.JFrame {
         }
 
         if (validarAbono && validarCedula && ValidarNombre && validarUsuarioContr) {
-            String numCuenta = "";
-            for(int i=0;i<10;i++){
-                numCuenta=numCuenta+ String.valueOf((int) Math.round(Math.random() * 8 + 1));
-            }
-             
-            String tipoCuenta;
-            if (cmbTipo.getSelectedIndex() == 0) {
-                tipoCuenta = "0";
-            } else {
-                tipoCuenta = "1";
-            }
+        String numCuenta = "";
+        for (int i = 0; i < 10; i++) {
+            numCuenta = numCuenta + String.valueOf((int) Math.round(Math.random() * 8 + 1));
+        }
 
-            String fila = txtFldUsuario.getText() + ";" + txtFldContra.getText() + ";"
-                    + txtFldNombre.getText() + ";" + numCuenta+";" + tipoCuenta +";"
-                    + txtFldAbono.getText();
+        String tipoCuenta = (cmbTipo.getSelectedIndex() == 0) ? "0" : "1";
+        float saldo = Float.parseFloat(txtFldAbono.getText());
+        String usuario = txtFldUsuario.getText();
+        String contra = txtFldContra.getText();
+        String nombre = txtFldNombre.getText();
 
-            if (anexar(fila)) {
-                JOptionPane.showMessageDialog(null, "Se ha agregado un usuario\n"
-                        + "Inicie sesión por favor",
+        int idUsuario = GestorBD.insertarUsuario(usuario, contra, nombre);
+        if (idUsuario != -1) {
+            boolean cuentaOk = GestorBD.insertarCuenta(idUsuario, numCuenta, tipoCuenta, saldo);
+            if (cuentaOk) {
+                JOptionPane.showMessageDialog(null, "Se ha agregado un usuario\nInicie sesión por favor",
                         "Mensaje", JOptionPane.INFORMATION_MESSAGE);
                 Login pantallaLogin = new Login();
                 pantallaLogin.setVisible(true);
                 dispose();
-
             } else {
-                    JOptionPane.showMessageDialog(null, "Ha ocurrido un error",
-                            "Mensaje", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Error al crear cuenta", "Mensaje", JOptionPane.ERROR_MESSAGE);
             }
-            
+        } else {
+            JOptionPane.showMessageDialog(null, "Error al crear usuario", "Mensaje", JOptionPane.ERROR_MESSAGE);
         }
+    }
 
         
     }//GEN-LAST:event_btnFinalizarActionPerformed

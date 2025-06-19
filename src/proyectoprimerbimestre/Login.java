@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import baseDeDatos.GestorBD;
 
 public class Login extends javax.swing.JFrame {
     
@@ -286,44 +287,19 @@ public class Login extends javax.swing.JFrame {
             }
         
         if(passwordNoVacio&&usuarioNoVacio){
-            for(String fila:archivo) {
-                String filaDeDatos[]=fila.split(";");
-                if(filaDeDatos.length>2){
-                    String nombreUsuario=filaDeDatos[0];
-                    String passwordUsuario=filaDeDatos[1];
-                    if(nombreUsuario.equals(username)&&passwordUsuario.equals(password)){
-                        validacion=true;
-                        break;
-                    }
-                }
-                contador++;
+            Usuario usuarioBD = GestorBD.obtenerUsuario(username, password);
+            if (usuarioBD != null) {
+                validacion = true;
+                cliente = usuarioBD;
             }
-            if(validacion){
-                String datosUsuario=archivo.get(contador);
-                String splitDatosUsuario[]=datosUsuario.split(";");
-                String nombreCompleto=splitDatosUsuario[2];
-                ArrayList<String> cuentas=new ArrayList<>();
-                ArrayList<String> tipoCuentas=new ArrayList<>();
-                ArrayList<Float> saldos=new ArrayList<>();
-                ArrayList<String> movimientos=new ArrayList<>();
-                for(int i=0;i<splitDatosUsuario.length;i++){
-                   if(i==3||i==6||i==9||i==12){
-                       cuentas.add(splitDatosUsuario[i]);
-                   }
-                    if(i==4||i==7||i==10||i==13){
-                       tipoCuentas.add(splitDatosUsuario[i]);
-                   }
-                     if(i==5||i==8||i==11||i==14){
-                       saldos.add(Float.parseFloat(splitDatosUsuario[i]));
-                   }
-                }
-                
-                cliente = new Usuario(contador,username, password, nombreCompleto,
-                        cuentas,tipoCuentas,saldos,movimientos);
-                PantallaPrincipal menuPrincipal=new PantallaPrincipal(cliente);
+
+            if (validacion) {
+                PantallaPrincipal menuPrincipal = new PantallaPrincipal(cliente);
                 menuPrincipal.setVisible(true);
                 dispose();
-                }
+            }
+
+            
             else{
                 JOptionPane.showMessageDialog(null, "Usuario no encontrado\n"
                         + "Verifique usuario y contraseña", 
