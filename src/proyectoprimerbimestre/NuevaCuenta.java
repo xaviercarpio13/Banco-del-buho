@@ -6,6 +6,7 @@ package proyectoprimerbimestre;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import baseDeDatos.GestorBD;
 
 /**
  *
@@ -189,19 +190,19 @@ public class NuevaCuenta extends javax.swing.JFrame {
             cliente.addCuenta(numCuenta);
             cliente.addTipo(String.valueOf(tipo));
             cliente.addSaldo(saldoInicial);
-            ArrayList<String> archivo = cliente.leerArchivo();
-            String datosUsuario = archivo.get(cliente.getFila());
-            datosUsuario = datosUsuario + ";" + numCuenta + ";" + tipo + ";" + saldoInicial;
-
-            archivo.set(cliente.getFila(), datosUsuario);
-            cliente.anexar(archivo, "usuarios.txt");
-
-            JOptionPane.showMessageDialog(null, "Se ha agregado una cuenta\n",
-                    "Mensaje", JOptionPane.INFORMATION_MESSAGE);
-
-            PantallaPrincipal menuPrincipal = new PantallaPrincipal(cliente);
-            menuPrincipal.setVisible(true);
-            dispose();
+            
+   
+            boolean cuentaOk = GestorBD.insertarCuenta(cliente.getId(), numCuenta, String.valueOf(tipo), saldoInicial);
+                if (cuentaOk) {
+                    JOptionPane.showMessageDialog(null, "Cuenta creada correctamente",
+                        "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+                    PantallaPrincipal menuPrincipal = new PantallaPrincipal(cliente);
+                    menuPrincipal.setVisible(true);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al crear cuenta", "Mensaje", JOptionPane.ERROR_MESSAGE);
+                }
+              
         }
     }//GEN-LAST:event_btnAnadirActionPerformed
 

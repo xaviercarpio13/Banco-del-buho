@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Usuario {
-    private int fila;
+    private int id;
     private String nombreUsuario;
     private String password;
     private String nombreCompleto;
@@ -19,15 +19,14 @@ public class Usuario {
     private ArrayList<String> movimientos;
     
     
-    
 
-    public Usuario(int fila,String nombreUsuario, String password,String nombreCompleto, 
+    public Usuario(int id,String nombreUsuario, String password,String nombreCompleto, 
         ArrayList<String> cuentas,ArrayList<String> tipoCuentas,
         ArrayList<Float> saldos, ArrayList<String> movimientos) {
        
        this.nombreUsuario=nombreUsuario;
        this.password=password;
-       this.fila=fila;
+       this.id=id;
        this.nombreCompleto=nombreCompleto;
        this.cuentas=cuentas;
        this.tipoCuentas=tipoCuentas;
@@ -42,8 +41,8 @@ public class Usuario {
        
     }
 
-    public int getFila() {
-        return fila;
+    public int getId() {
+        return id;
     }
 
     
