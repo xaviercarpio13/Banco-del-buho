@@ -92,6 +92,24 @@ public static boolean insertarCuenta(int usuarioId, String numero, String tipo, 
     }
 }
 
+public static void insertarMovimiento(String cuentaOrigen, String cuentaDestino, String tipo, float monto, String fecha) {
+    String sql = "INSERT INTO movimientos (cuenta_origen, cuenta_destino, tipo, monto, fecha) VALUES (?, ?, ?, ?, ?)";
+    try (Connection conn = ConexionBD.conectar();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+        pstmt.setString(1, cuentaOrigen);
+        pstmt.setString(2, cuentaDestino);
+        pstmt.setString(3, tipo);
+        pstmt.setFloat(4, monto);
+        pstmt.setString(5, fecha);
+
+        pstmt.executeUpdate();
+    } catch (SQLException e) {
+        System.out.println("❌ Error al insertar movimiento: " + e.getMessage());
+    }
+}
+
+
 public static Usuario obtenerUsuario(String usuario, String password) {
     String sql = "SELECT id, nombre_completo FROM usuarios WHERE nombre_usuario = ? AND password = ?";
     try (Connection conn = ConexionBD.conectar();
