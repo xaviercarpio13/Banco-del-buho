@@ -3,6 +3,7 @@ package proyectoprimerbimestre;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import baseDeDatos.GestorBD;
 
 public class TransferenciasDirectas extends javax.swing.JFrame {
 
@@ -249,6 +250,7 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
             String numeroCuentaDestino=txtNum.getText();
             String nombre=txtNombre.getText();
             float montoPagado=-1;
+          
             //String cuentaClienteEmisor=cliente.getNumeroDeCuenta(cmbCuentas.getSelectedIndex()-1);
             
 
@@ -288,30 +290,12 @@ public class TransferenciasDirectas extends javax.swing.JFrame {
                         lblValNum.setText("");
                     }
                 }
-                    if(onlyNum){
-                        ArrayList<String> archivo = cliente.leerArchivo();
-                        contadorFila = 0;
-                        String cuentaDest = txtNum.getText();
-                        for (int j = 0; j < archivo.size(); j++) {
-                             String fila = archivo.get(j);
-                             String[] columnas = fila.split(";");
-                            
-                             if (columnas.length > 2) {
-                                 contadorColumna=0;
-                                 for (String columna : columnas) {
-                                     if (columna.equals(cuentaDest)) {
-                                        validCuentaDestino = true;
-                                        break;
-                                    }
-                                     contadorColumna++;
-                                 }
-                             }
-                            if (validCuentaDestino) {
-                            break;
-                        }
-                         contadorFila++;
-                     }
-                 }
+                    if(onlyNum){     
+                        Usuario usuarioReceptor = GestorBD.obtenerUsuarioPorCuenta(numeroCuentaDestino);
+                            if (usuarioReceptor != null && usuarioReceptor.getNombreCompleto().equalsIgnoreCase(nombre)) {
+                                validCuentaDestino = true;
+                            }   
+                    }
                  if (!validCuentaDestino) {
                      JOptionPane.showMessageDialog(null, "Usuario no encontrado\n"
                              + "Verifique el número de cuenta",

@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import proyectoprimerbimestre.Usuario;
-import java.util.ArrayList;
+import java.util.*;
 
 public class GestorBD {
     
@@ -151,12 +151,77 @@ public static Usuario obtenerUsuario(String usuario, String password) {
 }
 
 
-    
-    
-    /*public static void main(String[] args) {
-        //GestorBD.crearTablas();
-    }*/
-    
+public static Usuario obtenerUsuarioPorCuenta(String numeroCuenta) {
+    String sql = "SELECT u.id, u.nombre_usuario, u.password, u.nombre_completo "
+               + "FROM usuarios u JOIN cuentas c ON u.id = c.usuario_id "
+               + "WHERE c.numero = ?";
+    try (Connection conn = ConexionBD.conectar();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, numeroCuenta);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            int id = rs.getInt("id");
+            String nombreUsuario = rs.getString("nombre_usuario");
+            String password = rs.getString("password");
+            String nombreCompleto = rs.getString("nombre_completo");
+            return new Usuario(id, nombreUsuario, password, nombreCompleto,
+                               new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return null;
+}
+
+
+
+public static List<Movimiento> obtenerMovimientos(String cuenta) {
+    List<Movimiento> lista = new ArrayList<>();
+    String sql = "SELECT cuenta_origen, cuenta_destino, tipo, monto, fecha FROM movimientos "
+               + "WHERE cuenta_origen = ? OR cuenta_destino = ? ORDER BY fecha DESC";
+
+    try (Connection conn = ConexionBD.conectar();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+        pstmt.setString(1, cuenta);
+        pstmt.setString(2, cuenta);
+        ResultSet rs = pstmt.executeQuery();
+
+        while (rs.next()) {
+            Movimiento m = new Movimiento(
+                rs.getString("cuenta_origen"),
+                rs.getString("cuenta_destino"),
+                rs.getString("tipo"),
+                rs.getFloat("monto"),
+                rs.getString("fecha")
+            );
+            lista.add(m);
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return lista;
+}
+
+
+public static boolean actualizarSaldo(String numeroCuenta, float nuevoSaldo) {
+    String sql = "UPDATE cuentas SET saldo = ? WHERE numero = ?";
+    try (Connection conn = ConexionBD.conectar();
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+        pstmt.setFloat(1, nuevoSaldo);
+        pstmt.setString(2, numeroCuenta);
+
+        int filasAfectadas = pstmt.executeUpdate();
+        return filasAfectadas > 0;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        return false;
+    }
+}
+
     
     
 }

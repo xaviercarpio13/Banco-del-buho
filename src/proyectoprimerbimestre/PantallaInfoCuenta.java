@@ -2,6 +2,9 @@
 package proyectoprimerbimestre;
 
 import java.text.DecimalFormat;
+import baseDeDatos.Movimiento;
+import baseDeDatos.GestorBD;
+import java.util.*;
 
 
 public class PantallaInfoCuenta extends javax.swing.JFrame {
@@ -20,7 +23,18 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         txtSaldoCuenta.setText("$ "+String.valueOf(frmt.format(cliente.getSaldo(indiceDeCuenta))));
         txtImgTipoDeCuenta.setText(String.valueOf(cliente.getTipoCuentas(indiceDeCuenta)));
         
-        txtMovimientos.setText(cliente.getMovimientos(indice));  
+        
+        String cuenta = cliente.getCuenta(indiceDeCuenta);
+        List<Movimiento> movimientos = GestorBD.obtenerMovimientos(cuenta);
+
+        StringBuilder builder = new StringBuilder();
+        for (Movimiento m : movimientos) {
+            builder.append(m.toString()).append("\n---------------------\n");
+        }
+        txtMovimientos.setText(builder.toString());
+
+        
+        //txtMovimientos.setText(cliente.getMovimientos(indice));  
     }
 
     

@@ -195,6 +195,11 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
                     - valor), (cuentaSeleccionada));
             
+            // Actualiza el saldo en la base de datos
+            float nuevoSaldo = usuario.getSaldo(cuentaSeleccionada);
+            GestorBD.actualizarSaldo(usuario.getCuenta(cuentaSeleccionada), nuevoSaldo);
+
+            
             String movimiento = String.valueOf(fechaActual) + "\nPago de tarjeta" + 
                     tarjeta + "\n- $" + valor +"\n\n"+ usuario.getMovimientos(cuentas);
             
@@ -209,12 +214,6 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
                 fechaActual.toString()
             );
 
-            
-            /*ArrayList<String> archivo=usuario.leerArchivo();
-            archivo.get(usuario.getId());
-            String nuevaFila=usuario.escribirFilaNueva();
-            usuario.anexar(usuario.sobrescribirArchivo(usuario.leerArchivo(), 
-                  usuario.getId(), nuevaFila),"usuarios.txt");*/
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta);
             newframe2.setVisible(true);
             this.dispose();
@@ -222,9 +221,16 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         } else if (this.tipo == 2) {
             usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
                     - valor), (cuentaSeleccionada));
+            
+            // Actualiza el saldo en la base de datos
+            float nuevoSaldo = usuario.getSaldo(cuentaSeleccionada);
+            GestorBD.actualizarSaldo(usuario.getCuenta(cuentaSeleccionada), nuevoSaldo);
+            
+            
             String movimiento = String.valueOf(fechaActual) + "\nTransferencia a " + nombre
                     + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentas);
             this.usuario.setMovimientos(movimiento, cuentas);
+            
             if(this.transf.equalsIgnoreCase("Interbancaria")){
                 valor-=0.4;
             }
@@ -237,22 +243,6 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
                 fechaActual.toString()
             );
 
-            /*ArrayList<String> archivo=usuario.leerArchivo();
-            String datosCuentaDestino[]=archivo.get(filaReceptor).split(";");
-            float saldoDestino=Float.parseFloat(datosCuentaDestino[columnaReceptor+2]);
-            saldoDestino+=valor;
-            datosCuentaDestino[columnaReceptor+2]=String.valueOf(saldoDestino);
-            String mensaje=(Arrays.toString(datosCuentaDestino)).replace(", ", ";").replaceAll("[\\[\\]]","");
-
-            ArrayList<String> archivoModif;
-            archivoModif=usuario.sobrescribirArchivo(archivo, 
-                    usuario.getId(), usuario.escribirFilaNueva());
-            
-            
-            archivoModif=usuario.sobrescribirArchivo(archivoModif, 
-                    filaReceptor, mensaje);
-            usuario.anexar(archivoModif,"usuarios.txt");*/
-            
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta, nombre);
             newframe2.setVisible(true);
             this.dispose();
@@ -260,18 +250,20 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         } else if (this.tipo == 3) {
             usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
                     - valor), (cuentaSeleccionada));
+            float nuevoSaldoOrigen = usuario.getSaldo(cuentaSeleccionada);
+            GestorBD.actualizarSaldo(usuario.getCuenta(cuentaSeleccionada), nuevoSaldoOrigen);
+            
             usuario.setSaldos((usuario.getSaldo(indiceCuentaDestino)
                     + valor), (indiceCuentaDestino));
+            float nuevoSaldoDestino = usuario.getSaldo(indiceCuentaDestino);
+            GestorBD.actualizarSaldo(usuario.getCuenta(indiceCuentaDestino), nuevoSaldoDestino);
+
             String movimiento = String.valueOf(fechaActual) + "\nTransferencia a " + nombre
                     + "\n- $" + valor + "\n\n" + usuario.getMovimientos(cuentaSeleccionada);
             this.usuario.setMovimientos(movimiento, cuentaSeleccionada);
             String movimiento2 = String.valueOf(fechaActual) + "\nTransferencia de " + nombre
                     + "\n+ $" + valor + "\n\n" + usuario.getMovimientos(indiceCuentaDestino);
             this.usuario.setMovimientos(movimiento2, indiceCuentaDestino);
-
-            /*ArrayList<String> archivo = usuario.leerArchivo();
-            archivo.set(usuario.getId(), usuario.escribirFilaNueva());
-            usuario.anexar(archivo, "usuarios.txt");*/
             
             
             GestorBD.insertarMovimiento(
@@ -291,13 +283,12 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             usuario.setSaldos((usuario.getSaldo(cuentaSeleccionada)
                     - valor), (cuentaSeleccionada));
             
+            float nuevoSaldo = usuario.getSaldo(cuentaSeleccionada);
+            GestorBD.actualizarSaldo(usuario.getCuenta(cuentaSeleccionada), nuevoSaldo);
+            
             String movimiento2 = String.valueOf(fechaActual) + "\nTransferencia a " + nombre
                     + "\n- $" + frmt.format(valor-0.4) + "\n\n" + usuario.getMovimientos(cuentaSeleccionada);
             this.usuario.setMovimientos(movimiento2, cuentaSeleccionada);
-
-            /*ArrayList<String> archivo = usuario.leerArchivo();
-            archivo.set(usuario.getId(), usuario.escribirFilaNueva());
-            usuario.anexar(archivo, "usuarios.txt");*/
             
             GestorBD.insertarMovimiento(
                 usuario.getCuenta(cuentaSeleccionada),
