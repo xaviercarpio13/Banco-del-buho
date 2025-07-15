@@ -92,8 +92,8 @@ public static boolean insertarCuenta(int usuarioId, String numero, String tipo, 
     }
 }
 
-public static void insertarMovimiento(String cuentaOrigen, String cuentaDestino, String tipo, float monto, String fecha) {
-    String sql = "INSERT INTO movimientos (cuenta_origen, cuenta_destino, tipo, monto, fecha) VALUES (?, ?, ?, ?, ?)";
+public static void insertarMovimiento(String cuentaOrigen, String cuentaDestino, String tipo, float monto, String fecha, String nombreDestinatario) {
+    String sql = "INSERT INTO movimientos (cuenta_origen, cuenta_destino, tipo, monto, fecha, nombre_destinatario) VALUES (?, ?, ?, ?, ?, ?)";  
     try (Connection conn = ConexionBD.conectar();
          PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -102,6 +102,7 @@ public static void insertarMovimiento(String cuentaOrigen, String cuentaDestino,
         pstmt.setString(3, tipo);
         pstmt.setFloat(4, monto);
         pstmt.setString(5, fecha);
+        pstmt.setString(6, nombreDestinatario);
 
         pstmt.executeUpdate();
     } catch (SQLException e) {
@@ -178,7 +179,7 @@ public static Usuario obtenerUsuarioPorCuenta(String numeroCuenta) {
 
 public static List<Movimiento> obtenerMovimientos(String cuenta) {
     List<Movimiento> lista = new ArrayList<>();
-    String sql = "SELECT cuenta_origen, cuenta_destino, tipo, monto, fecha FROM movimientos "
+    String sql = "SELECT cuenta_origen, cuenta_destino, tipo, monto, fecha, nombre_destinatario FROM movimientos "
                + "WHERE cuenta_origen = ? OR cuenta_destino = ? ORDER BY fecha DESC";
 
     try (Connection conn = ConexionBD.conectar();
@@ -194,7 +195,8 @@ public static List<Movimiento> obtenerMovimientos(String cuenta) {
                 rs.getString("cuenta_destino"),
                 rs.getString("tipo"),
                 rs.getFloat("monto"),
-                rs.getString("fecha")
+                rs.getString("fecha"),
+                rs.getString("nombre_destinatario")
             );
             lista.add(m);
         }

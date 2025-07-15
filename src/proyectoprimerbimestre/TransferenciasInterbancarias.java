@@ -488,7 +488,7 @@ public class TransferenciasInterbancarias extends javax.swing.JFrame {
             if (montoValido && numeroCuentaValido && combCuenta && combBanco && nombreValido && cedulaValido) {
                 montoPagado += 0.4;
                 ConfirmacionPagos newframe = new ConfirmacionPagos(
-                        this.cliente, txtNombre.getText(),cmbCuentas.getSelectedIndex()-1, montoPagado, "Interbancaria");
+                        this.cliente, txtNombre.getText(),cmbCuentas.getSelectedIndex()-1,cuentaReceptor, montoPagado, "Interbancaria");
                 newframe.setVisible(true);
                 dispose();
 

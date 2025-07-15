@@ -2,7 +2,7 @@
 package proyectoprimerbimestre;
 
 import java.text.DecimalFormat;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.ArrayList;
 import baseDeDatos.GestorBD;
@@ -17,9 +17,10 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     String tarjeta;
     String nombre=null;
     int cuentas;
-    LocalDate fechaActual;
+    LocalDateTime fechaActual;
     int cuentaSeleccionada;
     int indiceCuentaDestino;
+    String cuentaDestino;
     String transf=null;  //Interbancaria o Directa
     int tipo;           //1 pago de tarjetas, 2 trans. Interbancarias
                         //3 transferencias entre cuentas 
@@ -33,9 +34,9 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         cuenta=numCuenta;
         tarjeta=numTarjeta;
         cuentas=cuentaSeleccionada;
-        fechaActual=LocalDate.now();
+        fechaActual=LocalDateTime.now();
         tipo=1;
-       
+        this.transf = "pago";
         
     }
     public ConfirmacionPagos(Usuario cliente, float valorPagado, String numCuentaEmisor, 
@@ -51,7 +52,7 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
         tarjeta=numCuentaReceptor;
         cuentas=cuentaSeleccionada;
         this.nombre=nombre;
-        fechaActual=LocalDate.now();
+        fechaActual=LocalDateTime.now();
         tipo=2;
         this.transf=TipoTransf;
         
@@ -60,23 +61,24 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
     public ConfirmacionPagos(Usuario cliente, int indiceCuentaOrigen, int indiceCuentaDestino, float transferencia ){
         initComponents();
         tipo=3;
-        fechaActual=LocalDate.now();
+        fechaActual=LocalDateTime.now();
         this.indiceCuentaDestino=indiceCuentaDestino;
         this.cuentaSeleccionada=indiceCuentaOrigen;
         this.usuario=cliente;
         this.valor=transferencia;
         this.nombre=usuario.getNombreCompleto();
     }
-    public ConfirmacionPagos(Usuario cliente, String nombre,int indiceCuentaOrigen, float transferencia, String TipoTransf){
+    public ConfirmacionPagos(Usuario cliente, String nombre,int indiceCuentaOrigen,String cuentaDestino, float transferencia, String TipoTransf){
         initComponents();
         tipo=4;
         this.usuario=cliente;
         this.valor=transferencia;
         this.cuentaSeleccionada=indiceCuentaOrigen;
         this.nombre=nombre;
-        fechaActual=LocalDate.now();   
+        fechaActual=LocalDateTime.now();   
         frmt.setMaximumFractionDigits(2);
         this.transf=TipoTransf;
+        this.cuentaDestino=cuentaDestino;
     }
      
    
@@ -211,7 +213,8 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
                 tarjeta,
                 transf.toLowerCase(), // "interbancaria" o "directa"
                 valor,
-                fechaActual.toString()
+                fechaActual.toString(),
+                nombre
             );
 
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta);
@@ -240,7 +243,8 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
                 tarjeta,
                 transf.toLowerCase(), // "interbancaria" o "directa"
                 valor,
-                fechaActual.toString()
+                fechaActual.toString(),
+                nombre
             );
 
             ReciboPago newframe2 = new ReciboPago(this.usuario, valor, cuenta, tarjeta, nombre);
@@ -271,7 +275,8 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
                 usuario.getCuenta(indiceCuentaDestino),
                 "interna",
                 valor,
-                fechaActual.toString()
+                fechaActual.toString(),
+                nombre
             );
 
 
@@ -292,10 +297,11 @@ public class ConfirmacionPagos extends javax.swing.JFrame {
             
             GestorBD.insertarMovimiento(
                 usuario.getCuenta(cuentaSeleccionada),
-                null, // No hay cuenta destino registrada
+                cuentaDestino, 
                 transf.toLowerCase(), // "interbancaria"
                 valor,
-                fechaActual.toString()
+                fechaActual.toString(),
+                nombre
             );
 
 

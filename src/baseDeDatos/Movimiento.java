@@ -11,13 +11,39 @@ public class Movimiento {
     private String tipo;
     private float monto;
     private String fecha;
+    private String nombreDestinatario;
 
-    public Movimiento(String cuentaOrigen, String cuentaDestino, String tipo, float monto, String fecha) {
+    public Movimiento(String cuentaOrigen, String cuentaDestino, String tipo, float monto, String fecha, String nombreDestinatario) {
         this.cuentaOrigen = cuentaOrigen;
         this.cuentaDestino = cuentaDestino;
         this.tipo = tipo;
         this.monto = monto;
         this.fecha = fecha;
+        this.nombreDestinatario = nombreDestinatario;
+    }
+    
+    public String getCuentaOrigen() {
+        return cuentaOrigen;
+    }
+
+    public String getCuentaDestino() {
+        return cuentaDestino;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public float getMonto() {
+        return monto;
+    }
+
+    public String getFechaHora() {
+        return fecha;
+    }
+    
+    public String getNombreDestinatario() {
+        return nombreDestinatario;
     }
 
     @Override

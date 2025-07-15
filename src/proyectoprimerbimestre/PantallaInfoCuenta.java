@@ -5,6 +5,9 @@ import java.text.DecimalFormat;
 import baseDeDatos.Movimiento;
 import baseDeDatos.GestorBD;
 import java.util.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 
 
 public class PantallaInfoCuenta extends javax.swing.JFrame {
@@ -19,6 +22,7 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         txtMovimientos.setFocusable(false);
         this.cliente = cliente;
         this.indiceDeCuenta = indice;
+        
         txtImgNumeroDeCuenta.setText("N°"+String.valueOf(cliente.getCuenta(indiceDeCuenta)));
         txtSaldoCuenta.setText("$ "+String.valueOf(frmt.format(cliente.getSaldo(indiceDeCuenta))));
         txtImgTipoDeCuenta.setText(String.valueOf(cliente.getTipoCuentas(indiceDeCuenta)));
@@ -26,12 +30,50 @@ public class PantallaInfoCuenta extends javax.swing.JFrame {
         
         String cuenta = cliente.getCuenta(indiceDeCuenta);
         List<Movimiento> movimientos = GestorBD.obtenerMovimientos(cuenta);
+        
+        DateTimeFormatter formatoBonito = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
-        StringBuilder builder = new StringBuilder();
+        StringBuilder historial = new StringBuilder();
         for (Movimiento m : movimientos) {
-            builder.append(m.toString()).append("\n---------------------\n");
-        }
-        txtMovimientos.setText(builder.toString());
+            String fechaFormateada;
+            try {
+                LocalDateTime fecha = LocalDateTime.parse(m.getFechaHora());
+                fechaFormateada = fecha.format(formatoBonito);
+            } catch (Exception e) {
+                fechaFormateada = m.getFechaHora(); // fallback si algo sale mal
+            }
+            
+            historial.append(fechaFormateada).append("\n");
+
+            // Determinar si es entrada (+) o salida (-)
+            boolean esEntrada = m.getCuentaDestino() != null && m.getCuentaDestino().equals(cuenta);
+            String signo = esEntrada ? "+" : "-";
+
+            if (m.getTipo().equalsIgnoreCase("interbancaria")) {
+                historial.append("Transferencia Interbancaria ");
+                historial.append(esEntrada ? "de " : "a ");
+            } else if (m.getTipo().equalsIgnoreCase("pago")) {
+                historial.append("Pago a tarjeta ");
+            } else {
+                historial.append("Transferencia ");
+                historial.append(esEntrada ? "de " : "a ");
+            }
+
+            if (m.getCuentaDestino() != null) {
+                if (m.getNombreDestinatario() != null && !m.getNombreDestinatario().isEmpty()) {
+                    historial.append(m.getNombreDestinatario()).append(" (").append(m.getCuentaDestino()).append(")");
+                } else {
+                    historial.append(m.getCuentaDestino());
+                }
+            } else {
+                historial.append("Otro banco");
+            }
+
+
+            historial.append("\n$ ").append(signo).append(" ").append(frmt.format(m.getMonto()))
+                    .append("\n-------------\n\n");
+                }
+        txtMovimientos.setText(historial.toString());
 
         
         //txtMovimientos.setText(cliente.getMovimientos(indice));  
